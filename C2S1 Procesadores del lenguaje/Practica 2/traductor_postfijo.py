@@ -30,26 +30,54 @@ class TraductorExpresionPostfijo:
         self.postfijo_str = ""
 
     def postfijo(self):
-        self.expresion() #Inicio de la gramatica
-        self.postfijo_str = " ".join(self.pila) #Devuelvo el resultado
-
+        self.expresion()  # Inicio de la gramatica
+        self.postfijo_str = " ".join(self.pila)  # Devuelvo el resultado
         return str(self.postfijo_str)
 
-    # Expresiones a completar -> Borra el pass y rellena la función
     def expresion(self):
-        pass
+        self.termino()
+        self.mas_terminos()
 
     def factor(self):
-        pass
+        if self.componente_lexico.valor == '(':
+            self.compara("open_parenthesis")
+            self.expresion()
+            self.compara("closed_parenthesis")
+        elif self.componente_lexico.etiqueta == "int":
+            self.pila.append(self.componente_lexico.valor)
+            self.compara("int")
+
+
 
     def termino(self):
-        pass
+        self.factor()
+        self.mas_factores()
 
     def mas_terminos(self):
-        pass
+        if self.componente_lexico.valor == '+':
+            self.compara("add")
+            self.termino()
+            self.pila.append("+")
+            self.mas_terminos()
+        elif self.componente_lexico.valor == '-':
+            self.compara("subtract")
+            self.termino()
+            self.pila.append("-")
+            self.mas_terminos()
 
     def mas_factores(self):
-        pass
+        if self.componente_lexico.valor == '*':
+            self.compara("multiply")
+            self.factor()
+            self.pila.append("*")
+            self.mas_factores()
+        elif self.componente_lexico.valor == '/':
+            self.compara("divide")
+            self.factor()
+            self.pila.append("/")
+            self.mas_factores()
+
+
 
     '''
     La función `compara` es fundamental en el análisis sintáctico.
@@ -64,7 +92,7 @@ class TraductorExpresionPostfijo:
             self.componente_lexico = self.lexico.get_componente_lexico()
         else:
             raise SyntaxError(f"ERROR: Se esperaba {etiqueta_lexica}")
-        
+
 
     '''
     Función para calcular el valor total de la expresión

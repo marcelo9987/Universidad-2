@@ -129,15 +129,15 @@ class Lexico:
             elif self.caracter == '%':
                 return ComponenteLexico("remainder", self.caracter)
             elif self.caracter == ';':
-                return ComponenteLexico("semicolon")
+                return ComponenteLexico("semicolon",';')
             elif self.caracter == '(':
-                return ComponenteLexico("open_parenthesis")
+                return ComponenteLexico("open_parenthesis",'(')
             elif self.caracter == ')':
-                return ComponenteLexico("closed_parenthesis")
+                return ComponenteLexico("closed_parenthesis",self.caracter)
             elif self.caracter == '{':
-                return ComponenteLexico("open_bracket")
+                return ComponenteLexico("open_bracket",'{')
             elif self.caracter == '}':
-                return ComponenteLexico("closed_bracket")
+                return ComponenteLexico("closed_bracket",'}')
             elif self.caracter == '&':
                 return ComponenteLexico("bitwise_and", self.caracter)
             elif self.caracter == '&&':
@@ -145,9 +145,9 @@ class Lexico:
             elif self.caracter == '|':
                 return ComponenteLexico("or", self.caracter)
             elif self.caracter == '[':
-                return ComponenteLexico("open_square_brackets")
+                return ComponenteLexico("open_square_brackets",self.caracter)
             elif self.caracter == ']':
-                return ComponenteLexico("closed_square_brackets")
+                return ComponenteLexico("closed_square_brackets",self.caracter)
             else:
                 return ComponenteLexico("invalid_char")
 
