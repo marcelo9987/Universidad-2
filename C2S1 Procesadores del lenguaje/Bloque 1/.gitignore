@@ -1,3 +1,9 @@
 # idea
 .idea/
-/.vscode/
+.vscode/
+
+# latex
+*.aux
+*.log
+*.out
+*.pdf
