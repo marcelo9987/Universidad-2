@@ -1,0 +1,69 @@
+<Disassembly of <code object main at 0x000001FCB165A3D0, file ".\test_lexico.py", line 3>:
+  3           0 RESUME                   0
+
+  4           2 LOAD_GLOBAL              1 (NULL + open)
+             12 LOAD_CONST               1 ('prueba1.falsoJava')
+             14 CALL                     1
+             22 LOAD_ATTR                3 (NULL|self + read)
+             42 CALL                     0
+             50 STORE_FAST               0 (programa)
+
+  8          52 LOAD_GLOBAL              5 (NULL + Lexico)
+             62 LOAD_FAST                0 (programa)
+             64 CALL                     1
+             72 STORE_FAST               1 (lexico)
+
+ 10          74 LOAD_GLOBAL              7 (NULL + print)
+             84 LOAD_CONST               2 ('Test lexico basico \t')
+             86 LOAD_FAST                0 (programa)
+             88 FORMAT_VALUE             0
+             90 LOAD_CONST               3 ('\n')
+             92 BUILD_STRING             3
+             94 CALL                     1
+            102 POP_TOP
+
+ 12         104 LOAD_CONST               4 (0)
+            106 STORE_FAST               2 (c)
+
+ 13         108 NOP
+
+ 14     >>  110 LOAD_FAST                1 (lexico)
+            112 LOAD_ATTR                9 (NULL|self + get_componente_lexico)
+            132 CALL                     0
+            140 STORE_FAST               3 (etiqueta_lexica)
+
+ 15         142 LOAD_GLOBAL              7 (NULL + print)
+            152 LOAD_FAST                3 (etiqueta_lexica)
+            154 CALL                     1
+            162 POP_TOP
+
+ 17         164 LOAD_FAST                2 (c)
+            166 LOAD_CONST               5 (1)
+            168 BINARY_OP               13 (+=)
+            172 STORE_FAST               2 (c)
+
+ 18         174 LOAD_FAST                3 (etiqueta_lexica)
+            176 LOAD_ATTR               11 (NULL|self + get_etiqueta)
+            196 CALL                     0
+            204 LOAD_CONST               6 ('end_program')
+            206 COMPARE_OP              40 (==)
+            210 POP_JUMP_IF_FALSE        1 (to 214)
+
+ 19         212 JUMP_FORWARD             1 (to 216)
+
+ 13     >>  214 JUMP_BACKWARD           53 (to 110)
+
+ 21     >>  216 LOAD_GLOBAL              7 (NULL + print)
+            226 LOAD_CONST               7 ('\n Componentes lexicos: ')
+            228 LOAD_FAST                2 (c)
+            230 FORMAT_VALUE             0
+            232 LOAD_CONST               8 (', lineas: ')
+            234 LOAD_FAST                1 (lexico)
+            236 LOAD_ATTR               13 (NULL|self + get_lineas)
+            256 CALL                     0
+            264 FORMAT_VALUE             0
+            266 BUILD_STRING             4
+            268 CALL                     1
+            276 POP_TOP
+            278 RETURN_CONST             0 (None)
+>
