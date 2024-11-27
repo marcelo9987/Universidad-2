@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tstbnch_sumador_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="tstbnch_sumador" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0 ps"></ZoomStartTime>
+      <ZoomEndTime time="4 ps"></ZoomEndTime>
+      <Cursor1Time time="2 ps"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="340"></NameColumnWidth>
+      <ValueColumnWidth column_width="155"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/tstbnch_sumador/A" type="array">
+      <obj_property name="ElementShortName">A[3:0]</obj_property>
+      <obj_property name="ObjectShortName">A[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tstbnch_sumador/B" type="array">
+      <obj_property name="ElementShortName">B[3:0]</obj_property>
+      <obj_property name="ObjectShortName">B[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tstbnch_sumador/S" type="array">
+      <obj_property name="ElementShortName">S[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tstbnch_sumador/C" type="logic">
+      <obj_property name="ElementShortName">C</obj_property>
+      <obj_property name="ObjectShortName">C</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tstbnch_sumador/RESULT" type="array">
+      <obj_property name="ElementShortName">RESULT[3:0]</obj_property>
+      <obj_property name="ObjectShortName">RESULT[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tstbnch_sumador/SUMADOR1/NOB" type="array">
+      <obj_property name="ElementShortName">NOB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">NOB[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tstbnch_sumador/SUMADOR1/multiplexB" type="array">
+      <obj_property name="ElementShortName">multiplexB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">multiplexB[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tstbnch_sumador/SUMADOR1/Sum" type="array">
+      <obj_property name="ElementShortName">Sum[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Sum[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tstbnch_sumador/SUMADOR1/AandB" type="array">
+      <obj_property name="ElementShortName">AandB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">AandB[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tstbnch_sumador/SUMADOR1/AorB" type="array">
+      <obj_property name="ElementShortName">AorB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">AorB[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tstbnch_sumador/SUMADOR1/temp" type="array">
+      <obj_property name="ElementShortName">temp[4:0]</obj_property>
+      <obj_property name="ObjectShortName">temp[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tstbnch_sumador/SUMADOR1/multiplexorFinal" type="array">
+      <obj_property name="ElementShortName">multiplexorFinal[3:0]</obj_property>
+      <obj_property name="ObjectShortName">multiplexorFinal[3:0]</obj_property>
+   </wvobject>
+</wave_config>
