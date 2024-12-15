@@ -48,7 +48,12 @@
 
 \usepackage[verbose]{placeins}
 
+
 \usepackage{adjustbox}
+\usepackage[style=ieee]{biblatex}
+\addbibresource{biblio.bib}
+
+
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
@@ -94,7 +99,8 @@
     \begin{abstract}
         \setlength{\parskip}{22pt}
         \noindent En la inteligencia artificial se procesan textos para crear modelos estadísticos que puedan analizarlos,
-        predecirlos o ejecutar todo tipo de acciones sobre ellos. Para hacer esto, es necesario procesar previamente el texto,
+        predecirlos o ejecutar todo tipo de acciones sobre ellos.
+        Para hacer esto, es necesario procesar previamente el texto,
         aplicándole distintas técnicas de normalización, tokenización, análisis sintáctico, etc.
         \\\mbox{}\\
         \textbf{\textit{Palabras clave}: Aquí las palabras clave}
@@ -141,11 +147,16 @@
 
 
     \section{Introducción}\label{sec:introduccion}
+    En este trabajo se va a hacer un análisis de las librerías de procesamiento de texto más usadas en Python.
+    En ellas se implementará la función de normalización y, después, se compararán los tiempos de procesado de cada una de ellas.
+
+    También se hará un análisis de las fortalezas y debilidades de cada una de las librerías,
+    además de comparar los resultados obtenidos en el procesado de los textos.
 
 
     \section{Metodología y funcionamiento}\label{sec:metodologia-y-funcionamiento}
     Normalizar el texto es un paso previo a cualquier procesamiento de lenguaje natural.
-    En nuestro caso, por simplicidad, hemos considerado que la normalización se compone de ocho pasos \cite{enunciado}:
+    En nuestro caso, por simplicidad, hemos considerado que la normalización se compone de ocho pasos~\cite{enunciado}:
 
     \begin{enumerate}
 
@@ -191,9 +202,12 @@
                 \toprule
                 \textbf{Nombre} & \textbf{Lowercasing} & \textbf{Puntuación} & \textbf{Números} & \textbf{Stop-Words} & \textbf{Lemma} & \textbf{Stemm} & \textbf{Corrección} & \textbf{Tokenización} \\
                 \midrule
-                Gensim          & Sí                   & Sí                  & Sí               & Sí                  & Dep.           & Sí             & No                  & Sí                    \\
-                SpaCy           & No                   & Sí                  & Sí               & Sí                  & Sí             & No             & Dep.                & Sí                    \\
-                TextBlob        & Sí                   & Sí                  & No               & Dep.                & Sí             & Sí             & Sí                  & Sí                    \\
+                Gensim & Sí & Sí & Sí & Sí & Dep.
+                & Sí & No & Sí \\
+                SpaCy & No & Sí & Sí & Sí & Sí & No & Dep.
+                & Sí \\
+                TextBlob & Sí & Sí & No & Dep.
+                & Sí & Sí & Sí & Sí \\
                 NLTK            & No                   & No                  & No               & Sí                  & Sí             & Sí             & No                  & Sí                    \\
                 \bottomrule
             \end{tabular}
@@ -204,7 +218,8 @@
 
 
     En la \autoref{tab:libsCapac} se puede ver un resumen de las funcionalidades implementadas en cada librería.
-    Dep. significa que la funcionalidad depende de la librería o de un componente externo.
+    Dep.
+    significa que la funcionalidad depende de la librería o de un componente externo.
     Para que la comparación fuese más justa y sencilla, todas las librerías hacen todas las operaciones y usan los mismos datos de entrada.
     Se han usado los textos del libro de Dovstoyevski «El idiota»\cite{Dovstoyevski.theidiot} para hacer las pruebas y se ha intentado usar los mismos componentes externos para llenar los huecos en las funcionalidades.
 
@@ -220,18 +235,18 @@
     TextBlob (que usa NLTK como parte de su «columna vertebral»), también tiene una buena documentación\cite{textblobdocs}.
     Esta librería es muy fácil de usar y tiene una API muy sencilla.
 
-    Spacy \cite{spacydocs} también tiene una documentación comprensiva, pero comete el fallo de asumir conocimientos técnicos que el usuario puede no tener.
+    Spacy~\cite{spacydocs} también tiene una documentación comprensiva, pero comete el fallo de asumir conocimientos técnicos que el usuario puede no tener.
     Aunque es una librería muy potente, su curva de aprendizaje es más pronunciada que la de NLTK o TextBlob.
     Es de justicia, de todos modos, decir que Spacy es una librería más enfocada a la industria y sector profesional.
 
-    Gensim \cite{gensimdocs} tiene la documentación más difícil, debido a que, por un lado, está un poco escondida y, por otro lado, asume más conocimientos técnicos que las otras librerías.
+    Gensim~\cite{gensimdocs} tiene la documentación más difícil, debido a que, por un lado, está un poco escondida y, por otro lado, asume más conocimientos técnicos que las otras librerías.
     Aun así, está diseñada para funcionar «out of the box» y es muy potente.
 
     \subsubsection{Facilidad de uso}\label{subsubsec:facilidad}
 
     NLTK es la librería más fácil de usar.
     Tienen una API muy sencilla y es muy fácil de aprender.
-    TextBlob es aún más sencilla, ya que es una capa de abstracción sobre NLTK.
+    TextBlob es aún más sencilla, ya que es una capa de abstracción sobre NLTK\@.
 
     Spacy es más complicada de usar, porque se requiere de ciertos conocimientos técnicos de sistemas operativos (pipelines) que el usuario puede no tener.
 
@@ -243,8 +258,8 @@
     Es una librería muy completa y potente, utilizando una estructura de clases y funciones muy clásica.
 
     TextBlob es una capa de abstracción sobre NLTK, por lo que su diseño es muy similar.
-    Este intenta simplificar el uso de NLTK y añadir funcionalidades que no tiene NLTK.
-    Un ejemplo de esto es la corrección ortográfica, «lowercasing» y eliminación de puntuación, que no están en NLTK.
+    Este intenta simplificar el uso de NLTK y añadir funcionalidades que no tiene NLTK\@.
+    Un ejemplo de esto es la corrección ortográfica, «lowercasing» y eliminación de puntuación, que no están en NLTK\@.
 
     Spacy, por otro lado, es directamente parte de otro paradigma.
     Está diseñada con el concepto de pipelines modulares, que permiten al usuario ajustar el procesamiento del texto a sus necesidades.
@@ -292,13 +307,13 @@
     \begin{itemize}
         \item Muy fácil de usar.
         \item API muy sencilla.
-        \item Capa de abstracción sobre NLTK.
+        \item Capa de abstracción sobre NLTK\@.
     \end {itemize}
 
     \textbf{Debilidades:}
     \begin{itemize}
-        \item Depende de NLTK.
-        \item Más lenta que NLTK.
+        \item Depende de NLTK\@.
+        \item Más lenta que NLTK\@.
     \end {itemize}
 
     \subsubsection{Gensim}\label{subsubsec:gensim}
@@ -318,7 +333,7 @@
     \end {itemize}
 
     \subsection{Implementación de la normalización}\label{subsec:implementacion-de-la-normalizacion}
-    En esta sección se detallará las particularidades de la implementación \cite{marcelo.implementaciones} de la normalización en cada librería.
+    En esta sección se detallará las particularidades de la implementación~\cite{marcelo.implementaciones} de la normalización en cada librería.
 
     \subsubsection{NLTK}\label{subsubsec:nltk_impl}
     En el caso de NLTK, se ha tenido que usar la clase \textit{Speller} de la librería \textit{autocorrect} para la corrección ortográfica.
@@ -336,29 +351,28 @@ nlp.disable_pipes("tagger", "lemmatizer")
 if(not nlp.has_pipe("contextual spellchecker")):
     contextualSpellCheck.add_to_pipe(nlp)
 
-    .
-    .
-    .
-
+    # .
+    # .
+    # .
 doc_corregido = list(nlp.pipe([texto_minusculas]))
     \end{lstlisting}
 
     Se puede notar el uso de la función \textit{disable\_pipes} para desactivar las tuberías no esenciales y el uso de \textit{has\_pipe} para comprobar si la tubería ya está añadida.
     Se deshabilitan las «tuberías» no esenciales para permitir que SpaCy funcione lo más rápido posible,
-    ya que como tiene por principio no alterar el texto original, se da la correción por separado.
+    ya que como tiene por principio no alterar el texto original, se da la corrección por separado.
 
-    Por esto, más tarde se dehabilita al corrector y se procesa el texto corregido.
+    Por esto, más tarde se deshabilita al corrector y se procesa el texto corregido.
 
     \begin{lstlisting}[language=Python,label={lst:codigoSpellSpacy2},basicstyle=\scriptsize]
 nlp.remove_pipe("contextual spellchecker")
 
-  nlp.enable_pipe("lemmatizer")
-  nlp.enable_pipe("tagger")
+nlp.enable_pipe("lemmatizer")
+nlp.enable_pipe("tagger")
 
-  doc = list(nlp.pipe([texto_corregido]))
+doc = list(nlp.pipe([texto_corregido]))
     \end{lstlisting}
 
-    Depués, con los métodos específicos de SpaCy para los tokens, se filtran espacios, puntuación y numéricos.
+    Después, con los métodos específicos de SpaCy para los tokens, se filtran espacios, puntuación y numéricos.
     Finalmente, se devuelve el texto normalizado.
 
     \subsubsection{TextBlob}\label{subsubsec:textblob_impl}
@@ -369,7 +383,7 @@ nlp.remove_pipe("contextual spellchecker")
     Procedemos a lematizar y stemmerizar el texto, llama a los métodos \textit{lemmatize()} y \textit{stem()} respectivamente.
     Finalmente, con el véctor de stopwords y las Strings de Python, se filtran los stopwords y se devuelve el texto normalizado.
 
-    Hay que tener en cuenta que TextBlob es una capa de abstracción sobre NLTK.
+    Hay que tener en cuenta que TextBlob es una capa de abstracción sobre NLTK\@.
     Esto causa que TextBlob dependa de NLTK para muchas de sus funcionalidades.
 
     \subsubsection{Gensim}\label{subsubsec:gensim_impl}
@@ -378,14 +392,130 @@ nlp.remove_pipe("contextual spellchecker")
     Hay que decir que Gensim dejó caer el soporte a lematización a causa de su bajo uso y que Pattern.en era la implementación usada en la librería.
 
     La implementación con GenSim ha sido (exceptuando todo lo que no está implementado),
-    una solución que podría haber sido de una línea. Con la llamada a \textit{preprocess\_string}.
+    una solución que podría haber sido de una línea.
+    Con la llamada a \textit{preprocess\_string}.
 
     La falta de soporte para la corrección ortográfica y la lematización pueden ser interpretadas como una señal de que Gensim no es la librería adecuada para normalización de texto.
 
 
-
-
     \clearpage
+
+
+    \section{Análisis de tiempos}\label{sec:analisis-de-tiempos}
+    Para cada una de estas librerías, se ha medido el tiempo que han tardado en normalizar fragmentos de la obra de Dostoyevski «El idiota» (Ver \autoref{sec:textosAnormalizar})
+    Se ha medido el tiempo de normalización de cada fragmento y se ha hecho la media de los tiempos de normalización de cada librería.
+    Los resultados obtenidos son a la par interesantes y sorprendentes.
+
+    Como se puede ver en la \autoref{tab:tiempos_procesado}, existe una diferencia notable entre el desempeño de las distintas bibliotecas.
+    Los resultados, que se pueden ver gráficamente en la \autoref{fig:grafico_tiempos_procesado}, nos permiten ver ciertos patrones de tiempo.
+
+    Por un lado, NLTK demuestra el mejor desempeño en lo que a normalización se refiere.
+    Este ha tenido unos tiempos medios de procesado consistentes,
+    tanto en las dos descripciones, como en las dos conversaciones que se le han pasado.
+    Esta velocidad se debe a que tiene una API muy sencilla y está enfocada a operaciones de procesamiento de texto.
+    Hay que decir, que esta ventaja puede que después se convierta en que NLTK no disponga de ciertas herramientas según se van precisando operaciones más complejas.
+
+    Al otro lado del espectro, Spacy (contra lo que se podría pensar), ha tenido los tiempos más elevados de procesamiento,
+    con una media significativamente superior a la de las otras librerías.
+    Esto se esperaría de una librería muy potente y compleja.
+    Otro punto interesante es que Spacy ha tenido un tiempo de procesado relativo más alto
+    en los fragmentos de mayor tamaño.
+
+    TextBlob y Gensim se posicionan en un punto intermedio.
+    Proporcionan un buen equilibrio entre facilidad de uso y potencia.
+    Gensim tuvo mejor desempeño en la normalización de los fragmentos más pequeños,
+    mientras que TextBlob tuvo una curiosa variabilidad, dependiendo de la complejidad del fragmento.
+
+    Esto deja unas ciertas conclusiones en lo que al apartado temporal se refiere,
+    pero no se puede olvidar que cada librería tiene sus propias ventajas y desventajas.
+    Por un lado, NLTK parece la mejor opción para aplicaciones que requieran una normalización muy rápida.
+    Por contrapartida, Spacy parece que hace un análisis más profundo.
+    TextBlob y Gensim, por otro lado, parecen ser una buena opción intermedia.
+
+
+
+
+    \begin{table}
+        \begin{adjustbox}{max width=\textwidth/2}
+            \centering
+            \begin{tabular}{lllll}
+                \toprule
+                \textbf{Libreria} & \textbf{Doc1} & \textbf{Doc2} & \textbf{conversación 1} & \textbf{conversación 2} \\
+                \midrule
+                NLTK              & 0,70          & 1,15          & 0,16                    & 0,82                    \\
+                Gensim            & 0,94          & 1,56          & 0,24                    & 1,25                    \\
+                TextBlob          & 1,99          & 1,52          & 0,24                    & 1,62                    \\
+                Spacy             & 2,44          & 4,21          & 1,66                    & 3,11                    \\
+                \bottomrule
+            \end{tabular}
+        \end{adjustbox}
+        \caption{tiempos de procesado}
+        \label{tab:tiempos_procesado}
+    \end{table}
+
+
+    \begin{figure}
+        \vspace{1.5pt}
+        \centering
+        \includegraphics[scale=0.25]{imagenes/grafico_tiempos_procesado}
+        \caption{Tiempos de procesamiento por fragmento}
+        \label{fig:grafico_tiempos_procesado}
+    \end{figure}
+
+
+    \section{Análisis de resultados}\label{sec:analisis-de-resultados}
+    En esta sección se analizarán los resultados obtenidos en la normalización de los textos de prueba.
+    Como hay mucha información, los datos relativos a cada librería se han puesto como archivos adjuntos.
+    En el \autoref{app:a} se pueden ver los textos de prueba y en el \autoref{sec:salidanormalizacion} se pueden ver los resultados de la normalización.
+
+    \subsection{Bag of Words}\label{subsec:bow}
+    En general, los resultados obtenidos para el \textit{Bag of Words} han sido bastante buenos.
+    Los resultados antes y después se pueden resumir en:
+    \itemize{
+        \item Se ha reducido la dimensionalidad (número de palabras) del texto.
+        \item Se han eliminado (en la mayoría de los casos) caracteres no deseados como puntuación y números.
+        \item Se han lematizado y stemmerizado las palabras, reduciendo la dimensionalidad.
+        \item Se ha corregido la ortografía, evitando falsas diferencias.
+    }
+
+    \subsection{Análisis de sentimientos}\label{subsec:sentimientos}
+    En general, los resultados obtenidos para el análisis de sentimientos han sido buenos.
+    Cuando se ha aplicado el análisis de sentimientos a los textos normalizados, se ha obtenido una mejoría sustancial en la precisión de los resultados.
+
+    El caso en el que más se ha notado la diferencia ha sido en el de NLTK \autoref{fig:nltk-sentimientos}.
+    En este, se ha pasado de un patrón más negativo y con valores extremos a un patrón más equilibrado y realista.
+    Además, este se ajusta más a la realidad del texto.
+
+    En general, se puede afirmar que la normalización de los textos ha mejorado la precisión de los análisis de sentimientos.
+
+
+    \subsection{Name Entity Recognition y POS}\label{subsec:ner-pos}
+    Para esta sección hay que especificar que:
+    \itemize
+    {
+    \item Spacy ha usado a NLTK para POS y NER.
+    \item TextBlob no tiene soporte para NER.
+    \item Gensim no tiene soporte para NER ni POS.
+    }
+
+    Una vez dicho esto, se puede afirmar que los resultados obtenidos para POS y NER
+    han sido buenos en el caso previo a la normalización.
+    Se puede observar que tras normalizar, los resultados empeoran.
+    Esto se debe a que la normalización ha eliminado palabras clave y ha cambiado la estructura de las frases.
+    La pérdida de información ha hecho que los resultados sean menos precisos.
+
+
+
+    \begin{figure}
+        \vspace{1.5pt}
+        \centering
+        \includegraphics[scale=0.25]{imagenes/nltk-sentimientos}
+        \caption{Sentimientos detectados por spacy antes y después de normalizar}
+        \label{fig:nltk-sentimientos}
+    \end{figure}
+
+
+
 
 
 %        \label{fig:menorOigual}
@@ -401,167 +531,58 @@ nlp.remove_pipe("contextual spellchecker")
 %    \end{figure}
 
 
-    \section{Modificaciones realizadas a la gramática original}\label{sec:modificaciones-realizadas-a-la-gramatica-original}
+    \section{Conclusiones y algunas reflexiones}\label{sec:conclusiones-y-algunas-reflexiones}
 
-    \subsection {Eliminando la recursión a la izquierda}\label{subsec:eliminando-la-recursion-a-la-izquierda}
-    En esta sección se detallará como se modificó la gramática para eliminar la recursividad a la izquierda.
+    En general, podemos afirmar que el procesamiento de texto es una tarea que aunque añade
+    tiempo al procesamiento, mejora la calidad de los resultados en la mayoría de los casos.
 
-
-    Como se puede ver en la \autoref{fig:gramatica_original}, existe recursividad a la izquierda en las producciones de expresión:
-    \begin{align}
-        &\text{expresión} \rightarrow \text{expresión} + \text{término} \\
-        &\text{expresión} \rightarrow \text{expresión} - \text{término}
-    \end{align}
-
-    También existe esa recursividad hacia la izquierda en las producciones de término:
-
-    \begin{align}
-        &\text{término} \rightarrow \text{término} * \text{factor} \\
-        &\text{término} \rightarrow \text{término} / \text{factor}
-    \end{align}
-
-    Para eliminar dicha recursividad, se utilizará la fórmula{librodragon}:
-    \begin{gather*}
-        A \rightarrow \beta R\\
-        R \rightarrow \alpha R \; \vert \; \epsilon
-    \end{gather*}
-
-    \subsubsection{Caso de expresión}
-    En el caso de expresión, siguiendo las producciones originales de la \autoref{fig:gramatica_original}, podemos concluir que nuestros $ \alpha_i $ serán:
-    \begin{align*}
-        &\alpha_1 = + \: \text{término}\\
-        &\alpha_2 = - \: \text{término}
-    \end{align*}
-    y $ \beta $ será:
-    \[\beta = \text{término}\]
-
-    Usando la fórmula antes señalada, nos quedarán las producciones no recursivas de la \autoref{fig:expr_nr_b}.
-
-    \begin{figure}[h]
-        \begin{align}
-            &\text{expresión} \rightarrow \text{término} \; \text{expresión}' \\
-            &\text{expresión}' \rightarrow + \; \text{término} \; \text{expresión}' \\
-            &\vert \; - \; \text{término} \; \text{expresión}' \\
-            &\vert \; \epsilon
-        \end{align}
-
-        \caption{Producciones de expresión sin recurrencia a la izquierda}
-        \label{fig:expr_nr_b}
-    \end{figure}
-
-    \subsubsection{Caso de término}
-    De la misma forma que para las producciones de expresión, primero extraemos los $\alpha$:
-    \begin{align}
-        \alpha_1 = * \; \text{factor}\nonumber \\
-        \alpha_2 = / \; \text{factor}\nonumber
-    \end{align}
-    Para el caso de $\beta$:
-    \begin{align}
-        \beta = \text{factor} \nonumber
-    \end{align}
-
-    Usando esas $\alpha$ y $\beta$, se procesa la producción original en:
-
-    \begin{figure}[ht]
-
-        \begin{align}
-            &\text{término} \rightarrow \text{factor} \; \text{término}' \\
-            &\vert \; \text{término}' \rightarrow * \; \text{factor} \; \text{término}' \\
-            &\vert \; / \; \text{factor} \; \text{término}'\\
-            &\vert \; \epsilon
-        \end{align}
-        \caption{Producciones de término sin recurrencia a la izquierda}
-        \label{fig:Term_nr_b}
-    \end{figure}
-
-    Como factor no tiene recursividad, lo dejamos como está.
-
-    \subsubsection{Renombrado de producciones}
-    Como ahora tenemos dos nuevas producciones llamadas \textit{expresión'} y \textit{término'}, para mayor facilidad de tratamiento, les cambiaremos el nombre.
-
-    En el caso de \textit{expresión'}, como va después de \textit{término}, lo llamaremos \textit{más\_términos}.
-    Para el caso de \textit{término'}, lo renombraremos como \textit{más\_factores}.
-
-    \subsubsection{Resultado tras la eliminación de la recursividad}
-    Tras eliminar la recursividad, obtenemos la gramática de la \autoref{fig:Term_nr_totales}
-
-    \clearpage
-
-    \begin{figure}
-        \begin{align}
-            \label{eqc:gramaticaCorregida}
-            &\text{expresión} \rightarrow \text{término} \; \text{más\_términos} \\
-            &\text{más\_términos} \rightarrow  + \;\text{término} \; \text{más\_términos}
-            \refstepcounter{equation}\nonumber  \\
-            &\vert \; - \text{término} \; \text{más\_términos} \\
-            &\vert \; \epsilon \\
-            &\text{término} \rightarrow \text{factor} \; \text{más\_factores} \\
-            &\text{más\_factores} \rightarrow  * \;\text{factor} \; \text{más\_factores} \\
-            &\vert \; / \; \text{factor} \; \text{más\_factores} \\
-            &\vert \; \epsilon \\
-            &\text{factor} \; \rightarrow (\text{expresión})\\
-            &\vert \; num\label{eq:numSinRecursividad}
-        \end{align}
-        \caption{Gramática sin recursividad a la izquierda}
-        \label{fig:Term_nr_totales}
-    \end{figure}
+    Recapitulando al informe previo~\autocite{marcelo.informe1}, podemos extraer algunas reflexiones:
+    En una primera instancia, puede parecer lo mismo el procesado de texto por un compilador que por una librería de procesamiento de texto,
+    per esto rápidamente se desvanece.
+    Esto se debe a varios factores:
+    \begin{itemize}
+    {
+        \item El compilador es generalmente determinista, es decir, sigue unas «reglas»(producciones) fijas y predefinidas,
+        mientras que los modelos de procesamiento de texto son estadísticos y usan patrones y probabilidades.
+        \item Los compiladores se centran en aspectos formales y comprueban la corrección de un texto, mientras que los modelos de lenguaje natural se centran en el significado y contexto.
+        Esto permite que puedan detectar errores y hacer sugerencias.
+        \item Un modelo de lenguaje NO puede asegurar la compilabilidad de un texto, ya que no tiene en cuenta aspectos formales y puede «alucinar» debido a su naturaleza estadística.
+        \item Un compilador solo compila, mientras que un modelo de lenguaje puede hacer muchas cosas, desde análisis de sentimientos hasta traducción.
+    }
+\end{itemize}
+    Se puede extraer que su diferencia fundamental radica en la naturaleza de sus respuestas.
+    Un compilador busca dar «feedback» sobre la corrección de un código,
+    mientras que un modelo de lenguaje puede ofrecer sugerencias sobre mejoras, explicar el contexto, o incluso detectar zonas subóptimas de ese mismo código.
+    Esto tiene implicaciones en la forma de trabajar con ellos,
+    permitiendo que se complementen y se usen en conjunto para obtener mejores resultados.
 
 
-    \section{Acciones añadidas a la gramática}\label{sec:acciones-anadidas-a-la-gramatica}
-    Una vez modificada la gramática para que no haya producciones con recurrencia a la izquierda (\autoref{fig:Term_nr_totales}), procedemos a añadir acciones semánticas que nos permitan hacer la traducción guiada por la sintaxis.
 
+    En el caso específico de los modelos NLP entrenados específicamente para un código, pueden salir ciertas implicaciones.
 
-    En primer lugar, se introducirá: pila(n.val) después de $num$\eqref{eq:numSinRecursividad}.
-    Esto nos permitirá añadir los números en este caso a la pila.
+    A nivel ético,
+    primeramente, el hecho de que hayan sido entrenados con un código específico puede llevar a que tengan sesgos, ya que el código puede tenerlos.
+    Estos podría a contribuir a malas prácticas, tanto a nivel de optimización como a nivel social,
+    llegando a crear algoritmos que tengan sesgos raciales, machistas o aporofóbicos.
 
-    En los casos de más\_factores y mas\_términos, se hará una operación de pila (''<símbolo>'') («push»\footnote{en.wikipedia.org/wiki/Stack\_(abstract\_data\_type)}) con el correspondiente símbolo de cada producción entre factor y mas\_factores en el primer caso y entre término y mas\_términos en el último.
+    El entrenamiento de estos modelos  también es motivo de preocupación, ya que muchas veces no se respeta la privacidad de los datos.
+    Esto lleva a que se puedan obtener datos sensibles de los usuarios y se puedan usar de forma maliciosa o utilizar fragmentos de código con copyright.
 
-    La introducción en «el medio» no es «fortuita», ya que de esta forma la operación podrá ser la última de la expresión o simplemente de la operación matemática, permitiendo al imprimir la pila o al usarla obtener la cadena inicial en formato de notación polaca inversa.
+    A nivel práctico,
+    El código generado por estos modelos también puede ser motivo de preocupación.
+    No se asegura que esté al último standard, que sea seguro o que sea eficiente.
+    Además, no se puede pedir responsabilidades a un modelo de lenguaje, ya que no tiene capacidad de decisión.
+    Por lo que la responsabilidad recae en el usuario que lo use.
 
-    Esto es, porque al apilar los operadores y números en la lista de esta forma, al sacarlos son extraídos con el formato correcto.
-    Supongamos que en una pila $P$ vacía.
-    Insertando $7+5$ siguiendo la gramática, la inserción sería 7 $\rightarrow$ 5 $\rightarrow$ $+$ (el $+$ queda pendiente en su paso), quedando la pila como $P=\{7,5,+\}$, que al imprimir o evaluar sería: $7\,5 +.$
+    El uso sistematizado necesita de una supervisión humana para asegurar que los resultados son los esperados y que no se están cometiendo errores.
+    Además, los modelos de lenguaje no suelen usar las opciones más eficientes, por lo que se puede perder rendimiento en el código generado.
 
-    \subsection{Resultado tras la adición de las acciones semánticas a la gramática}\label{subsec:resultado-tras-la-adicion-de-las-acciones-semanticas-a-la-gramatica}
+    Hay que tener en cuenta, que el entrenamiento se basa en el código publicado en repositorios públicos.
+    Esto puede y es positivo, pero también puede ser negativo, ya que por la naturaleza de internet, habrá mucho más código subóptimo que código óptimo.
 
-    \begin{figure}[h]
-        \begin{align}
-            &\text{expresión} \rightarrow \text{término} \; \text{más\_términos} \\
-            &\text{más\_términos} \rightarrow   \\
-            &\qquad+ \;\text{término} \; \{\text{pila('+')}\} \; \text{más\_términos} \nonumber  \\
-            &\vert \; - \text{término} \; \{\text{pila('-')}\} \text{más\_términos} \\
-            &\vert \; \epsilon \\
-            \nonumber\\
-            &\text{término} \rightarrow \text{factor} \; \text{más\_factores} \\
-            &\text{más\_factores} \rightarrow \\
-            &\qquad * \;\text{factor} \;\{\text{pila('*')}\}\; \text{más\_factores} \nonumber \\
-            &\vert \; / \; \text{factor} \; \{\text{pila('/')}\} \; \text{más\_factores} \\
-            &\vert \; \epsilon \\
-            \nonumber\\
-            &\text{factor} \; \rightarrow (\text{expresión})\\
-            &\vert \; num  \{\text{pila(num.val)}\}
-        \end{align}
-        \caption{Gramática con las acciones semánticas}
-        \label{fig:GramaticaConAcciones}
-    \end{figure}
-
-
-    \clearpage
-
-
-    \section{Conclusiones}\label{sec:conclusiones}
-    En esta práctica, hemos implementado un analizador léxico y un analizador sintáctico para traducir expresiones aritméticas de notación infija a notación postfija, eliminando la recursividad por la izquierda en la gramática original.
-
-    Para la traducción a notación postfija, hemos utilizado acciones semánticas en lugar de reglas semánticas.
-    Las acciones semánticas resultaron ideales para esta tarea, ya que permiten una manipulación directa y en tiempo real de la pila y de los operadores y operandos.
-
-    Aunque tras analizar el funcionamiento de los analizadores léxico y sintáctico, pueda parecer que se podría llevar este análisis y procesamiento en cadena a los lenguajes humanos, la extrapolación sería una complicada y compleja tarea.
-    Estos es porque mientras que en nuestra situación los símbolos significan solo una cosa, en el lenguaje humano las palabras pueden variar de significado dependiendo del contexto en el que se usen.
-    Además, una frase puede tener una gran ambigüedad y construirse múltiples formas.
-
-    Es por todo esto, que inspirándose en las Gramáticas Libres de Contexto, se creó una disciplina llamada Procesamiento del Lenguaje Natural,
-    con necesidad de mención a las enormes aportaciones del Dr. Chomsky{cfg}, de IBM en experimentos como el de Georgetown{IBMGeorgetown} y de Mikolov{mikolov10\_interspeech} entre otros,
-    que han permitido el desarrollo de sistemas de traducción automática y de procesamiento de lenguaje natural tanto simbólicos como estadísticos y de aprendizaje profundo (\textit{deep learning}).
+    En resumen, los modelos de lenguaje son una herramienta muy potente, pero que necesita de una supervisión humana para asegurar que los resultados son los esperados y que no se están cometiendo errores.
+    Además, no se puede pedir responsabilidades a un modelo de lenguaje, ya que no tiene capacidad de decisión.
+    Esta recae en el usuario que lo use.
 
     \newpage
 
@@ -575,8 +596,8 @@ nlp.remove_pipe("contextual spellchecker")
 %	Referencias
 %----------------------------------------------------------------------------------------
 
-    \bibliographystyle{IEEEtran}
-    \bibliography{biblio.bib}
+%    \bibliographystyle{IEEEtran}
+    \printbibliography
 
     \clearpage
 
@@ -595,61 +616,120 @@ nlp.remove_pipe("contextual spellchecker")
     \appendix
 
 
-    \section{Textos de prueba para normalizar}\label{sec:salida-del-procesamiento-del-programa-c} \label{app:a}
-
+    \section{Textos de prueba para normalizar}\label{sec:textosAnormalizar} \label{app:a}
 
     \subsection{Texto 1 de prueba}\label{subsec:texto1}
     Colia tookw the prince to a public-house in the Litaynaya, not far off.
-     In one of the side rooms there sat at a table—looking like one of the
+    In one of the side rooms there sat at a table—looking like one of the
     regular guests of the establishment Ardalion Alexandrovitch, with a
-    bottle before him, and a newspaper on his knee. He was waiting for the
+    bottle before him, and a newspaper on his knee.
+    He was waiting for the
     prince, and no sooner did the latter appear than he began a long
     harangue about something or other; but so far gone was he that the
     prince could hardly understand a word.
 
-
     \subsection{Texto 2 de prueba}\label{subsec:texto2}
-    But why recall all this? There was insanity on both sides. For him, the
-    prince, to love this woman with passion, was unthinkable. It would be
-    cruel and inhuman. Yes. Rogojin is not fair to himself; he has a large
-    heart; he has aptitude for sympathy. When he learns the truth, and
+    But why recall all this?
+    There was insanity on both sides.
+    For him, the
+    prince, to love this woman with passion, was unthinkable.
+    It would be
+    cruel and inhuman.
+    Yes.
+    Rogojin is not fair to himself; he has a large
+    heart; he has aptitude for sympathy.
+    When he learns the truth, and
     finds what a pitiable being is this injured, broken, half-insane
-    creature, he will forgive her all the torment she has caused him. He
-    will become her slave, her brother, her friend. Compassion will teach
-    even Rogojin, it will show him how to reason. Compassion is the chief
-    law of human existence. Oh, how guilty he felt towards Rogojin! And,
+    creature, he will forgive her all the torment she has caused him.
+    He
+    will become her slave, her brother, her friend.
+    Compassion will teach
+    even Rogojin, it will show him how to reason.
+    Compassion is the chief
+    law of human existence.
+    Oh, how guilty he felt towards Rogojin!
+    And,
     for a few warm, hasty words spoken in Moscow, Parfen had called him
-    ''brother,´´ while he—but no, this was delirium! It would all come right!
+    ``brother'', while he—but no, this was delirium!
+    It would all come right!
     That gloomy Parfen had implied that his faith was waning; he must
-    suffer dreadfully. He said he liked to look at that picture; it was not
-    that he liked it, but he felt the need of looking at it. Rogojin was
-    not merely a passionate soul; he was a fighter. He was fighting for the
-    restoration of his dying faith. He must have something to hold on to
-    and believe, and someone to believe in. What a strange picture that of
-    Holbein’s is! Why, this is the street, and here’s the house, No. 16.
+    suffer dreadfully.
+    He said he liked to look at that picture; it was not
+    that he liked it, but he felt the need of looking at it.
+    Rogojin was
+    not merely a passionate soul; he was a fighter.
+    He was fighting for the
+    restoration of his dying faith.
+    He must have something to hold on to
+    and believe, and someone to believe in.
+    What a strange picture that of
+    Holbein’s is!
+    Why, this is the street, and here’s the house, No. 16.
 
     \subsection{Texto 3 de Prueba}\label{subsec:texto3}
 
     The prince pulled a letter out of his pocket.
 
-    ''Is he raving?´´ said the general. ''Are we really in a mad-house?´´
+    ``Is he raving?'' said the general.
+    ``Are we really in a mad-house?''
 
-    There was silence for a moment. Then Ptitsin spoke.
+    There was silence for a moment.
+    Then Ptitsin spoke.
 
     \subsection{Texto 4 de prueba}\label{subsec:texto4}
 
-    ''Bravo!´´ said Ferdishenko. Ptitsin laughed too, though he had been very
-    sorry to see the general appear. Even Colia laughed and said, ''Bravo!´´
+    ``Bravo!'' said Ferdishenko.
+    Ptitsin laughed too, though he had been very
+    sorry to see the general appear.
+    Even Colia laughed and said, ``Bravo!''
 
-    ''And I was right, truly right,´´ cried the general, with warmth and
-    solemnity, ''for if cigars are forbidden in railway carriages, poodles
-    are much more so.´´
+    ``And I was right, truly right,'' cried the general, with warmth and
+    solemnity, `` if cigars are forbidden in railway carriages, poodles
+    are much more so.''
 
-    ''Well, and what did the lady do?´´ asked Nastasia, impatiently.
+    ``Well, and what did the lady do?'' asked Nastasia, impatiently.
 
-    ''She—ah, that’s where all the mischief of it lies!´´ replied Ivolgin, frowning.
-    ''Without a word, as it were, of warning, she slapped me on the cheek! An extraordinary woman!´´
+    ``She—ah, that’s where all the mischief of it lies!'' replied Ivolgin, frowning.
+    ``Without a word, as it were, of warning, she slapped me on the cheek!
+    An extraordinary woman!''
 
     \newpage
+
+    \section {Salida de normalización}\label{sec:salidanormalizacion}
+    Aquí se muestra la salida de la normalización de los textos de prueba.
+    Las cadenas mostradas son la unión de los tokens normalizados.
+
+    \subsection{NLTK}\label{subsec:nltk_out}
+    \begin{itemize}
+        \item Texto 1: colin took princ public hous litaynaya far in one side room sat tabl look like one regular guest establish ardalion alexandrovich bottl newspap knee he wait princ sooner latter appear began long harangu someth far gone princ could hard understand word
+        \item Texto 2: but recal there insan side for princ love woman passion unthink it would cruel inhuman yes rogojin fair larg heart aptitud sympathi when learn truth find potabl injur broken half insan creatur forgiv torment caus he becom slave brother friend compass teach even rogojin show reason compass chief law human exist oh guilti felt toward rogojin and warm hasti word spoken moscow parent call brother delirium it would come right that gloomi parent impli faith wane must suffer dread he said like look pictur like felt need look rogojin mere passion soul fighter he fight restor die faith he must someth hold believ someon believ what strang pictur holbein whi street hous no
+        \item Texto 3: the princ pull letter pocket is said general are realli mad hous there silenc moment then pitkin spoke
+        \item Texto 4: bravo said ferdishenko pitkin laugh though sorri see general appear even colin laugh said bravo and i right truli right cri general warmth solemn cigar forbidden railway carriag noodl much well ladi ask natasha impati she ah mischief lie repli violin drown without word warn slap cheek an extraordinari woman
+    \end{itemize}
+
+    \subsection{spaCy}\label{subsec:spaCy_out}
+    \begin{itemize}
+        \item Texto 1: colia tookw prince public house city far room sit table look like regular guest establishment alexandrovitch bottle newspaper knee wait prince soon appear begin long argument far go prince hardly understand word
+        \item Texto 2: recall insanity side prince love woman passion insane cruel brutal yes fair large heart ask sympathy learn truth find terrible injure broken half insane creature forgive torment cause slave brother friend compassion teach reason compassion chief law human existence oh guilty feel warm happy word speak moscow call brother come right man imply faith fail suffer terribly say like look picture like feel need look Julian merely passionate soul fighter fight restoration die faith hold believe believe strange picture John street house
+        \item Texto 3: prince pull letter pocket say say general mad house silence moment speak
+        \item Texto 4: no say ferdishenko ptitsin laugh sorry general appear laugh say no right truly right cry general warmth sincerity cat forbid railway carriage lady ask nastasia impatiently ah mystery lie reply Polly frown word warning slap cheek extraordinary woman
+    \end{itemize}
+
+    \subsection{GenSim}\label{subsec:gensim_out}
+    \begin{itemize}
+        \item Texto 1: colin princ public hous litaynaya far room sit table—look like regular guest establish ardalion alexandrovich bottl newspap knee wait princ sooner appear begin long harangu far princ hardli understand word
+        \item Texto 2: recal insan side princ love woman passion unthink cruel inhuman ye rogojin fair larg heart aptitud sympathi learn truth potabl injur broken half insan creatur forgiv torment caus slave brother friend compass teach rogojin reason compass chief law human exist guilti feel rogojin warm hasti word speak moscow parent “brother he—but delirium come right gloomi parent impli faith wane suffer dread like look pictur like feel need look rogojin mere passion soul fighter fight restor die faith hold believ believ strang pictur holbein’ street here’ hous
+        \item Texto 3: princ pull letter pocket “i have gener “are mad hous silenc moment pitkin spoke
+        \item Texto 4: “bravo ferdishenko pitkin laugh sorri gener appear colin laugh said “bravo “and right truli right gener warmth solemnli “for cigar forbid railwai carriag noodl “well ladi ask natasha impati “she—ah that’ mischief li repli violin drown “without word warn slap cheek extraordinari woman
+    \end{itemize}
+
+    \subsection{TextBlob}\label{subsec:textblob_out}
+    \begin{itemize}
+        \item Texto 1: solid took princ public-hous litaynaya far one side room sat table—look like one regular guest establish ardalion alexandrovitch bottl befor newspap hi knee wa wait princ sooner latter appear began long harangu someth far gone wa princ could hardli understand word
+        \item Texto 2: whi recal thi wa insan side princ love thi woman passion wa unthink would cruel inhuman ye rogojin fair ha larg heart ha aptitud sympathi learn truth find pitiabl thi injur broken half-insan creatur forgiv torment ha caus becom slave brother friend compass teach even rogojin show reason compass chief law human exist oh guilti felt toward rogojin warm hasti word spoken moscow garden call “ brother ” he—but thi wa delirium would come right gloomi garden impli hi faith wa wane must suffer dread said like look pictur wa like felt need look rogojin wa mere passion soul wa fighter wa fight restor hi die faith must someth hold believ someon believ strang pictur holbein ’ whi thi street ’ hous
+        \item Texto 3: princ pull letter hi pocket “ rave ” said gener “ realli mad-hous ” wa silenc moment ptitsin spoke
+        \item Texto 4: “ bravo ” said ferdishenko ptitsin laugh though veri sorri see gener appear even solid laugh said “ bravo ” “ wa right truli right ” cri gener warmth solemn “ cigar forbidden railway carriag peopl much ” “ well ladi ” ask nastasya impati “ the—ah ’ mischief lie ” repli ivolgin frown “ without word warn slap cheek extraordinari woman ”
+
+    \end{itemize}
 
 \end{document}
