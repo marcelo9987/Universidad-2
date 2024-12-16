@@ -1,0 +1,6 @@
+# Eliminación de los archivos de la marca JetBrains
+.idea/
+# Eliminación de los archivos de la marca Visual Studio Code
+.vscode/
+# Eliminación de los archivos de la marca Node.js
+node_modules/
