@@ -1,0 +1,34 @@
+polaridad: -0.052083333333333336
+subjetividad: 0.43253205128205124
+assessments: [(['public'], 0.0, 0.06666666666666667, None), (['not', 'far'], -0.05, 1.0, None), (['regular'], 0.0, 0.07692307692307693, None), (['latter'], 0.0, 0.0, None), (['long'], -0.05, 0.4, None), (['other'], -0.125, 0.375, None), (['far'], 0.1, 1.0, None), (['hardly'], -0.2916666666666667, 0.5416666666666666, None)]
+
+polaridad: -0.05952380952380953
+subjetividad: 0.4847985347985348
+assessments: [(['not', 'far'], -0.05, 1.0, None), (['regular'], 0.0, 0.07692307692307693, None), (['latter'], 0.0, 0.0, None), (['long'], -0.05, 0.4, None), (['other'], -0.125, 0.375, None), (['far'], 0.1, 1.0, None), (['hardly'], -0.2916666666666667, 0.5416666666666666, None)]
+
+
+polaridad: -0.14921536796536802
+subjetividad: 0.6786796536796538
+assessments: [(['love'], 0.5, 0.6, None), (['insane'], -1.0, 1.0, None), (['cruel'], -1.0, 1.0, None), (['brutal'], -0.875, 1.0, None), (['not', 'fair'], -0.35, 0.9, None), (['large'], 0.21428571428571427, 0.42857142857142855, None), (['terrible'], -1.0, 1.0, None), (['broken'], -0.4, 0.4, None), (['half'], -0.16666666666666666, 0.16666666666666666, None), (['insane'], -1.0, 1.0, None), (['more'], 0.5, 0.5, None), (['human'], 0.0, 0.1, None), (['guilty', '!'], -0.625, 1.0, None), (['few'], -0.2, 0.1, None), (['warm'], 0.6, 0.6, None), (['happy', '!'], 1.0, 1.0, None), (['right', '!'], 0.3571428571428571, 0.5357142857142857, None), (['terribly'], -1.0, 1.0, None), (['liked'], 0.6, 0.8, None), (['liked'], 0.6, 0.8, None), (['not', 'merely', 'passionate'], 0.025, 0.8500000000000001, None), (['strange', '!'], -0.0625, 0.15, None)]
+
+polaridad: -0.040066964285714296
+subjetividad: 0.6290178571428571
+assessments: [(['love'], 0.5, 0.6, None), (['unthinkable'], -0.05, 0.8, None), (['cruel'], -1.0, 1.0, None), (['not', 'fair'], -0.35, 0.9, None), (['large'], 0.21428571428571427, 0.42857142857142855, None), (['broken'], -0.4, 0.4, None), (['human'], 0.0, 0.1, None), (['guilty', '!'], -0.625, 1.0, None), (['few'], -0.2, 0.1, None), (['warm', '!'], 0.75, 0.6, None), (['right', '!'], 0.3571428571428571, 0.5357142857142857, None), (['dreadfully'], -1.0, 1.0, None), (['liked'], 0.6, 0.8, None), (['liked'], 0.6, 0.8, None), (['not', 'merely', 'passionate'], 0.025, 0.8500000000000001, None), (['strange', '!'], -0.0625, 0.15, None)]
+
+
+polaridad: -0.2875
+subjetividad: 0.75
+assessments: [(['general'], 0.05000000000000002, 0.5, None), (['really', 'mad'], -0.625, 1.0, None)]
+
+polaridad: 0.125
+subjetividad: 0.35
+assessments: [(['general'], 0.05000000000000002, 0.5, None), (['really'], 0.2, 0.2, None)]
+
+
+polaridad: 0.22005952380952382
+subjetividad: 0.5871428571428571
+assessments: [(['laughed'], 0.7, 0.2, None), (['very', 'sorry'], -0.65, 1.0, None), (['general'], 0.05000000000000002, 0.5, None), (['laughed', '!'], 0.875, 0.2, None), (['right'], 0.2857142857142857, 0.5357142857142857, None), (['right'], 0.2857142857142857, 0.5357142857142857, None), (['general'], 0.05000000000000002, 0.5, None), (['much', 'more'], 0.5, 0.5, None), (['impatiently', '!', '!'], -0.3125, 0.9, None), (['extraordinary', '!'], 0.41666666666666663, 1.0, None)]
+
+polaridad: 0.22005952380952382
+subjetividad: 0.5871428571428571
+assessments: [(['laughed'], 0.7, 0.2, None), (['very', 'sorry'], -0.65, 1.0, None), (['general'], 0.05000000000000002, 0.5, None), (['laughed', '!'], 0.875, 0.2, None), (['right'], 0.2857142857142857, 0.5357142857142857, None), (['right'], 0.2857142857142857, 0.5357142857142857, None), (['general'], 0.05000000000000002, 0.5, None), (['much', 'more'], 0.5, 0.5, None), (['impatiently', '!', '!'], -0.3125, 0.9, None), (['extraordinary', '!'], 0.41666666666666663, 1.0, None)]

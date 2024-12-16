@@ -1,0 +1,10 @@
+Pre:
+{'neg': 0.02, 'neu': 0.957, 'pos': 0.022, 'compound': 0.0387}
+{'neg': 0.182, 'neu': 0.641, 'pos': 0.177, 'compound': -0.3426}
+{'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
+{'neg': 0.191, 'neu': 0.697, 'pos': 0.112, 'compound': -0.7477}
+Pos:
+{'neg': 0.034, 'neu': 0.905, 'pos': 0.061, 'compound': 0.2732}
+{'neg': 0.149, 'neu': 0.591, 'pos': 0.26, 'compound': 0.8979}
+{'neg': 0.211, 'neu': 0.789, 'pos': 0.0, 'compound': -0.4939}
+{'neg': 0.191, 'neu': 0.587, 'pos': 0.222, 'compound': 0.4314}

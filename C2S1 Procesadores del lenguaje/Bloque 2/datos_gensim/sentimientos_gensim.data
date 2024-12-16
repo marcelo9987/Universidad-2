@@ -1,0 +1,9 @@
+Sentiment(polarity=-0.05952380952380953, subjectivity=0.4847985347985348)
+Sentiment(polarity=-0.040066964285714296, subjectivity=0.6290178571428571)
+Sentiment(polarity=0.125, subjectivity=0.35)
+Sentiment(polarity=0.22005952380952382, subjectivity=0.5871428571428571)
+
+Sentiment(polarity=0.030000000000000006, subjectivity=0.5087179487179487)
+Sentiment(polarity=0.0021164021164021087, subjectivity=0.5335978835978836)
+Sentiment(polarity=-0.625, subjectivity=1.0)
+Sentiment(polarity=0.2928571428571428, subjectivity=0.31785714285714284)
