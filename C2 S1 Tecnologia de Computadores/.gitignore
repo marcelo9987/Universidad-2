@@ -71,3 +71,6 @@ xvlog.*
 
 ## checkpoint files
 *.dcp
+
+## Idea folders
+.idea/
