@@ -1,0 +1,90 @@
+
+
+.div-introduccion
+{
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: .5rem;
+    margin: 20px;
+    width: 100%;
+
+}
+
+
+
+#sobre-intro
+{
+    font-family: Consolas;
+    font-weight: normal;
+    /*line-height: 2cap;*/
+}
+#titulo-intro
+{
+    /*font-family: Consolas;*/
+    font-weight: normal;
+    line-height: 0.3cap;
+}
+
+#sitio
+{
+    font-weight: normal;
+    /*line-height:  0cap;*/
+
+}
+#divIntroTexto
+{
+    /*font-family: Consolas;*/
+    font-weight: normal;
+    /*line-height: 2cap;*/
+    font-size: 1.0rem
+
+}
+
+#botones
+{
+    display: flex;
+}
+.boton
+{
+
+    border-radius: 4px;
+    padding: 2px;
+    border: 1px solid gray;
+}
+
+.contenido
+{
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 20px;
+    width: 100%;
+}
+
+.Textosobremi
+{
+    width: 400px; height: 300px;
+    overflow-wrap: break-word;
+    font-family: Consolas;
+    font-weight: normal;
+}
+
+.experiencia-laboral
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.formacion-estilo
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
