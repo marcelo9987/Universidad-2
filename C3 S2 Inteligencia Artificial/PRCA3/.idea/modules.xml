@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../.idea/Entorno de pruebas.iml" filepath="$PROJECT_DIR$/../.idea/Entorno de pruebas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PRCA3.iml" filepath="$PROJECT_DIR$/.idea/PRCA3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Oficial/Universidad-2/C3 S2 Inteligencia Artificial/PRCA4/.idea/PRCA4.iml" filepath="$PROJECT_DIR$/../../Oficial/Universidad-2/C3 S2 Inteligencia Artificial/PRCA4/.idea/PRCA4.iml" />
+    </modules>
+  </component>
+</project>
