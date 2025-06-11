@@ -30,18 +30,18 @@
 \dominitoc % Activa os minitoc nos capítulos
 \usetikzlibrary
 {
-shapes
-, shapes.arrows
-, arrows
-, arrows.meta
-, positioning
-, decorations.pathmorphing
-, shadows
+    shapes
+    , shapes.arrows
+    , arrows
+    , arrows.meta
+    , positioning
+    , decorations.pathmorphing
+    , shadows
 }
 
 \usetikzlibrary{babel}
 \usetikzlibrary{graphs}
- \usetikzlibrary {bending}
+\usetikzlibrary {bending}
 
 \pagestyle{fancy}
 \fancyhead[L]{Apuntes de Ingeniería del Software}
@@ -130,16 +130,18 @@ shapes
 
     \chapter{El proceso del software}\label{ch:el-proceso-del-software}
     \minitoc
-    \section{Fases del desarrollo}
-    \subsection{Metodología y procesos}
-    Para el desarrollo exitoso de un software se requiere de ciertos \textquote{componentes} que permiten que la \textquote{máquina} funciones sin \textquote{atascarse}. Estos \textquote{engranajes} son:
+    \section{Fases del desarrollo}\label{sec:fases-del-desarrollo}
+
+    \subsection{Metodología y procesos}\label{subsec:metodologia-y-procesos}
+    Para el desarrollo exitoso de un software se requiere de ciertos \textquote{componentes} que permiten que la \textquote{máquina} funciones sin \textquote{atascarse}.
+    Estos \textquote{engranajes} son:
     \begin{enumerate}
         \item Herramientas: Tanto control de versiones (git, subversion,\dots), como IDEs y otros \textbf{programas o dispositivos} que ayudan al desarrollo.
         \item Métodos: \textbf{Técnicas} usadas para facilitar el desarrollo.
         \item Proceso: \textbf{Actividades, acciones y tareas} realizadas con el fin de crear productos.
     \end{enumerate}
 
-    \subsection{Proceso esencial}
+    \subsection{Proceso esencial}\label{subsec:proceso-esencial}
     En un desarrollo habitual, el proceso suele ser el siguiente:
 
     \begin{enumerate}
@@ -149,7 +151,7 @@ shapes
         \item \textbf{Examinar el resultado:} Pruebas y aseguramiento de la calidad.
     \end{enumerate}
 
-    \subsection{Definiciones}
+    \subsection{Definiciones}\label{subsec:definiciones}
     \begin{definicion}
         Un \textbf{proceso} es aquel \textbf{conjunto de actividades, acciones y tareas} que se ejecutan cuando va a crearse algún producto del trabajo.
     \end{definicion}
@@ -163,669 +165,675 @@ shapes
     \begin{definicion}
         Una \textbf{tarea} se centra en un objetivo \textbf{pequeño pero bien definido} que produce un \textbf{resultado tangible}.
     \end{definicion}
-\begin{definicion}
-    Un \textbf{proceso} no es una prescripción rígida. Es un enfoque
-\textbf{adaptable} que permite entregar el software en\textbf{ forma
-oportuna} y con \textbf{calidad suficiente}.
-\end{definicion}
+    \begin{definicion}
+        Un \textbf{proceso} no es una prescripción rígida.
+        Es un enfoque\textbf{adaptable} que permite entregar el software de \textbf{forma oportuna} y con \textbf{calidad suficiente}.
+    \end{definicion}
 
-\subsection{Fases del proceso}
-El proceso de ingeniería del software se divide en 5 sencillas fases: \textbf{Comunicación}, \textbf{planificación}, \textbf{diseño}, \textbf{desarrollo} y, \textbf{despliegue}.
-Se puede observar que es y que objetivo tiene cada fase en la \autoref{tab:fases-desarrollo}
+    \subsection{Fases del proceso}\label{subsec:fases-del-proceso}
+    El proceso de ingeniería del software se divide en 5 sencillas fases: \textbf{Comunicación}, \textbf{planificación}, \textbf{diseño}, \textbf{desarrollo} y, \textbf{despliegue}.
+    Se puede observar que es y que objetivo tiene cada fase en la \autoref{tab:fases-desarrollo}
 
-\begin{table}[hbtp]
-\centering
+    \begin{table}[hbtp]
+        \centering
 
-\begin{tabularx}{\textwidth}{|l l X|}\toprule
-Fase & Objetivo& Detalles \\\midrule
+        \begin{tabularx}{\textwidth}{|l l X|}\toprule
+        Fase & Objetivo& Detalles \\\midrule
 
-\textbf{Comunicación} & Entender requisitos.& Colaboración con participantes, definición de características. \\
-\textbf{Planificación} & Definir el traballo& Tareas técnicas, riesgos, recursos, cronograma.\\
-\textbf{Diseño}& Plantear solución & Diagramas de alto nivel, refinamiento iterativo.\\
-\textbf{Desarrollo}& Construír y verificar& Porgramación y pruebas.\\
-\textbf{Despliegue}& Entregar produto & Evaluación y \textit{feedback}.\\ \bottomrule
+        \textbf{Comunicación} & Entender requisitos.& Colaboración con participantes, definición de características. \\
+        \textbf{Planificación} & Definir el traballo& Tareas técnicas, riesgos, recursos, cronograma.\\
+        \textbf{Diseño}& Plantear solución & Diagramas de alto nivel, refinamiento iterativo.\\
+        \textbf{Desarrollo}& Construír y verificar& Porgramación y pruebas.\\
+        \textbf{Despliegue}& Entregar produto & Evaluación y \textit{feedback}.\\ \bottomrule
 
-\end{tabularx}
-\caption{Comparación de las distintas fases del proceso de desarrollo de software}
-\label{tab:fases-desarrollo}
+        \end{tabularx}
+        \caption{Comparación de las distintas fases del proceso de desarrollo de software}
+        \label{tab:fases-desarrollo}
 
-\end{table}
+    \end{table}
 
 
-\subsection{Tipos de flujo de fases}
-Existen varios tipos de flujo de fases.
-A continuación, varios diagramas con los distintos flujos:
+    \subsection{Tipos de flujo de fases}\label{subsec:tipos-de-flujo-de-fases}
+    Existen varios tipos de flujo de fases.
+    A continuación, varios diagramas con los distintos flujos:
 
-\subsubsection{Lineal}
+    \subsubsection{Lineal}
 
-De una en una, sencillo.
+    De una en una, sencillo.
 
-\deactivatequoting
-\tikz
-{
-    \node [rectangle, draw] (A) {Comunicación};
-    \node [rectangle, draw] (B) [right= of A] {Planeación};
-    \node [rectangle, draw] (C) [right=of B] {Modelado};
-    \node [rectangle, draw] (D) [right=of C] {Construcción};
-    \node [rectangle, draw] (E) [right=of D] {Despliegue};
+    \deactivatequoting
+    \tikz
+    {
+        \node [rectangle, draw] (A) {Comunicación};
+        \node [rectangle, draw] (B) [right= of A] {Planeación};
+        \node [rectangle, draw] (C) [right=of B] {Modelado};
+        \node [rectangle, draw] (D) [right=of C] {Construcción};
+        \node [rectangle, draw] (E) [right=of D] {Despliegue};
 
-    \draw[
-    -{Latex}
-    ,draw=black
-    , thick
+        \draw[
+            -{Latex}
+        ,draw=black
+        , thick
         ]
-    % Básicos
-    (A) edge (B)
-    (B) edge (C)
-    (C) edge (D)
-    (D) edge (E)
-}
-\activatequoting
+        % Básicos
+        (A) edge (B)
+        (B) edge (C)
+        (C) edge (D)
+        (D) edge (E)
+    }
+    \activatequoting
 
-\subsubsection{Iterativo}
+    \subsubsection{Iterativo}
 
-\deactivatequoting
-\tikz
-{
-    \node [rectangle, draw] (A) {Comunicación};
-    \node [rectangle, draw] (B) [right= of A] {Planeación};
-    \node [rectangle, draw] (C) [right=of B] {Modelado};
-    \node [rectangle, draw] (D) [right=of C] {Construcción};
-    \node [rectangle, draw] (E) [right=of D] {Despliegue};
+    \deactivatequoting
+    \tikz
+    {
+        \node [rectangle, draw] (A) {Comunicación};
+        \node [rectangle, draw] (B) [right= of A] {Planeación};
+        \node [rectangle, draw] (C) [right=of B] {Modelado};
+        \node [rectangle, draw] (D) [right=of C] {Construcción};
+        \node [rectangle, draw] (E) [right=of D] {Despliegue};
 
-    \draw[
-    -{Latex}
-    ,draw=black
-    , thick
+        \draw[
+            -{Latex}
+        ,draw=black
+        , thick
         ]
-    % Básicos
-    (A) edge (B)
-    (B) edge (C)
-    (C) edge (D)
-    (D) edge (E)
+        % Básicos
+        (A) edge (B)
+        (B) edge (C)
+        (C) edge (D)
+        (D) edge (E)
 
     %Iterativo
-    (B) edge[bend left = 45] (A)
-    (C) edge[in=-170, out=-10,looseness=5] (C)
-    (D) edge[bend left = 45] (A)
-}
-\activatequoting
+        (B) edge[bend left = 45] (A)
+        (C) edge[in=-170, out=-10,looseness=5] (C)
+        (D) edge[bend left = 45] (A)
+    }
+    \activatequoting
 
-\subsubsection{Evolutivo}
-Permite un prototipado rápido.
-Resiliente y con una planificación adaptativa.
+    \subsubsection{Evolutivo}
+    Permite un prototipado rápido.
+    Resiliente y con una planificación adaptativa.
 
-\deactivatequoting
-\tikz
-{
-    \node [rectangle, draw] (A) {Comunicación};
-    \node [rectangle, draw] (B) [above right    = of A] {Planeación};
-    \node [rectangle, draw] (C) [below right    = of B] {Modelado};
-    \node [rectangle, draw] (D) [below          = of C] {Construcción};
-    \node [rectangle, draw] (E) [below left     = of D] {Despliegue};
-    \node [rectangle]       (F) [left           = of E] {Incremento obtenido};
+    \deactivatequoting
+    \tikz
+    {
+        \node [rectangle, draw] (A) {Comunicación};
+        \node [rectangle, draw] (B) [above right    = of A] {Planeación};
+        \node [rectangle, draw] (C) [below right    = of B] {Modelado};
+        \node [rectangle, draw] (D) [below          = of C] {Construcción};
+        \node [rectangle, draw] (E) [below left     = of D] {Despliegue};
+        \node [rectangle]       (F) [left           = of E] {Incremento obtenido};
 
-    \draw[
-    -{Latex}
-    ,draw=black
-    , thick
+        \draw[
+            -{Latex}
+        ,draw=black
+        , thick
         ]
-    % Básicos
-    (A) edge (B)
-    (B) edge (C)
-    (C) edge (D)
-    (D) edge (E)
-    (E) edge (A)
-    (E) edge (F)
+        % Básicos
+        (A) edge (B)
+        (B) edge (C)
+        (C) edge (D)
+        (D) edge (E)
+        (E) edge (A)
+        (E) edge (F)
 
-}
-\activatequoting
+    }
+    \activatequoting
 
-\subsubsection{Paralelo}
-Fases en paralelo para optimizar la eficiencia
+    \subsubsection{Paralelo}
+    Fases en paralelo para optimizar la eficiencia
 
-\deactivatequoting
-\tikz
-{
-    \node [rectangle, draw] (A) {Comunicación};
-    \node [rectangle, draw] (B) [right          = of A] {Planeación};
-    \node [rectangle, draw] (C) [below right    = of A] {Modelado};
-    \node [rectangle, draw] (D) [below right    = of C] {Construcción};
-    \node [rectangle, draw] (E) [right          = of D] {Despliegue};
-    \node [rectangle]       (F) [right          = of C] {Tiempo};
+    \deactivatequoting
+    \tikz
+    {
+        \node [rectangle, draw] (A) {Comunicación};
+        \node [rectangle, draw] (B) [right          = of A] {Planeación};
+        \node [rectangle, draw] (C) [below right    = of A] {Modelado};
+        \node [rectangle, draw] (D) [below right    = of C] {Construcción};
+        \node [rectangle, draw] (E) [right          = of D] {Despliegue};
+        \node [rectangle]       (F) [right          = of C] {Tiempo};
 
-    \draw[
-    -{Latex}
-    ,draw=black
-    , thick
+        \draw[
+            -{Latex}
+        ,draw=black
+        , thick
         ]
-    % Básicos
-    (A) edge (B)
-    (A) edge (C)
-    (B) edge (C)
-    (C) edge (D)
-    (D) edge (E)
+        % Básicos
+        (A) edge (B)
+        (A) edge (C)
+        (B) edge (C)
+        (C) edge (D)
+        (D) edge (E)
 
-}
-\activatequoting
+    }
+    \activatequoting
 
-\subsection{Actividades transversales}
-Las siguientes tareas se llevan a cabo de forma mas o menos contínua durante la duración total del proyecto:
-\begin{itemize}
-    \item \textbf{Seguimiento y control:} Evaluación del estado del proyecto con respecto al plan original.
+    \subsection{Actividades transversales}\label{subsec:actividades-transversales}
+    Las siguientes tareas se llevan a cabo de forma mas o menos contínua durante la duración total del proyecto:
+    \begin{itemize}
+        \item \textbf{Seguimiento y control:} Evaluación del estado del proyecto con respecto al plan original.
 
-    \item \textbf{Administración de riesgos:} Identificación y mitigación.
+        \item \textbf{Administración de riesgos:} Identificación y mitigación.
 
-    \item \textbf{Seguimiento de calidad del software:} Revisiones y estándares que \textbf{garantizan} que el software tiene la calidad prometida.
+        \item \textbf{Seguimiento de calidad del software:} Revisiones y estándares que \textbf{garantizan} que el software tiene la calidad prometida.
 
 
-    \item \textbf{Medición:} Métricas de proceso, proyecto y produto.
+        \item \textbf{Medición:} Métricas de proceso, proyecto y produto.
 
-    \item \textbf{Gestión de la configuración:} Control de cambios.
+        \item \textbf{Gestión de la configuración:} Control de cambios.
 
-    \item \textbf{Reutilización:} Creación e uso de componentes reutilizables.
-    \item \textbf{Preparación y producción del producto del trabajo:} Actividades  para crear productos del trabajo, tales como modelos y documentación.
+        \item \textbf{Reutilización:} Creación e uso de componentes reutilizables.
+        \item \textbf{Preparación y producción del producto del trabajo:} Actividades  para crear productos del trabajo, tales como modelos y documentación.
 
-\end{itemize}
+    \end{itemize}
 
-\section{Modelos del proceso}
+    \section{Modelos del proceso}\label{sec:modelos-del-proceso}
 
-No todos los proyectos son iguales.
-En este tema veremos los modelos de procesos mas usados.
+    No todos los proyectos son iguales.
+    En este tema veremos los modelos de procesos mas usados.
 
-\clearpage
-\subsection{Modelo cascada: Versión V}
+    \clearpage
+    \subsection{Modelo cascada: Versión V}\label{subsec:modelo-cascada:-version-v}
 
-Tiene fases secuenciales y lineales.
-Las pruebas y el desarrollo funcionan en paralelo, de ahí la forma de V.
+    Tiene fases secuenciales y lineales.
+    Las pruebas y el desarrollo funcionan en paralelo, de ahí la forma de V\@.
 
-\begin{tikzpicture}[
-    node distance=1.5cm,
-    box/.style={rectangle, draw, thick, minimum width=3cm, minimum height=1.2cm, align=center, fill=white},
-    arrow/.style={->, thick, >=Stealth}
-]
+    \begin{tikzpicture}[
+        node distance=1.5cm,
+        box/.style={rectangle, draw, thick, minimum width=3cm, minimum height=1.2cm, align=center, fill=white},
+        arrow/.style={->, thick, >=Stealth}
+    ]
 
 % Lado izquierdo (desarrollo)
-\node[box] (req) {Modelado de los\\requerimientos};
-\node[box, below=of req] (arch) {Diseño de la\\arquitectura};
-\node[box, below=of arch] (comp) {Diseño de los\\componentes};
-\node[box, below=of comp] (code) {Generación\\de código};
+        \node[box] (req) {Modelado de los\\requerimientos};
+        \node[box, below=of req] (arch) {Diseño de la\\arquitectura};
+        \node[box, below=of arch] (comp) {Diseño de los\\componentes};
+        \node[box, below=of comp] (code) {Generación\\de código};
 
 % Lado derecho (pruebas)
-\node[box, right=6cm of req] (accept) {Pruebas de\\aceptación};
-\node[box, below=of accept] (system) {Pruebas\\del sistema};
-\node[box, below=of system] (integration) {Pruebas de\\integración};
-\node[box, below=of integration] (unit) {Pruebas\\unitarias};
+        \node[box, right=6cm of req] (accept) {Pruebas de\\aceptación};
+        \node[box, below=of accept] (system) {Pruebas\\del sistema};
+        \node[box, below=of system] (integration) {Pruebas de\\integración};
+        \node[box, below=of integration] (unit) {Pruebas\\unitarias};
 
 % Nodo final
-\node[below=1.5cm of code, xshift=3cm] (software) {Software ejecutable};
+        \node[below=1.5cm of code, xshift=3cm] (software) {Software ejecutable};
 
 % Flechas verticales lado izquierdo
-\draw[arrow] (req) -- (arch);
-\draw[arrow] (arch) -- (comp);
-\draw[arrow] (comp) -- (code);
+        \draw[arrow] (req) -- (arch);
+        \draw[arrow] (arch) -- (comp);
+        \draw[arrow] (comp) -- (code);
 
 % Flechas verticales lado derecho
-\draw[arrow] (unit) -- (integration);
-\draw[arrow] (integration) -- (system);
-\draw[arrow] (system) -- (accept);
+        \draw[arrow] (unit) -- (integration);
+        \draw[arrow] (integration) -- (system);
+        \draw[arrow] (system) -- (accept);
 
 % Flechas horizontales (correspondencias)
-\draw[arrow]  (accept)      -- (req);
-\draw[arrow]  (system)      -- (arch);
-\draw[arrow]  (integration) -- (comp);
-\draw[arrow] (unit)         -- (code);
+        \draw[arrow]  (accept)      -- (req);
+        \draw[arrow]  (system)      -- (arch);
+        \draw[arrow]  (integration) -- (comp);
+        \draw[arrow] (unit)         -- (code);
 
 % Flechas hacia el software ejecutable
-\draw[arrow] (code) -- (software);
-\draw[arrow]  (software) -- (unit);
+        \draw[arrow] (code) -- (software);
+        \draw[arrow]  (software) -- (unit);
 
 % Flechas diagonales de entrada y salida
-\draw[arrow] (-1.5, 2) -- (req);
-\draw[arrow] (accept) -- (9.5, 2);
+        \draw[arrow] (-1.5, 2) -- (req);
+        \draw[arrow] (accept) -- (9.5, 2);
 
-\end{tikzpicture}
+    \end{tikzpicture}
 
-\clearpage
-\subsection{Modelo de proceso incremental}
-El proceso se divide en incrementos que incluyen todas las fases.
-Esto implica que todas las entregas intermedias (incremento x) aseguran un cierto nivel de calidad.
+    \clearpage
+    \subsection{Modelo de proceso incremental}\label{subsec:modelo-de-proceso-incremental}
+    El proceso se divide en incrementos que incluyen todas las fases.
+    Esto implica que todas las entregas intermedias (incremento x) aseguran un cierto nivel de calidad.
 
-\begin{tikzpicture}[
-    node distance=0.3cm,
-    phase/.style={rectangle, draw, thick, minimum width=1.2cm, minimum height=0.8cm, align=center},
-    arrow/.style={->, thick, >=Stealth},
-    legend/.style={rectangle, draw, minimum width=0.4cm, minimum height=0.4cm}
-]
+    \begin{tikzpicture}[
+        node distance=0.3cm,
+        phase/.style={rectangle, draw, thick, minimum width=1.2cm, minimum height=0.8cm, align=center},
+        arrow/.style={->, thick, >=Stealth},
+        legend/.style={rectangle, draw, minimum width=0.4cm, minimum height=0.4cm}
+    ]
 
 % Ejes
-\draw[thick, ->] (0,0) -- (13,0) node[midway,right,anchor=north] {Calendario del proyecto};
-\draw[thick, ->] (0,0) -- (0,14) node[midway,above, rotate=90, anchor=south] {Funcionalidad y características del software};
+        \draw[thick, ->] (0,0) -- (13,0) node[midway,right,anchor=north] {Calendario del proyecto};
+        \draw[thick, ->] (0,0) -- (0,14) node[midway,above, rotate=90, anchor=south] {Funcionalidad y características del software};
 
 % Leyenda
-\node[legend, fill=white] at (1,10) {};
-\node[right=0.1cm] at (1.2,10) {Comunicación};
+        \node[legend, fill=white] at (1,10) {};
+        \node[right=0.1cm] at (1.2,10) {Comunicación};
 
-\node[legend, fill=gray!20] at (1,9.5) {};
-\node[right=0.1cm] at (1.2,9.5) {Planeación};
+        \node[legend, fill=gray!20] at (1,9.5) {};
+        \node[right=0.1cm] at (1.2,9.5) {Planeación};
 
-\node[legend, fill=gray!40] at (1,9) {};
-\node[right=0.1cm] at (1.2,9) {Modelado (análisis, diseño)};
+        \node[legend, fill=gray!40] at (1,9) {};
+        \node[right=0.1cm] at (1.2,9) {Modelado (análisis, diseño)};
 
-\node[legend, fill=gray!60] at (1,8.5) {};
-\node[right=0.1cm] at (1.2,8.5) {Construcción (código, prueba)};
+        \node[legend, fill=gray!60] at (1,8.5) {};
+        \node[right=0.1cm] at (1.2,8.5) {Construcción (código, prueba)};
 
-\node[legend, fill=gray!80] at (1,8) {};
-\node[right=0.1cm] at (1.2,8) {Despliegue (entrega, retroalimentación)};
+        \node[legend, fill=gray!80] at (1,8) {};
+        \node[right=0.1cm] at (1.2,8) {Despliegue (entrega, retroalimentación)};
 
-\def\desplaltura{1.00cm}
+        \newcommand{\desplaltura}{1.00cm}
 
 % Incremento #1
-\node[phase, fill=white] (c1) at (2,2) {};
-\node[phase, fill=gray!20, below right = 0.5cm of c1,yshift=\desplaltura] (p1) {};
-\node[phase, fill=gray!40, below right = 0.5cm of p1,yshift=\desplaltura] (m1) {};
-\node[phase, fill=gray!60, below right = 0.5cm of m1,yshift=\desplaltura] (co1) {};
-\node[phase, fill=gray!80, below right = 0.5cm of  co1,yshift=\desplaltura] (d1) {};
+        \node[phase, fill=white] (c1) at (2,2) {};
+        \node[phase, fill=gray!20, below right = 0.5cm of c1,yshift=\desplaltura] (p1) {};
+        \node[phase, fill=gray!40, below right = 0.5cm of p1,yshift=\desplaltura] (m1) {};
+        \node[phase, fill=gray!60, below right = 0.5cm of m1,yshift=\desplaltura] (co1) {};
+        \node[phase, fill=gray!80, below right = 0.5cm of  co1,yshift=\desplaltura] (d1) {};
 
-\draw[arrow] (c1) -- (p1);
-\draw[arrow] (p1) -- (m1);
-\draw[arrow] (m1) -- (co1);
-\draw[arrow] (co1) -- (d1);
+        \draw[arrow] (c1) -- (p1);
+        \draw[arrow] (p1) -- (m1);
+        \draw[arrow] (m1) -- (co1);
+        \draw[arrow] (co1) -- (d1);
 
-\node[right=2.0cm of co1] (e1) {entrega del primer};
-\node[right=2.0cm of co1, yshift=-0.4cm] {incremento};
+        \node[right=2.0cm of co1] (e1) {entrega del primer};
+        \node[right=2.0cm of co1, yshift=-0.4cm] {incremento};
 
-\node[above = 0.25cm of c1] {incremento \# 1};
+        \node[above = 0.25cm of c1] {incremento \# 1};
 
 % Incremento #2
-\node[phase, fill=white] (c2) at (3.5,4.00) {};
-\node[phase, fill=gray!20, below right = 0.5cm of c2,yshift=\desplaltura] (p2) {};
-\node[phase, fill=gray!40, below right = 0.5cm of p2,yshift=\desplaltura] (m2) {};
-\node[phase, fill=gray!60, below right = 0.5cm of m2,yshift=\desplaltura] (co2) {};
-\node[phase, fill=gray!80, below right = 0.5cm of co2,yshift=\desplaltura] (d2) {};
+        \node[phase, fill=white] (c2) at (3.5,4.00) {};
+        \node[phase, fill=gray!20, below right = 0.5cm of c2,yshift=\desplaltura] (p2) {};
+        \node[phase, fill=gray!40, below right = 0.5cm of p2,yshift=\desplaltura] (m2) {};
+        \node[phase, fill=gray!60, below right = 0.5cm of m2,yshift=\desplaltura] (co2) {};
+        \node[phase, fill=gray!80, below right = 0.5cm of co2,yshift=\desplaltura] (d2) {};
 
-\draw[arrow] (c2) -- (p2);
-\draw[arrow] (p2) -- (m2);
-\draw[arrow] (m2) -- (co2);
-\draw[arrow] (co2) -- (d2);
+        \draw[arrow] (c2) -- (p2);
+        \draw[arrow] (p2) -- (m2);
+        \draw[arrow] (m2) -- (co2);
+        \draw[arrow] (co2) -- (d2);
 
-\node[above = 0.2cm of c2] {incremento \# 2};
-\node[right = 0.5cm of d2] {entrega del segundo};
-\node[right = 0.5cm of d2,yshift=-0.4cm] {incremento};
+        \node[above = 0.2cm of c2] {incremento \# 2};
+        \node[right = 0.5cm of d2] {entrega del segundo};
+        \node[right = 0.5cm of d2,yshift=-0.4cm] {incremento};
 
 % Puntos suspensivos
-\fill (8,4.2) circle (0.08);
-\fill (8.3,4.6) circle (0.08);
-\fill (8.6,5) circle (0.08);
+        \fill (8,4.2) circle (0.08);
+        \fill (8.3,4.6) circle (0.08);
+        \fill (8.6,5) circle (0.08);
 
 % Incremento #n
-\node[phase, fill=white] (cn) at (7,6) {};
-\node[phase, fill=gray!20, right=of cn] (pn) {};
-\node[phase, fill=gray!40, right=of pn] (mn) {};
-\node[phase, fill=gray!60, right=of mn] (con) {};
-\node[phase, fill=gray!80, right=of con] (dn) {};
+        \node[phase, fill=white] (cn) at (7,6) {};
+        \node[phase, fill=gray!20, right=of cn] (pn) {};
+        \node[phase, fill=gray!40, right=of pn] (mn) {};
+        \node[phase, fill=gray!60, right=of mn] (con) {};
+        \node[phase, fill=gray!80, right=of con] (dn) {};
 
-\draw[arrow] (cn) -- (pn);
-\draw[arrow] (pn) -- (mn);
-\draw[arrow] (mn) -- (con);
-\draw[arrow] (con) -- (dn);
+        \draw[arrow] (cn) -- (pn);
+        \draw[arrow] (pn) -- (mn);
+        \draw[arrow] (mn) -- (con);
+        \draw[arrow] (con) -- (dn);
 
-\node[above left=0.2cm of cn] {incremento \# n};
-\node[right = 0.1cm of dn] {entrega del n-ésimo};
-\node[right = 0.1cm of dn,yshift=-0.4cm] {incremento};
+        \node[above left=0.2cm of cn] {incremento \# n};
+        \node[right = 0.1cm of dn] {entrega del n-ésimo};
+        \node[right = 0.1cm of dn,yshift=-0.4cm] {incremento};
 
-\end{tikzpicture}
-\clearpage
+    \end{tikzpicture}
+    \clearpage
 
-\clearpage
-\subsection{Proceso evolutivo}
-Con forma de \textquote{espiral}, permite adaptar los requisitos y solucionar los problemas de iteraciones antiguas.
+    \clearpage
+    \subsection{Proceso evolutivo}\label{subsec:proceso-evolutivo}
+    Con forma de \textquote{espiral}, permite adaptar los requisitos y solucionar los problemas de iteraciones antiguas.
 
-\begin{tikzpicture}[
-    node distance=2cm,
-    box/.style={rectangle, draw, thick, minimum width=2.5cm, minimum height=1.5cm, align=center, fill=white},
-    arrow/.style={->, very thick, >=Stealth, gray!70, fill=gray!50},
-    cycle arrow/.style={very thick, gray!70, fill=gray!50}
-]
+    \begin{tikzpicture}[
+        node distance=2cm,
+        box/.style={rectangle, draw, thick, minimum width=2.5cm, minimum height=1.5cm, align=center, fill=white},
+        arrow/.style={->, very thick, >=Stealth, gray!70, fill=gray!50},
+        cycle arrow/.style={very thick, gray!70, fill=gray!50}
+    ]
 
 % Nodos principales
-\node[box] (comunicacion) at (0,3) {Comunicación};
-\node[box] (plan) at (4,5) {Plan rápido};
-\node[box] (modelado) at (7,2) {Modelado\\Diseño rápido};
-\node[box] (construccion) at (4,-1) {Construcción\\del\\prototipo};
-\node[box] (despliegue) at (0,0) {Despliegue\\Entrega y\\Retroalimentación};
+        \node[box] (comunicacion) at (0,3) {Comunicación};
+        \node[box] (plan) at (4,5) {Plan rápido};
+        \node[box] (modelado) at (7,2) {Modelado\\Diseño rápido};
+        \node[box] (construccion) at (4,-1) {Construcción\\del\\prototipo};
+        \node[box] (despliegue) at (0,0) {Despliegue\\Entrega y\\Retroalimentación};
 
 % Flecha curva grande de comunicación a plan
-\draw[cycle arrow] (comunicacion.north east)
-    to[out=45, in=135]
-    node[single arrow, draw, thick, fill=gray!50, minimum height=1.5cm, single arrow head extend=0.3cm, rotate=45] {}
-    (plan.north west);
+        \draw[cycle arrow] (comunicacion.north east)
+        to[out=45, in=135]
+        node[single arrow, draw, thick, fill=gray!50, minimum height=1.5cm, single arrow head extend=0.3cm, rotate=45] {}
+        (plan.north west);
 
 % Flecha de plan a modelado
-\draw[cycle arrow] (plan.south east)
-    to[out=-45, in=45]
-    node[single arrow, draw, thick, fill=gray!50, minimum height=1.2cm, single arrow head extend=0.3cm, rotate=-45] {}
-    (modelado.north east);
+        \draw[cycle arrow] (plan.south east)
+        to[out=-45, in=45]
+        node[single arrow, draw, thick, fill=gray!50, minimum height=1.2cm, single arrow head extend=0.3cm, rotate=-45] {}
+        (modelado.north east);
 
 % Flecha de modelado a construcción
-\draw[cycle arrow] (modelado.south)
-    to[out=-90, in=45]
-    node[single arrow, draw, thick, fill=gray!50, minimum height=1.5cm, single arrow head extend=0.3cm, rotate=-90] {}
-    (construccion.east);
+        \draw[cycle arrow] (modelado.south)
+        to[out=-90, in=45]
+        node[single arrow, draw, thick, fill=gray!50, minimum height=1.5cm, single arrow head extend=0.3cm, rotate=-90] {}
+        (construccion.east);
 
 % Flecha de construcción a despliegue
-\draw[cycle arrow] (construccion.west)
-    to[out=180, in=-45]
-    node[single arrow, draw, thick, fill=gray!50, minimum height=1.2cm, single arrow head extend=0.3cm, rotate=135] {}
-    (despliegue.south east);
+        \draw[cycle arrow] (construccion.west)
+        to[out=180, in=-45]
+        node[single arrow, draw, thick, fill=gray!50, minimum height=1.2cm, single arrow head extend=0.3cm, rotate=135] {}
+        (despliegue.south east);
 
 % Flecha de despliegue a comunicación (completando el ciclo)
-\draw[cycle arrow] (despliegue.north)
-    to[out=135, in=225]
-    node[single arrow, draw, thick, fill=gray!50, minimum height=1.2cm, single arrow head extend=0.3cm, rotate=90] {}
-    (comunicacion.south west);
+        \draw[cycle arrow] (despliegue.north)
+        to[out=135, in=225]
+        node[single arrow, draw, thick, fill=gray!50, minimum height=1.2cm, single arrow head extend=0.3cm, rotate=90] {}
+        (comunicacion.south west);
 
-\end{tikzpicture}
-
-
-\clearpage
-\subsection{Modelo Concurrente}
-Funciona con el diseño y el desarrollo en paralelo.
-Muy versátil.
+    \end{tikzpicture}
 
 
-\begin{tikzpicture}[
-    node distance=2.5cm,
-    state/.style={rectangle, draw, very thick, rounded corners=0.5cm, minimum width=2.5cm, minimum height=1cm, align=center, fill=white},
-    arrow/.style={->, thick, >=Stealth},
-    container/.style={rectangle, draw, very thick, rounded corners=1cm, fill=gray!20, minimum width=12cm, minimum height=10cm}
-]
+    \clearpage
+    \subsection{Modelo Concurrente}\label{subsec:modelo-concurrente}
+    Funciona con el diseño y el desarrollo en paralelo.
+    Muy versátil.
+
+
+    \begin{tikzpicture}[
+        node distance=2.5cm,
+        state/.style={rectangle, draw, very thick, rounded corners=0.5cm, minimum width=2.5cm, minimum height=1cm, align=center, fill=white},
+        arrow/.style={->, thick, >=Stealth},
+        container/.style={rectangle, draw, very thick, rounded corners=1cm, fill=gray!20, minimum width=12cm, minimum height=10cm}
+    ]
 
 % Contenedor principal
-\node[container] (container) at (4,0) {};
+        \node[container] (container) at (4,0) {};
 
 
 % Estado inicial (fuera del contenedor)
-\node[state] (inactivo) at (4,6.5) {Inactivo};
+        \node[state] (inactivo) at (4,6.5) {Inactivo};
 
 % Estados dentro del contenedor
-\node[state] (desarrollo) at (4,3) {En\\desarrollo};
-\node[state] (espera) at (0.5,0.5) {Cambios\\en espera};
-\node[state] (evaluacion) at (0.5,-2) {En\\evaluación};
-\node[state] (revision) at (7.5,0.5) {En revisión};
-\node[state] (alcance) at (7.5,-2) {Alcance mínimo};
-\node[state] (terminado) at (4,-3.5) {Terminado};
+        \node[state] (desarrollo) at (4,3) {En\\desarrollo};
+        \node[state] (espera) at (0.5,0.5) {Cambios\\en espera};
+        \node[state] (evaluacion) at (0.5,-2) {En\\evaluación};
+        \node[state] (revision) at (7.5,0.5) {En revisión};
+        \node[state] (alcance) at (7.5,-2) {Alcance mínimo};
+        \node[state] (terminado) at (4,-3.5) {Terminado};
 
 % Flecha de entrada
-\draw[arrow] (inactivo) -- (desarrollo);
+        \draw[arrow] (inactivo) -- (desarrollo);
 
 % Flechas internas del ciclo
-\draw[arrow] (desarrollo) -- (espera);
-\draw[arrow] (espera) -- (evaluacion);
-\draw[arrow] (evaluacion) -- (terminado);
-\draw[arrow] (desarrollo) -- (revision);
-\draw[arrow] (revision) -- (alcance);
-\draw[arrow] (alcance) -- (terminado);
-\draw[arrow] (revision) -- (evaluacion);
+        \draw[arrow] (desarrollo) -- (espera);
+        \draw[arrow] (espera) -- (evaluacion);
+        \draw[arrow] (evaluacion) -- (terminado);
+        \draw[arrow] (desarrollo) -- (revision);
+        \draw[arrow] (revision) -- (alcance);
+        \draw[arrow] (alcance) -- (terminado);
+        \draw[arrow] (revision) -- (evaluacion);
 
 % Flecha de retroalimentación
-\draw[arrow] (evaluacion) to[out=120, in=240] (espera);
+        \draw[arrow] (evaluacion) to[out=120, in=240] (espera);
 
 % Etiqueta explicativa
-\node[right=0.3cm of desarrollo, text width=3.5cm, font=\small] {Representa el estado\\de una actividad o\\tarea de la ingeniería\\de software};
+        \node[right=0.3cm of desarrollo, text width=3.5cm, font=\small] {Representa el estado\\de una actividad o\\tarea de la ingeniería\\de software};
 
 % Línea de conexión de la etiqueta
-\draw[-] (desarrollo.east) -- ++(0.3,0);
+        \draw[-] (desarrollo.east) -- ++(0.3,0);
 
-\end{tikzpicture}
+    \end{tikzpicture}
 
-\clearpage
-\subsection{Proceso unificado}
+    \clearpage
+    \subsection{Proceso unificado}\label{subsec:proceso-unificado}
 
-Compuesta por fases múltiples con ciclos cortos.
+    Compuesta por fases múltiples con ciclos cortos.
 
-\begin{tikzpicture}[
-    node distance=2cm,
-    phase/.style={rectangle, draw, very thick, minimum width=2cm, minimum height=0.8cm, align=center, fill=gray!30, drop shadow={shadow xshift=0.2cm, shadow yshift=-0.2cm, fill=black}},
-    arrow/.style={->, very thick, >=Stealth},
-    spiral/.style={very thick, black}
-]
+    \begin{tikzpicture}[
+        node distance=2cm,
+        phase/.style={rectangle, draw, very thick, minimum width=2cm, minimum height=0.8cm, align=center, fill=gray!30, drop shadow={shadow xshift=0.2cm, shadow yshift=-0.2cm, fill=black}},
+        arrow/.style={->, very thick, >=Stealth},
+        spiral/.style={very thick, black}
+    ]
 
 % Fases en espiral (empezando desde comunicación)
-\node[phase] (comunicacion) at (-3,-1) {comunicación};
-\node[phase] (planeacion) at (-1,2) {planeación};
-\node[phase] (modelado) at (3,2.5) {modelado};
-\node[phase] (construccion) at (4,-1) {construcción};
-\node[phase] (despliegue) at (1,-3) {despliegue};
+        \node[phase] (comunicacion) at (-3,-1) {comunicación};
+        \node[phase] (planeacion) at (-1,2) {planeación};
+        \node[phase] (modelado) at (3,2.5) {modelado};
+        \node[phase] (construccion) at (4,-1) {construcción};
+        \node[phase] (despliegue) at (1,-3) {despliegue};
 
 % Incremento del software (centro-abajo)
-\node[phase, fill=white] (incremento) at (0,-5) {incremento del software};
+        \node[phase, fill=white] (incremento) at (0,-5) {incremento del software};
 
 % Etiquetas de las grandes fases
-\node[left=0.3cm of comunicacion,yshift=2cm, font=\large\bfseries\itshape] (concepcion) {Concepción};
-\node[above=1.0cm of planeacion,xshift=1.2cm, font=\large\bfseries\itshape](elaboracion) {Elaboración};
-\node[above=0.3cm of construccion,xshift=3.5cm, font=\large\bfseries\itshape] (construccion_) {Construcción};
-\node[below=0.3cm of incremento, font=\large\bfseries\itshape] (produccion) {Producción};
+        \node[left=0.3cm of comunicacion,yshift=2cm, font=\large\bfseries\itshape] (concepcion) {Concepción};
+        \node[above=1.0cm of planeacion,xshift=1.2cm, font=\large\bfseries\itshape](elaboracion) {Elaboración};
+        \node[above=0.3cm of construccion,xshift=3.5cm, font=\large\bfseries\itshape] (construccion_) {Construcción};
+        \node[below=0.3cm of incremento, font=\large\bfseries\itshape] (produccion) {Producción};
 
-\draw (concepcion) -- (comunicacion);
-\draw (concepcion) -- (planeacion);
+        \draw (concepcion) -- (comunicacion);
+        \draw (concepcion) -- (planeacion);
 
-\draw (elaboracion) -- (planeacion);
-\draw (elaboracion) -- (modelado);
+        \draw (elaboracion) -- (planeacion);
+        \draw (elaboracion) -- (modelado);
 
-\draw (construccion_) -- (construccion);
-
-
+        \draw (construccion_) -- (construccion);
 
 
-\node[left=0.5cm of incremento, font=\large\bfseries] {Lanzamiento};
-\node[right=1cm of construccion, font=\large\bfseries\itshape](transicion) {Transición};
 
-\draw (transicion) -- (construccion);
-\draw (transicion) -- (despliegue);
 
-\draw (produccion) -- (incremento);
+        \node[left=0.5cm of incremento, font=\large\bfseries] {Lanzamiento};
+        \node[right=1cm of construccion, font=\large\bfseries\itshape](transicion) {Transición};
+
+        \draw (transicion) -- (construccion);
+        \draw (transicion) -- (despliegue);
+
+        \draw (produccion) -- (incremento);
 
 % Espiral principal
-\draw[spiral, ->] (comunicacion.center)
-    to[out=60, in=180] (planeacion.center)
-    to[out=0, in=120] (modelado.center)
-    to[out=-60, in=60] (construccion.center)
-    to[out=-120, in=30] (despliegue.center)
-    to[out=210, in=90] (incremento.center);
+        \draw[spiral, ->] (comunicacion.center)
+        to[out=60, in=180] (planeacion.center)
+        to[out=0, in=120] (modelado.center)
+        to[out=-60, in=60] (construccion.center)
+        to[out=-120, in=30] (despliegue.center)
+        to[out=210, in=90] (incremento.center);
 
 % Flecha curva de retroalimentación
-\draw[spiral, ->] (despliegue.west)
-    to[out=180, in=-60, looseness=1.5] (comunicacion.south);
+        \draw[spiral, ->] (despliegue.west)
+        to[out=180, in=-60, looseness=1.5] (comunicacion.south);
 
-\end{tikzpicture}
+    \end{tikzpicture}
 
-\subsection{Otros modelos}
+    \subsection{Otros modelos}\label{subsec:otros-modelos}
 
-\subsubsection{Modelos especializados}
+    \subsubsection{Modelos especializados}
 
-\begin{itemize}
-    \item \textbf{Desarrollo basado en componentes}: utiliza un enfoque evolutivo y iterativo
-    \item \textbf{Modelo de métodos formales}: basado en modelos matemáticos para especificación rigurosa
-    \item \textbf{Desarrollo orientado a aspectos}: combina enfoques evolutivos y concurrentes
-\end{itemize}
-
-\subsubsection{Modelos personales y de equipo}
-
-\begin{itemize}
-    \item \textbf{Proceso Personal del Software (PPS)}: metodología individual que incluye:
     \begin{itemize}
-        \item Planificación
-        \item Diseño
-        \item Revisión
-        \item Desarrollo
-        \item Post mórtem
+        \item \textbf{Desarrollo basado en componentes}: utiliza un enfoque evolutivo y iterativo
+        \item \textbf{Modelo de métodos formales}: basado en modelos matemáticos para especificación rigurosa
+        \item \textbf{Desarrollo orientado a aspectos}: combina enfoques evolutivos y concurrentes
     \end{itemize}
-    \item \textbf{Proceso del Equipo de Software (PES)}: equipos auto-dirigidos que se gestionan autónomamente.
-\end{itemize}
+
+    \subsubsection{Modelos personales y de equipo}
+
+    \begin{itemize}
+        \item \textbf{Proceso Personal del Software (PPS)}: metodología individual que incluye:
+        \begin{itemize}
+            \item Planificación
+            \item Diseño
+            \item Revisión
+            \item Desarrollo
+            \item Post mórtem
+        \end{itemize}
+        \item \textbf{Proceso del Equipo de Software (PES)}: equipos auto-dirigidos que se gestionan autónomamente.
+    \end{itemize}
 
 
-\subsection{Ciclo de vida del producto}
+    \subsection{Ciclo de vida del producto}\label{subsec:ciclo-de-vida-del-producto}
 
-\textbf{Etapas}: Introdución → Crecemento → Madurez → Declive.
+    \textbf{Etapas}: Introdución → Crecemento → Madurez → Declive.
 
- \section{Desarrollo ágil}
- \subsection{Definiciones}
- \begin{definicion}
-     \textbf{Agilidad:} Capacidad de \textbf{adaptación al cambio} (requisitos, equipo, tecnologías,…)
- \end{definicion}
+    \section{Desarrollo ágil}\label{sec:desarrollo-agil}
 
-\begin{definicion}
-    \textbf{Agilismo:} Métodos para alcanzar agilidad.
-\end{definicion}
+    \subsection{Definiciones}\label{subsec:definiciones-agiles}
+    \begin{definicion}
+        \textbf{Agilidad:} Capacidad de \textbf{adaptación al cambio} (requisitos, equipo, tecnologías,…)
+    \end{definicion}
 
-\subsection{El coste del cambio}
-Los métodos ágiles buscan reducir el coste del cambio a lo largo del ciclo de vida del proyecto, evitando que aumente exponencialmente en las fases tardías.
+    \begin{definicion}
+        \textbf{Agilismo:} Métodos para alcanzar agilidad.
+    \end{definicion}
 
-\subsection{Características de los métodos ágiles}
+    \subsection{El coste del cambio}\label{subsec:el-coste-del-cambio}
+    Los métodos ágiles buscan reducir el coste del cambio a lo largo del ciclo de vida del proyecto, evitando que aumente exponencialmente en las fases tardías.
 
-\begin{itemize}
-    \item \textbf{Compatibles con estándares}: CMMI, ISO, etc.
-    \item \textbf{Diferenciación}: Los estándares indican el QUÉ hacer, el agilismo indica el CÓMO hacerlo
-    \item \textbf{Modelos iterativos y adaptativos}: pueden ser incrementales o evolutivos
-    \item \textbf{Equipos multidisciplinares}: autónomos y auto-organizados
-    \item \textbf{Guiados por el Manifiesto Ágil} (2001)
-    \item \textbf{Múltiples metodologías}: adopción flexible según necesidades
-\end{itemize}
+    \subsection{Características de los métodos ágiles}\label{subsec:caracteristicas-de-los-metodos-agiles}
 
-\subsection{Manifiesto ÁGIL }
+    \begin{itemize}
+        \item \textbf{Compatibles con estándares}: CMMI, ISO, etc.
+        \item \textbf{Diferenciación}: Los estándares indican el QUÉ hacer, el agilismo indica el CÓMO hacerlo
+        \item \textbf{Modelos iterativos y adaptativos}: pueden ser incrementales o evolutivos
+        \item \textbf{Equipos multidisciplinares}: autónomos y auto-organizados
+        \item \textbf{Guiados por el Manifiesto Ágil} (2001)
+        \item \textbf{Múltiples metodologías}: adopción flexible según necesidades
+    \end{itemize}
 
-Cuatro valores fundamentales (priorizando los de la izquierda sobre los de la derecha):
+    \subsection{Manifiesto ÁGIL}\label{subsec:manifiesto-agil}
 
-\begin{enumerate}
-    \item \textbf{Individuos e interacciones} sobre procesos y herramientas
-    \item \textbf{Software funcionando} sobre documentación extensiva
-    \item \textbf{Colaboración con el cliente} sobre negociación contractual
-    \item \textbf{Respuesta ante el cambio} sobre seguir un plan
-\end{enumerate}
+    Cuatro valores fundamentales (priorizando los de la izquierda sobre los de la derecha):
 
-\subsection{Principios del Manifiesto Ágil}
+    \begin{enumerate}
+        \item \textbf{Individuos e interacciones} sobre procesos y herramientas
+        \item \textbf{Software funcionando} sobre documentación extensiva
+        \item \textbf{Colaboración con el cliente} sobre negociación contractual
+        \item \textbf{Respuesta ante el cambio} sobre seguir un plan
+    \end{enumerate}
 
-\begin{enumerate}
-    \item \textbf{Prioridad}: Satisfacer al cliente mediante entrega temprana y continua de software con valor
-    \item \textbf{Cambios}: Aceptar que los requisitos cambien, incluso en etapas tardías
-    \item \textbf{Entregas frecuentes}: Software funcional cada 2 semanas a 2 meses (preferiblemente más corto)
-    \item \textbf{Colaboración diaria}: Responsables de negocio y desarrolladores trabajan juntos
-    \item \textbf{Individuos motivados}: Dar entorno y apoyo, confiar en la ejecución
-    \item \textbf{Comunicación cara a cara}: Método más eficiente y efectivo
-    \item \textbf{Software funcionando}: Principal medida de progreso
-    \item \textbf{Desarrollo sostenible}: Mantener ritmo constante indefinidamente
-    \item \textbf{Excelencia técnica}: Atención continua al buen diseño mejora la agilidad
-    \item \textbf{Simplicidad}: Arte de maximizar la cantidad de trabajo no realizado
-    \item \textbf{Equipos auto-organizados}: Las mejores arquitecturas, requisitos y diseños emergen de ellos
-    \item \textbf{Reflexión regular}: El equipo reflexiona para ser más efectivo y ajustar comportamiento
-\end{enumerate}
+    \subsection{Principios del Manifiesto Ágil}\label{subsec:principios-del-manifiesto-agil}
 
-
-\subsection{Roles en el desarrollo ágil}
-
-\begin{itemize}
-    \item \textbf{Agile Coach}: Experto en agilismo que ayuda a los empleados a adoptar metodologías ágiles
-    \item \textbf{Product Owner}: Gestor de la pila de trabajo y su prioridad para maximizar valor entregado
-    \item \textbf{Scrum Master}: Facilitador de los equipos que siguen metodología Scrum
-    \item \textbf{Equipo de desarrollo}: Conjunto de miembros que desarrollan y entregan software en incrementos de valor
-\end{itemize}
+    \begin{enumerate}
+        \item \textbf{Prioridad}: Satisfacer al cliente mediante entrega temprana y continua de software con valor
+        \item \textbf{Cambios}: Aceptar que los requisitos cambien, incluso en etapas tardías
+        \item \textbf{Entregas frecuentes}: Software funcional cada 2 semanas a 2 meses (preferiblemente más corto)
+        \item \textbf{Colaboración diaria}: Responsables de negocio y desarrolladores trabajan juntos
+        \item \textbf{Individuos motivados}: Dar entorno y apoyo, confiar en la ejecución
+        \item \textbf{Comunicación cara a cara}: Método más eficiente y efectivo
+        \item \textbf{Software funcionando}: Principal medida de progreso
+        \item \textbf{Desarrollo sostenible}: Mantener ritmo constante indefinidamente
+        \item \textbf{Excelencia técnica}: Atención continua al buen diseño mejora la agilidad
+        \item \textbf{Simplicidad}: Arte de maximizar la cantidad de trabajo no realizado
+        \item \textbf{Equipos auto-organizados}: Las mejores arquitecturas, requisitos y diseños emergen de ellos
+        \item \textbf{Reflexión regular}: El equipo reflexiona para ser más efectivo y ajustar comportamiento
+    \end{enumerate}
 
 
-\subsection{Programación extrema (XP)}
+    \subsection{Roles en el desarrollo ágil}\label{subsec:roles-en-el-desarrollo-agil}
 
-La Programación Extrema fue creada por Kent Beck, quien también fue contribuidor al manifiesto ágil. Se caracteriza por llevar las buenas prácticas de programación a sus límites extremos.
-
-Busca \textbf{retroalimentación continua} del usuario mediante entregas cortas y frecuentes, lo que permite \textbf{detectar y corregir problemas rápidamente}. La \textbf{documentación es simple} y se basa en tres principios: mantener \textbf{código simple y mantenible}, priorizar \textbf{código autodocumentado} sobre comentarios extensos, y usar\textbf{ tests unitarios }como mecanismo de diseño y documentación.
-
-La \textbf{programación por parejas} implica que dos desarrolladores trabajen juntos en el mismo código, lo que mejora la calidad y facilita la transferencia de conocimiento. El \textbf{énfasis en pruebas} se materializa a través del Test Driven Development (TDD), donde las pruebas se escriben antes que el código, y se eliminan defectos antes de añadir nueva funcionalidad.
-
-El principio \textbf{YAGNI} ("You Aren't Gonna Need It") promueve programar solo para las prioridades inmediatas, evitando la sobreingeniería y el desarrollo de funcionalidades que podrían no ser necesarias.
-
-
-\subsection{SCRUM}
-
-Scrum fue concebido a principios de la década de 1990 por Jeff Sutherland, otro contribuidor al manifiesto ágil. Se estructura en \textbf{iteraciones de 2 a 4 semanas} de duración, donde cada iteración debe terminar con una entrega de valor tangible al cliente.
-
-Una característica fundamental es que \textbf{el alcance no puede modificarse} durante el desarrollo de la iteración, lo que proporciona estabilidad al equipo. Incorpora un \textbf{proceso de mejora continua} para incrementar la eficiencia del equipo mediante retrospectivas regulares.
+    \begin{itemize}
+        \item \textbf{Agile Coach}: Experto en agilismo que ayuda a los empleados a adoptar metodologías ágiles
+        \item \textbf{Product Owner}: Gestor de la pila de trabajo y su prioridad para maximizar valor entregado
+        \item \textbf{Scrum Master}: Facilitador de los equipos que siguen metodología Scrum
+        \item \textbf{Equipo de desarrollo}: Conjunto de miembros que desarrollan y entregan software en incrementos de valor
+    \end{itemize}
 
 
-\subsubsection{Ceremonias SCRUM}
+    \subsection{Programación extrema (XP)}\label{subsec:programacion-extrema-(xp)}
 
-El \textbf{Sprint Planning} es la sesión de planificación donde el equipo decide qué elementos del product backlog se desarrollarán en la siguiente iteración, basándose en la priorización establecida por el Product Owner.
+    La Programación Extrema fue creada por Kent Beck, quien también fue contribuidor al manifiesto ágil.
+    Se caracteriza por llevar las buenas prácticas de programación a sus límites extremos.
 
-El \textbf{Daily Scrum} es una reunión diaria de máximo 15 minutos donde cada miembro del equipo comparte tres elementos: el \textbf{progreso realizado desde la anterior reunión}, el \textbf{progreso esperado hasta la siguiente reunión}, y \textbf{cualquier bloqueo o impedimento que esté enfrentando.}
+    Busca \textbf{retroalimentación continua} del usuario mediante entregas cortas y frecuentes, lo que permite \textbf{detectar y corregir problemas rápidamente}.
+    La \textbf{documentación es simple} y se basa en tres principios: mantener \textbf{código simple y mantenible}, priorizar \textbf{código autodocumentado} sobre comentarios extensos, y usar\textbf{ tests unitarios }como mecanismo de diseño y documentación.
 
-El \textbf{Sprint Review} es la sesión donde se revisa la iteración completada mediante una demostración del software funcional desarrollado.
+    La \textbf{programación por parejas} implica que dos desarrolladores trabajen juntos en el mismo código, lo que mejora la calidad y facilita la transferencia de conocimiento.
+    El \textbf{énfasis en pruebas} se materializa a través del Test Driven Development (TDD), donde las pruebas se escriben antes que el código, y se eliminan defectos antes de añadir nueva funcionalidad.
 
-El \textbf{Refinamiento} son sesiones dedicadas a revisar y clarificar requisitos para alcanzar un entendimiento común entre todos los miembros del equipo.
-
-La \textbf{Retrospectiva} es una sesión de revisión del proceso utilizado durante la iteración, donde el equipo identifica qué funcionó bien, qué puede mejorarse, y define acciones concretas de mejora.
-
+    El principio \textbf{YAGNI} ("You Aren't Gonna Need It") promueve programar solo para las prioridades inmediatas, evitando la sobreingeniería y el desarrollo de funcionalidades que podrían no ser necesarias.
 
 
-\subsubsection{Artefactos SCRUM}
+    \subsection{SCRUM}\label{subsec:scrum}
 
-El \textbf{Product Backlog} es la pila de trabajo que contiene todos los requisitos y funcionalidades a cumplir, ordenados por prioridad y valor de negocio.
+    Scrum fue concebido a principios de la década de 1990 por Jeff Sutherland, otro contribuidor al manifiesto ágil.
+    Se estructura en \textbf{iteraciones de 2 a 4 semanas} de duración, donde cada iteración debe terminar con una entrega de valor tangible al cliente.
 
-El \textbf{Sprint Backlog} contiene específicamente los requisitos que se van a desarrollar en la iteración próxima, con el nivel de detalle necesario para su implementación.
+    Una característica fundamental es que \textbf{el alcance no puede modificarse} durante el desarrollo de la iteración, lo que proporciona estabilidad al equipo.
+    Incorpora un \textbf{proceso de mejora continua} para incrementar la eficiencia del equipo mediante retrospectivas regulares.
 
-El \textbf{Scrum Board} es un tablero visual que muestra el estado actual de todas las tareas, típicamente organizado en columnas como "Por hacer", "En progreso" y "Terminado".
 
-El \textbf{Burndown Chart} es un gráfico que compara el progreso ideal de una iteración con el progreso real, permitiendo identificar desviaciones y tomar medidas correctivas.
+    \subsubsection{Ceremonias SCRUM}
 
-La \textbf{Definition of Ready (DoR)} establece los criterios que debe cumplir una tarea para estar lista para ser iniciada por el equipo de desarrollo.
+    El \textbf{Sprint Planning} es la sesión de planificación donde el equipo decide qué elementos del product backlog se desarrollarán en la siguiente iteración, basándose en la priorización establecida por el Product Owner.
 
-La \textbf{Definition of Done (DoD)} define los criterios que debe cumplir una tarea para poder ser marcada como completada y entregada.
+    El \textbf{Daily Scrum} es una reunión diaria de máximo 15 minutos donde cada miembro del equipo comparte tres elementos: el \textbf{progreso realizado desde la anterior reunión}, el \textbf{progreso esperado hasta la siguiente reunión}, y \textbf{cualquier bloqueo o impedimento que esté enfrentando.}
+
+    El \textbf{Sprint Review} es la sesión donde se revisa la iteración completada mediante una demostración del software funcional desarrollado.
+
+    El \textbf{Refinamiento} son sesiones dedicadas a revisar y clarificar requisitos para alcanzar un entendimiento común entre todos los miembros del equipo.
+
+    La \textbf{Retrospectiva} es una sesión de revisión del proceso utilizado durante la iteración, donde el equipo identifica qué funcionó bien, qué puede mejorarse, y define acciones concretas de mejora.
 
 
 
-\subsection{KANBAN}
+    \subsubsection{Artefactos SCRUM}
 
-Kanban fue definido por primera vez en 2007 y está basado en el proceso de gestión visual desarrollado por Toyota para la manufactura. Sigue el proceso \textbf{Kaizen} de mejora continua y se caracteriza por \textbf{no tener iteraciones} \textbf{ni ceremonias preestablecidas}, siendo \textbf{más flexible en su estructura}.
+    El \textbf{Product Backlog} es la pila de trabajo que contiene todos los requisitos y funcionalidades a cumplir, ordenados por prioridad y valor de negocio.
 
-\subsubsection{Principios KANBAN:}
+    El \textbf{Sprint Backlog} contiene específicamente los requisitos que se van a desarrollar en la iteración próxima, con el nivel de detalle necesario para su implementación.
 
-Los \textbf{principios de gestión del cambio} establecen que se debe comenzar con lo que se hace actualmente (sin cambios disruptivos), aceptar el cambio incremental y evolutivo (evitando transformaciones radicales), y fomentar actos de liderazgo a todos los niveles de la organización:
-\begin{itemize}
-    \item Comienza con lo que haces ahora
-    \item Aceptar el cambio incremental y evolutivo
-    \item Fomentar los actos de liderazgo a todos los niveles
-\end{itemize}
+    El \textbf{Scrum Board} es un tablero visual que muestra el estado actual de todas las tareas, típicamente organizado en columnas como \textquote{Por hacer}, \textquote{En progreso} y \textquote{Terminado}.
 
-Los \textbf{principios de prestación de servicios} se centran en las necesidades y expectativas del cliente como foco principal, gestionar el trabajo y los procesos en lugar de microgestionar a los trabajadores, y revisar periódicamente toda la red de servicios para optimizar el flujo de valor:
-\begin{itemize}
-    \item Centrarte en las necesidades y expectativas del cliente
-    \item  Gestionar el trabajo, no los trabajadores
-    \item Revisar periódicamente la red de servicios
-\end{itemize}
+    El \textbf{Burndown Chart} es un gráfico que compara el progreso ideal de una iteración con el progreso real, permitiendo identificar desviaciones y tomar medidas correctivas.
 
-\subsubsection{Prácticas KANBAN:}
+    La \textbf{Definition of Ready (DoR)} establece los criterios que debe cumplir una tarea para estar lista para ser iniciada por el equipo de desarrollo.
 
-\textbf{Visualizar el flujo de trabajo} mediante tableros que muestren claramente el estado de todas las tareas y su progreso a través del proceso.
-
-\textbf{Limitar el trabajo en curso} (WIP - Work In Progress) para evitar la sobrecarga del sistema y mejorar el flujo.
-
-\textbf{Gestionar el flujo} monitorizando y optimizando el movimiento del trabajo a través del sistema.
-
-\textbf{Explicitar las políticas de procesos} para que todos entiendan claramente cómo funciona el sistema.
-
-\textbf{Aplicar bucles de retroalimentación} para obtener información sobre el rendimiento del sistema y áreas de mejora.
-
-\textbf{Mejorar en colaboración} mediante el trabajo conjunto de todo el equipo para optimizar el sistema.
+    La \textbf{Definition of Done (DoD)} define los criterios que debe cumplir una tarea para poder ser marcada como completada y entregada.
 
 
-\subsection{Otras metodologías ágiles}
 
-\textbf{Lean Software Development (LSD)} está basado en los principios del Lean Startup y se enfoca en eliminar desperdicios, amplificar el aprendizaje y entregar valor rápidamente.
+    \subsection{KANBAN}\label{subsec:kanban}
 
-\textbf{Desarrollo Adaptativo de Software (DAS)} es un enfoque que asume que los proyectos de software son inherentemente impredecibles y se adapta continuamente a los cambios.
+    Kanban fue definido por primera vez en 2007 y está basado en el proceso de gestión visual desarrollado por Toyota para la manufactura.
+    Sigue el proceso \textbf{Kaizen} de mejora continua y se caracteriza por \textbf{no tener iteraciones} \textbf{ni ceremonias preestablecidas}, siendo \textbf{más flexible en su estructura}.
 
-\textbf{Agile Unified Process} es una versión simplificada y ágil del Proceso Unificado tradicional, manteniendo sus fortalezas pero eliminando su rigidez.
+    \subsubsection{Principios KANBAN:}
 
-\textbf{Crystal Clear} es una metodología ligera diseñada específicamente para equipos pequeños, enfocándose en la comunicación y la simplicidad.
+    Los \textbf{principios de gestión del cambio} establecen que se debe comenzar con lo que se hace actualmente (sin cambios disruptivos), aceptar el cambio incremental y evolutivo (evitando transformaciones radicales), y fomentar actos de liderazgo a todos los niveles de la organización:
+    \begin{itemize}
+        \item Comienza con lo que haces ahora
+        \item Aceptar el cambio incremental y evolutivo
+        \item Fomentar los actos de liderazgo a todos los niveles
+    \end{itemize}
 
-\textbf{PMI Agile} es el enfoque ágil desarrollado por el Project Management Institute, integrando prácticas ágiles con la gestión de proyectos tradicional.
+    Los \textbf{principios de prestación de servicios} se centran en las necesidades y expectativas del cliente como foco principal, gestionar el trabajo y los procesos en lugar de microgestionar a los trabajadores, y revisar periódicamente toda la red de servicios para optimizar el flujo de valor:
+    \begin{itemize}
+        \item Centrarte en las necesidades y expectativas del cliente
+        \item  Gestionar el trabajo, no los trabajadores
+        \item Revisar periódicamente la red de servicios
+    \end{itemize}
+
+    \subsubsection{Prácticas KANBAN:}
+
+    \textbf{Visualizar el flujo de trabajo} mediante tableros que muestren claramente el estado de todas las tareas y su progreso a través del proceso.
+
+    \textbf{Limitar el trabajo en curso} (WIP - Work In Progress) para evitar la sobrecarga del sistema y mejorar el flujo.
+
+    \textbf{Gestionar el flujo} monitorizando y optimizando el movimiento del trabajo a través del sistema.
+
+    \textbf{Explicitar las políticas de procesos} para que todos entiendan claramente cómo funciona el sistema.
+
+    \textbf{Aplicar bucles de retroalimentación} para obtener información sobre el rendimiento del sistema y áreas de mejora.
+
+    \textbf{Mejorar en colaboración} mediante el trabajo conjunto de todo el equipo para optimizar el sistema.
+
+
+    \subsection{Otras metodologías ágiles}\label{subsec:otras-metodologias-agiles}
+
+    \textbf{Lean Software Development (LSD)} está basado en los principios del Lean Startup y se enfoca en eliminar desperdicios, amplificar el aprendizaje y entregar valor rápidamente.
+
+    \textbf{Desarrollo Adaptativo de Software (DAS)} es un enfoque que asume que los proyectos de software son inherentemente impredecibles y se adapta continuamente a los cambios.
+
+    \textbf{Agile Unified Process} es una versión simplificada y ágil del Proceso Unificado tradicional, manteniendo sus fortalezas pero eliminando su rigidez.
+
+    \textbf{Crystal Clear} es una metodología ligera diseñada específicamente para equipos pequeños, enfocándose en la comunicación y la simplicidad.
+
+    \textbf{PMI Agile} es el enfoque ágil desarrollado por el Project Management Institute, integrando prácticas ágiles con la gestión de proyectos tradicional.
 
 
 
