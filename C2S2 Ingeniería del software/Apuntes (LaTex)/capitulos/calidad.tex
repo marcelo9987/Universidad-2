@@ -1,0 +1,94 @@
+\minitoc
+\begin{definicion}
+    La calidad en software se define como un proceso eficaz que, al ser bien aplicado, crea un producto útil con valor mesurable tanto para los productores como para los usuarios.
+\end{definicion}
+
+La ingeniería de software tiene como objetivo garantizar esa calidad a lo largo de todo el ciclo de vida:
+
+\begin{itemize}
+    \item Planificación
+    \item Diseño
+    \item Desarrollo
+    \item Pruebas
+    \item Despliegue
+    \item Mantenimiento
+\end{itemize}
+
+
+\section{Aseguramiento de la Calidad}\label{sec:aseguramiento-de-la-calidad}
+\input{capitulos/calidad-secciones/aseguramiento-de-la-calidad}
+
+\section{Estrategias de Prueba}\label{sec:estrategias-de-prueba}
+
+\subsection{Verificación vs. Validación}\label{subsec:verificacion-vs.-validacion}
+
+\begin{center}
+    %! suppress = LineBreak
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Verificación}                     & \textbf{Validación}                         \\
+        \hline
+        ¿Construimos \textbf{bien} el producto?   & ¿Construimos el \textbf{producto correcto}? \\
+        Garantía de implementación correcta       & Cumplimiento de requisitos del cliente      \\
+        Incluye pruebas, revisiones, simulaciones & Incluye pruebas de aceptación y prototipos  \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection{Malas prácticas}\label{subsec:malas-practicas}
+
+\begin{itemize}
+    \item Suponer que hay partes que no se pueden probar.
+    \item Que el desarrollador no haga pruebas.
+    \item Aislar al equipo de pruebas.
+    \item Involucrar a los testers solo al final.
+\end{itemize}
+
+\subsection{Estrategias de prueba (pirámide de pruebas)}\label{subsec:estrategias-de-prueba-(piramide-de-pruebas)}
+
+Martin Fowler propone priorizar así:
+
+\begin{enumerate}
+    \item Pruebas unitarias (muchas, automáticas).
+    \item Pruebas de integración.
+    \item Pruebas de interfaz/aceptación (pocas, más caras de automatizar).
+\end{enumerate}
+
+\subsection{Dimensiones de la prueba}\label{subsec:dimensiones-de-la-prueba}
+
+\begin{center}
+    \begin{tabularx}{\textwidth}{|l|l|X|}
+        \hline
+        \textbf{Dimensión} & \textbf{Subdimensión}                   & \textbf{Descripción}                                    \\
+        \hline
+        Tipo               & Funcional / No funcional                & Comprobación de funciones / parámetros como rendimiento \\
+        Granularidad       & Unitaria / Integración / Validación     & Nivel del sistema probado                               \\
+        Alcance            & Progresión / Regresión / Smoke / Sanity & Cobertura funcional                                     \\
+        Ejecución          & Manual / Asistida / Automática          & Nivel de automatización                                 \\
+        Metodología        & Guiada / Exploratoria                   & Nivel de formalización                                  \\
+        \hline
+    \end{tabularx}
+\end{center}
+
+\subsection{Pruebas específicas}\label{subsec:pruebas-especificas}
+
+\begin{itemize}
+    \item \textbf{Unitarias:} \textbf{Caja blanca}.
+    Son las pruebas más simples y frecuentes (sobre código individual).
+    Uso de \emph{stubs} para módulos dependientes.
+    Ejemplos: métodos, condiciones de frontera, errores.
+    \item \textbf{Integración:} \textbf{Caja gris}.
+    Pruebas de cómo interactúan los componentes.
+    Importante la integración incremental (mayor control de errores).
+    Puede ser ascendente o descendente.
+    \item \textbf{Validación (aceptación):} \textbf{Caja negra}.
+    Realistas y orientadas al usuario final.
+    Difíciles de automatizar.
+    Usadas en fases alfa y beta.
+    \item \textbf{No funcionales:} Rendimiento, seguridad, recuperación, esfuerzo, despliegue, etc.
+\end{itemize}
+
+
+\section{Administración de la Configuración}\label{sec:administracion-de-la-configuracion}
+\input{capitulos/calidad-secciones/administración-de-la-configuración}
+
