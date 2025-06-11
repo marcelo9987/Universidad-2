@@ -1,0 +1,196 @@
+\subsection{Metodología y procesos}\label{subsec:metodologia-y-procesos}
+Para el desarrollo exitoso de un software se requiere de ciertos \textquote{componentes} que permiten que la \textquote{máquina} funciones sin \textquote{atascarse}.
+Estos \textquote{engranajes} son:
+\begin{enumerate}
+    \item Herramientas: Tanto control de versiones (git, subversion,\dots), como IDEs y otros \textbf{programas o dispositivos} que ayudan al desarrollo.
+    \item Métodos: \textbf{Técnicas} usadas para facilitar el desarrollo.
+    \item Proceso: \textbf{Actividades, acciones y tareas} realizadas con el fin de crear productos.
+\end{enumerate}
+
+\subsection{Proceso esencial}\label{subsec:proceso-esencial}
+En un desarrollo habitual, el proceso suele ser el siguiente:
+
+\begin{enumerate}
+    \item \textbf{Entender el problema:} Comunicación y análisis (participantes, incógnitas).
+    \item \textbf{Planear la solución:} Modelado y diseño (descomposición del problema).
+    \item \textbf{Ejecutar el plan:} Creación de código (seguimiento y revisión).
+    \item \textbf{Examinar el resultado:} Pruebas y aseguramiento de la calidad.
+\end{enumerate}
+
+\subsection{Definiciones}\label{subsec:definiciones}
+\begin{definicion}
+    Un \textbf{proceso} es aquel \textbf{conjunto de actividades, acciones y tareas} que se ejecutan cuando va a crearse algún producto del trabajo.
+\end{definicion}
+\begin{definicion}
+    Una \textbf{actividad} busca lograr un \textbf{objetivo amplio} sin importar el dominio de la aplicación, tamaño del proyecto, complejidad del esfuerzo.
+\end{definicion}
+
+\begin{definicion}
+    Una \textbf{acción} es un \textbf{conjunto de tareas} que producen un producto importante del trabajo.
+\end{definicion}
+\begin{definicion}
+    Una \textbf{tarea} se centra en un objetivo \textbf{pequeño pero bien definido} que produce un \textbf{resultado tangible}.
+\end{definicion}
+\begin{definicion}
+    Un \textbf{proceso} no es una prescripción rígida.
+    Es un enfoque\textbf{adaptable} que permite entregar el software de \textbf{forma oportuna} y con \textbf{calidad suficiente}.
+\end{definicion}
+
+\subsection{Fases del proceso}\label{subsec:fases-del-proceso}
+El proceso de ingeniería del software se divide en 5 sencillas fases: \textbf{Comunicación}, \textbf{planificación}, \textbf{diseño}, \textbf{desarrollo} y, \textbf{despliegue}.
+Se puede observar que es y que objetivo tiene cada fase en la \autoref{tab:fases-desarrollo}
+
+\begin{table}[hbtp]
+    \centering
+
+    \begin{tabularx}{\textwidth}{|l l X|}\toprule
+    Fase & Objetivo& Detalles \\\midrule
+
+    \textbf{Comunicación} & Entender requisitos.& Colaboración con participantes, definición de características. \\
+    \textbf{Planificación} & Definir el traballo& Tareas técnicas, riesgos, recursos, cronograma.\\
+    \textbf{Diseño}& Plantear solución & Diagramas de alto nivel, refinamiento iterativo.\\
+    \textbf{Desarrollo}& Construír y verificar& Porgramación y pruebas.\\
+    \textbf{Despliegue}& Entregar produto & Evaluación y \textit{feedback}.\\ \bottomrule
+
+    \end{tabularx}
+    \caption{Comparación de las distintas fases del proceso de desarrollo de software}
+    \label{tab:fases-desarrollo}
+
+\end{table}
+
+
+\subsection{Tipos de flujo de fases}\label{subsec:tipos-de-flujo-de-fases}
+Existen varios tipos de flujo de fases.
+A continuación, varios diagramas con los distintos flujos:
+
+\subsubsection{Lineal}
+
+De una en una, sencillo.
+
+\deactivatequoting
+\tikz
+{
+    \node [rectangle, draw] (A) {Comunicación};
+    \node [rectangle, draw] (B) [right= of A] {Planeación};
+    \node [rectangle, draw] (C) [right=of B] {Modelado};
+    \node [rectangle, draw] (D) [right=of C] {Construcción};
+    \node [rectangle, draw] (E) [right=of D] {Despliegue};
+
+    \draw[
+        -{Latex}
+    ,draw=black
+    , thick
+    ]
+    % Básicos
+    (A) edge (B)
+    (B) edge (C)
+    (C) edge (D)
+    (D) edge (E)
+}
+\activatequoting
+
+\subsubsection{Iterativo}
+
+\deactivatequoting
+\tikz
+{
+    \node [rectangle, draw] (A) {Comunicación};
+    \node [rectangle, draw] (B) [right= of A] {Planeación};
+    \node [rectangle, draw] (C) [right=of B] {Modelado};
+    \node [rectangle, draw] (D) [right=of C] {Construcción};
+    \node [rectangle, draw] (E) [right=of D] {Despliegue};
+
+    \draw[
+        -{Latex}
+    ,draw=black
+    , thick
+    ]
+    % Básicos
+    (A) edge (B)
+    (B) edge (C)
+    (C) edge (D)
+    (D) edge (E)
+
+%Iterativo
+    (B) edge[bend left = 45] (A)
+    (C) edge[in=-170, out=-10,looseness=5] (C)
+    (D) edge[bend left = 45] (A)
+}
+\activatequoting
+
+\subsubsection{Evolutivo}
+Permite un prototipado rápido.
+Resiliente y con una planificación adaptativa.
+
+\deactivatequoting
+\tikz
+{
+    \node [rectangle, draw] (A) {Comunicación};
+    \node [rectangle, draw] (B) [above right    = of A] {Planeación};
+    \node [rectangle, draw] (C) [below right    = of B] {Modelado};
+    \node [rectangle, draw] (D) [below          = of C] {Construcción};
+    \node [rectangle, draw] (E) [below left     = of D] {Despliegue};
+    \node [rectangle]       (F) [left           = of E] {Incremento obtenido};
+
+    \draw[
+        -{Latex}
+    ,draw=black
+    , thick
+    ]
+    % Básicos
+    (A) edge (B)
+    (B) edge (C)
+    (C) edge (D)
+    (D) edge (E)
+    (E) edge (A)
+    (E) edge (F)
+
+}
+\activatequoting
+
+\subsubsection{Paralelo}
+Fases en paralelo para optimizar la eficiencia
+
+\deactivatequoting
+\tikz
+{
+    \node [rectangle, draw] (A) {Comunicación};
+    \node [rectangle, draw] (B) [right          = of A] {Planeación};
+    \node [rectangle, draw] (C) [below right    = of A] {Modelado};
+    \node [rectangle, draw] (D) [below right    = of C] {Construcción};
+    \node [rectangle, draw] (E) [right          = of D] {Despliegue};
+    \node [rectangle]       (F) [right          = of C] {Tiempo};
+
+    \draw[
+        -{Latex}
+    ,draw=black
+    , thick
+    ]
+    % Básicos
+    (A) edge (B)
+    (A) edge (C)
+    (B) edge (C)
+    (C) edge (D)
+    (D) edge (E)
+
+}
+\activatequoting
+
+\subsection{Actividades transversales}\label{subsec:actividades-transversales}
+Las siguientes tareas se llevan a cabo de forma mas o menos contínua durante la duración total del proyecto:
+\begin{itemize}
+    \item \textbf{Seguimiento y control:} Evaluación del estado del proyecto con respecto al plan original.
+
+    \item \textbf{Administración de riesgos:} Identificación y mitigación.
+
+    \item \textbf{Seguimiento de calidad del software:} Revisiones y estándares que \textbf{garantizan} que el software tiene la calidad prometida.
+
+
+    \item \textbf{Medición:} Métricas de proceso, proyecto y produto.
+
+    \item \textbf{Gestión de la configuración:} Control de cambios.
+
+    \item \textbf{Reutilización:} Creación e uso de componentes reutilizables.
+    \item \textbf{Preparación y producción del producto del trabajo:} Actividades  para crear productos del trabajo, tales como modelos y documentación.
+
+\end{itemize}

@@ -1,0 +1,338 @@
+    No todos los proyectos son iguales.
+    En este tema veremos los modelos de procesos mas usados.
+
+    \clearpage
+    \subsection{Modelo cascada: Versión V}\label{subsec:modelo-cascada:-version-v}
+
+    Tiene fases secuenciales y lineales.
+    Las pruebas y el desarrollo funcionan en paralelo, de ahí la forma de V\@.
+
+    \begin{tikzpicture}[
+        node distance=1.5cm,
+        box/.style={rectangle, draw, thick, minimum width=3cm, minimum height=1.2cm, align=center, fill=white},
+        arrow/.style={->, thick, >=Stealth}
+    ]
+
+% Lado izquierdo (desarrollo)
+        \node[box] (req) {Modelado de los\\requerimientos};
+        \node[box, below=of req] (arch) {Diseño de la\\arquitectura};
+        \node[box, below=of arch] (comp) {Diseño de los\\componentes};
+        \node[box, below=of comp] (code) {Generación\\de código};
+
+% Lado derecho (pruebas)
+        \node[box, right=6cm of req] (accept) {Pruebas de\\aceptación};
+        \node[box, below=of accept] (system) {Pruebas\\del sistema};
+        \node[box, below=of system] (integration) {Pruebas de\\integración};
+        \node[box, below=of integration] (unit) {Pruebas\\unitarias};
+
+% Nodo final
+        \node[below=1.5cm of code, xshift=3cm] (software) {Software ejecutable};
+
+% Flechas verticales lado izquierdo
+        \draw[arrow] (req) -- (arch);
+        \draw[arrow] (arch) -- (comp);
+        \draw[arrow] (comp) -- (code);
+
+% Flechas verticales lado derecho
+        \draw[arrow] (unit) -- (integration);
+        \draw[arrow] (integration) -- (system);
+        \draw[arrow] (system) -- (accept);
+
+% Flechas horizontales (correspondencias)
+        \draw[arrow]  (accept)      -- (req);
+        \draw[arrow]  (system)      -- (arch);
+        \draw[arrow]  (integration) -- (comp);
+        \draw[arrow] (unit)         -- (code);
+
+% Flechas hacia el software ejecutable
+        \draw[arrow] (code) -- (software);
+        \draw[arrow]  (software) -- (unit);
+
+% Flechas diagonales de entrada y salida
+        \draw[arrow] (-1.5, 2) -- (req);
+        \draw[arrow] (accept) -- (9.5, 2);
+
+    \end{tikzpicture}
+
+    \clearpage
+    \subsection{Modelo de proceso incremental}\label{subsec:modelo-de-proceso-incremental}
+    El proceso se divide en incrementos que incluyen todas las fases.
+    Esto implica que todas las entregas intermedias (incremento x) aseguran un cierto nivel de calidad.
+
+    \begin{tikzpicture}[
+        node distance=0.3cm,
+        phase/.style={rectangle, draw, thick, minimum width=1.2cm, minimum height=0.8cm, align=center},
+        arrow/.style={->, thick, >=Stealth},
+        legend/.style={rectangle, draw, minimum width=0.4cm, minimum height=0.4cm}
+    ]
+
+% Ejes
+        \draw[thick, ->] (0,0) -- (13,0) node[midway,right,anchor=north] {Calendario del proyecto};
+        \draw[thick, ->] (0,0) -- (0,14) node[midway,above, rotate=90, anchor=south] {Funcionalidad y características del software};
+
+% Leyenda
+        \node[legend, fill=white] at (1,10) {};
+        \node[right=0.1cm] at (1.2,10) {Comunicación};
+
+        \node[legend, fill=gray!20] at (1,9.5) {};
+        \node[right=0.1cm] at (1.2,9.5) {Planeación};
+
+        \node[legend, fill=gray!40] at (1,9) {};
+        \node[right=0.1cm] at (1.2,9) {Modelado (análisis, diseño)};
+
+        \node[legend, fill=gray!60] at (1,8.5) {};
+        \node[right=0.1cm] at (1.2,8.5) {Construcción (código, prueba)};
+
+        \node[legend, fill=gray!80] at (1,8) {};
+        \node[right=0.1cm] at (1.2,8) {Despliegue (entrega, retroalimentación)};
+
+        \newcommand{\desplaltura}{1.00cm}
+
+% Incremento #1
+        \node[phase, fill=white] (c1) at (2,2) {};
+        \node[phase, fill=gray!20, below right = 0.5cm of c1,yshift=\desplaltura] (p1) {};
+        \node[phase, fill=gray!40, below right = 0.5cm of p1,yshift=\desplaltura] (m1) {};
+        \node[phase, fill=gray!60, below right = 0.5cm of m1,yshift=\desplaltura] (co1) {};
+        \node[phase, fill=gray!80, below right = 0.5cm of  co1,yshift=\desplaltura] (d1) {};
+
+        \draw[arrow] (c1) -- (p1);
+        \draw[arrow] (p1) -- (m1);
+        \draw[arrow] (m1) -- (co1);
+        \draw[arrow] (co1) -- (d1);
+
+        \node[right=2.0cm of co1] (e1) {entrega del primer};
+        \node[right=2.0cm of co1, yshift=-0.4cm] {incremento};
+
+        \node[above = 0.25cm of c1] {incremento \# 1};
+
+% Incremento #2
+        \node[phase, fill=white] (c2) at (3.5,4.00) {};
+        \node[phase, fill=gray!20, below right = 0.5cm of c2,yshift=\desplaltura] (p2) {};
+        \node[phase, fill=gray!40, below right = 0.5cm of p2,yshift=\desplaltura] (m2) {};
+        \node[phase, fill=gray!60, below right = 0.5cm of m2,yshift=\desplaltura] (co2) {};
+        \node[phase, fill=gray!80, below right = 0.5cm of co2,yshift=\desplaltura] (d2) {};
+
+        \draw[arrow] (c2) -- (p2);
+        \draw[arrow] (p2) -- (m2);
+        \draw[arrow] (m2) -- (co2);
+        \draw[arrow] (co2) -- (d2);
+
+        \node[above = 0.2cm of c2] {incremento \# 2};
+        \node[right = 0.5cm of d2] {entrega del segundo};
+        \node[right = 0.5cm of d2,yshift=-0.4cm] {incremento};
+
+% Puntos suspensivos
+        \fill (8,4.2) circle (0.08);
+        \fill (8.3,4.6) circle (0.08);
+        \fill (8.6,5) circle (0.08);
+
+% Incremento #n
+        \node[phase, fill=white] (cn) at (7,6) {};
+        \node[phase, fill=gray!20, right=of cn] (pn) {};
+        \node[phase, fill=gray!40, right=of pn] (mn) {};
+        \node[phase, fill=gray!60, right=of mn] (con) {};
+        \node[phase, fill=gray!80, right=of con] (dn) {};
+
+        \draw[arrow] (cn) -- (pn);
+        \draw[arrow] (pn) -- (mn);
+        \draw[arrow] (mn) -- (con);
+        \draw[arrow] (con) -- (dn);
+
+        \node[above left=0.2cm of cn] {incremento \# n};
+        \node[right = 0.1cm of dn] {entrega del n-ésimo};
+        \node[right = 0.1cm of dn,yshift=-0.4cm] {incremento};
+
+    \end{tikzpicture}
+    \clearpage
+
+    \clearpage
+    \subsection{Proceso evolutivo}\label{subsec:proceso-evolutivo}
+    Con forma de \textquote{espiral}, permite adaptar los requisitos y solucionar los problemas de iteraciones antiguas.
+
+    \begin{tikzpicture}[
+        node distance=2cm,
+        box/.style={rectangle, draw, thick, minimum width=2.5cm, minimum height=1.5cm, align=center, fill=white},
+        arrow/.style={->, very thick, >=Stealth, gray!70, fill=gray!50},
+        cycle arrow/.style={very thick, gray!70, fill=gray!50}
+    ]
+
+% Nodos principales
+        \node[box] (comunicacion) at (0,3) {Comunicación};
+        \node[box] (plan) at (4,5) {Plan rápido};
+        \node[box] (modelado) at (7,2) {Modelado\\Diseño rápido};
+        \node[box] (construccion) at (4,-1) {Construcción\\del\\prototipo};
+        \node[box] (despliegue) at (0,0) {Despliegue\\Entrega y\\Retroalimentación};
+
+% Flecha curva grande de comunicación a plan
+        \draw[cycle arrow] (comunicacion.north east)
+        to[out=45, in=135]
+        node[single arrow, draw, thick, fill=gray!50, minimum height=1.5cm, single arrow head extend=0.3cm, rotate=45] {}
+        (plan.north west);
+
+% Flecha de plan a modelado
+        \draw[cycle arrow] (plan.south east)
+        to[out=-45, in=45]
+        node[single arrow, draw, thick, fill=gray!50, minimum height=1.2cm, single arrow head extend=0.3cm, rotate=-45] {}
+        (modelado.north east);
+
+% Flecha de modelado a construcción
+        \draw[cycle arrow] (modelado.south)
+        to[out=-90, in=45]
+        node[single arrow, draw, thick, fill=gray!50, minimum height=1.5cm, single arrow head extend=0.3cm, rotate=-90] {}
+        (construccion.east);
+
+% Flecha de construcción a despliegue
+        \draw[cycle arrow] (construccion.west)
+        to[out=180, in=-45]
+        node[single arrow, draw, thick, fill=gray!50, minimum height=1.2cm, single arrow head extend=0.3cm, rotate=135] {}
+        (despliegue.south east);
+
+% Flecha de despliegue a comunicación (completando el ciclo)
+        \draw[cycle arrow] (despliegue.north)
+        to[out=135, in=225]
+        node[single arrow, draw, thick, fill=gray!50, minimum height=1.2cm, single arrow head extend=0.3cm, rotate=90] {}
+        (comunicacion.south west);
+
+    \end{tikzpicture}
+
+
+    \clearpage
+    \subsection{Modelo Concurrente}\label{subsec:modelo-concurrente}
+    Funciona con el diseño y el desarrollo en paralelo.
+    Muy versátil.
+
+
+    \begin{tikzpicture}[
+        node distance=2.5cm,
+        state/.style={rectangle, draw, very thick, rounded corners=0.5cm, minimum width=2.5cm, minimum height=1cm, align=center, fill=white},
+        arrow/.style={->, thick, >=Stealth},
+        container/.style={rectangle, draw, very thick, rounded corners=1cm, fill=gray!20, minimum width=12cm, minimum height=10cm}
+    ]
+
+% Contenedor principal
+        \node[container] (container) at (4,0) {};
+
+
+% Estado inicial (fuera del contenedor)
+        \node[state] (inactivo) at (4,6.5) {Inactivo};
+
+% Estados dentro del contenedor
+        \node[state] (desarrollo) at (4,3) {En\\desarrollo};
+        \node[state] (espera) at (0.5,0.5) {Cambios\\en espera};
+        \node[state] (evaluacion) at (0.5,-2) {En\\evaluación};
+        \node[state] (revision) at (7.5,0.5) {En revisión};
+        \node[state] (alcance) at (7.5,-2) {Alcance mínimo};
+        \node[state] (terminado) at (4,-3.5) {Terminado};
+
+% Flecha de entrada
+        \draw[arrow] (inactivo) -- (desarrollo);
+
+% Flechas internas del ciclo
+        \draw[arrow] (desarrollo) -- (espera);
+        \draw[arrow] (espera) -- (evaluacion);
+        \draw[arrow] (evaluacion) -- (terminado);
+        \draw[arrow] (desarrollo) -- (revision);
+        \draw[arrow] (revision) -- (alcance);
+        \draw[arrow] (alcance) -- (terminado);
+        \draw[arrow] (revision) -- (evaluacion);
+
+% Flecha de retroalimentación
+        \draw[arrow] (evaluacion) to[out=120, in=240] (espera);
+
+% Etiqueta explicativa
+        \node[right=0.3cm of desarrollo, text width=3.5cm, font=\small] {Representa el estado\\de una actividad o\\tarea de la ingeniería\\de software};
+
+% Línea de conexión de la etiqueta
+        \draw[-] (desarrollo.east) -- ++(0.3,0);
+
+    \end{tikzpicture}
+
+    \clearpage
+    \subsection{Proceso unificado}\label{subsec:proceso-unificado}
+
+    Compuesta por fases múltiples con ciclos cortos.
+
+    \begin{tikzpicture}[
+        node distance=2cm,
+        phase/.style={rectangle, draw, very thick, minimum width=2cm, minimum height=0.8cm, align=center, fill=gray!30, drop shadow={shadow xshift=0.2cm, shadow yshift=-0.2cm, fill=black}},
+        arrow/.style={->, very thick, >=Stealth},
+        spiral/.style={very thick, black}
+    ]
+
+% Fases en espiral (empezando desde comunicación)
+        \node[phase] (comunicacion) at (-3,-1) {comunicación};
+        \node[phase] (planeacion) at (-1,2) {planeación};
+        \node[phase] (modelado) at (3,2.5) {modelado};
+        \node[phase] (construccion) at (4,-1) {construcción};
+        \node[phase] (despliegue) at (1,-3) {despliegue};
+
+% Incremento del software (centro-abajo)
+        \node[phase, fill=white] (incremento) at (0,-5) {incremento del software};
+
+% Etiquetas de las grandes fases
+        \node[left=0.3cm of comunicacion,yshift=2cm, font=\large\bfseries\itshape] (concepcion) {Concepción};
+        \node[above=1.0cm of planeacion,xshift=1.2cm, font=\large\bfseries\itshape](elaboracion) {Elaboración};
+        \node[above=0.3cm of construccion,xshift=3.5cm, font=\large\bfseries\itshape] (construccion_) {Construcción};
+        \node[below=0.3cm of incremento, font=\large\bfseries\itshape] (produccion) {Producción};
+
+        \draw (concepcion) -- (comunicacion);
+        \draw (concepcion) -- (planeacion);
+
+        \draw (elaboracion) -- (planeacion);
+        \draw (elaboracion) -- (modelado);
+
+        \draw (construccion_) -- (construccion);
+
+
+
+
+        \node[left=0.5cm of incremento, font=\large\bfseries] {Lanzamiento};
+        \node[right=1cm of construccion, font=\large\bfseries\itshape](transicion) {Transición};
+
+        \draw (transicion) -- (construccion);
+        \draw (transicion) -- (despliegue);
+
+        \draw (produccion) -- (incremento);
+
+% Espiral principal
+        \draw[spiral, ->] (comunicacion.center)
+        to[out=60, in=180] (planeacion.center)
+        to[out=0, in=120] (modelado.center)
+        to[out=-60, in=60] (construccion.center)
+        to[out=-120, in=30] (despliegue.center)
+        to[out=210, in=90] (incremento.center);
+
+% Flecha curva de retroalimentación
+        \draw[spiral, ->] (despliegue.west)
+        to[out=180, in=-60, looseness=1.5] (comunicacion.south);
+
+    \end{tikzpicture}
+
+    \subsection{Otros modelos}\label{subsec:otros-modelos}
+
+    \subsubsection{Modelos especializados}
+
+    \begin{itemize}
+        \item \textbf{Desarrollo basado en componentes}: utiliza un enfoque evolutivo y iterativo
+        \item \textbf{Modelo de métodos formales}: basado en modelos matemáticos para especificación rigurosa
+        \item \textbf{Desarrollo orientado a aspectos}: combina enfoques evolutivos y concurrentes
+    \end{itemize}
+
+    \subsubsection{Modelos personales y de equipo}
+
+    \begin{itemize}
+        \item \textbf{Proceso Personal del Software (PPS)}: metodología individual que incluye:
+        \begin{itemize}
+            \item Planificación
+            \item Diseño
+            \item Revisión
+            \item Desarrollo
+            \item Post mórtem
+        \end{itemize}
+        \item \textbf{Proceso del Equipo de Software (PES)}: equipos auto-dirigidos que se gestionan autónomamente.
+    \end{itemize}
+
+
+    \subsection{Ciclo de vida del producto}\label{subsec:ciclo-de-vida-del-producto}
+
+    \textbf{Etapas}: Introdución → Crecemento → Madurez → Declive.
