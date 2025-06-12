@@ -30,6 +30,11 @@
 
     \subsection{Métricas específicas}\label{subsec:metricas-especificas}
 
+    \begin{definicion}
+
+        \textit{Los puntos de definición son una forma de medir el tamaño, la complejidad y la calidad del software}.
+
+    \end{definicion}
     \begin{itemize}
         \item \textbf{Modelo de requisitos:}
         \[PF = conteo \cdot (0.65 + (0.01 \cdot \text{FAV}))\]
@@ -49,9 +54,15 @@
 
         \item \textbf{Diseño arquitectónico:}
         \begin{itemize}
-            \item Complejidad de módulo: $S(i) = f^2_{out}(i)$, $D(i) = v(i) / (f_{out}(i) + 1)$
+            \item Complejidad de módulo: $S(i) = f^2_{out}(i)$, $D(i) = \frac{v(i)}{f_{out}(i) + 1}$ (Estructural (S) y Datos (D))
             \item Complejidad de sistema: $C(i) = S(i) + D(i)$
         \end{itemize}
+        Donde:
+        \item $f_{out}(i)$ es el número de módulos que dependen del módulo $i$.
+        \item $v(i)$ es el número de módulos de los que depende el módulo $i$.
+        \item $\text{Tamaño} = n + a$; $n$ es el número de nodos y $a$ es el número de arcos.
+        \item Profundidad: trayectoria más larga desde el nodo raíz hasta un nodo hoja
+        \item Ancho: número máximo de nodos en cualquier nivel de la arquitectura
 
         \item \textbf{Orientadas a clase (CK):}
         \begin{table}[!ht]
@@ -73,7 +84,7 @@
             \end{tabularx}
         \end{table}
 
-        \item \textbf{Código fuente:}
+        \item \textbf{Código fuente, métricas de Halstead:}
         \begin{itemize}
             \begin{table}[!ht]
                 \centering
@@ -104,6 +115,9 @@
             \end{table}
 
             \item Longitud: $N = n_1 \log_2 n_1 + n_2 \log_2 n_2$
+            \begin{nota}
+                \textit{(Coa estimación de $N$ anterior. Se se usa $N = N_1 + N_2$, o volume sería real.)}
+            \end{nota}
             \item Volumen: $V = N \log_2 (n_1 + n_2)$
         \end{itemize}
 

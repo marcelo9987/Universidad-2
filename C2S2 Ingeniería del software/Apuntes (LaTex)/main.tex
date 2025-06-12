@@ -1,4 +1,6 @@
+% !TEX root = ./apuntesIngenieriaDelSoftware_20242025.tex
 \documentclass[a4paper,11pt]{report}
+
 
 % Codificación e idioma
 % \usepackage[utf8]{inputenc}
@@ -26,8 +28,9 @@
 \usepackage{parskip}
 \usepackage{enumitem}
 
-\usepackage{minitoc}
-\dominitoc % Activa os minitoc nos capítulos
+\usepackage{etoc}
+\usepackage{appendix}
+
 \usetikzlibrary
 {
     shapes
@@ -113,32 +116,48 @@
 
 \setlength{\headheight}{13.7pt}
 
+
+\setcounter{secnumdepth}{2} % Profundidad de numeración de secciones
+
+\setcounter{tocdepth}{2} % TOC global ata section
+
 % Metadatos
-\title{Apuntes Completos \\ \large Ingeniería del Software}
+\title{Apuntes Completos \\ \large Ingeniería del Software \\ Universidad de Antonio de Nebrija}
 \author{Marcelo Fort Muñoz}
 \date{\today}
 
 \begin{document}
 
+    % las primeras páginas no tienen numeración
+    \pagenumbering{gobble}
+
     \maketitle
     \tableofcontents
     \newpage
+
+    \etocsettocdepth{3} % Profundidad de la tabla de contenidos local
+
+    \pagenumbering{arabic} % Numeración de páginas a partir de aquí
 
 
     \chapter{Introducción}\label{ch:introduccion}
     \input{capitulos/introduccion}
 
+
     \chapter{El proceso del software}\label{ch:el-proceso-del-software}
     \input{capitulos/el-proceso-del-software}
 
-    \chapter{Modelado del software}\label{ch:modelado-del-software}
 
+    \chapter{Modelado del software}\label{ch:modelado-del-software}
+    \input{capitulos/modelado-del-software}
 
     \chapter{Planificación de proyectos}\label{ch:planificacion-de-proyectos}
     \input{capitulos/planificacion-de-proyectos}
 
+
     \chapter{Calidad}\label{ch:calidad}
     \input{capitulos/calidad}
+
 
     \chapter{Mantenimiento}\label{ch:mantenimiento}
     \input{capitulos/mantenimiento}
