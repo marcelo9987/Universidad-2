@@ -1,0 +1,67 @@
+% !TeX root = ../modelado.tex
+
+
+\begin{enunciado}
+    Desarrolla el siguiente requisito como 1) caso de uso y como 2) historias de usuario.
+
+    \textquote{Búsqueda por nombre de un aula para programar una clase en un campus dado}.
+\end{enunciado}
+
+\subsection{1. Caso de uso}\label{subsec:1.-caso-de-uso}
+\begin{solucion}[title=Caso de uso]
+    \textbf{Nombre}: Búsqueda de aula por nombre para programar una clase
+
+    \textbf{Actor principal}: Personal docente o administrativo autorizado
+
+    \textbf{Interesados y necesidades}:
+
+    \begin{itemize}
+        \item \textbf{Personal docente}: Necesita encontrar rápidamente un aula concreta por su nombre para poder planificar una clase.
+        \item \textbf{Sistema de programación de aulas}: Debe permitir búsquedas eficientes y devolver resultados precisos dentro del campus seleccionado.
+    \end{itemize}
+    \textbf{Precondiciones}:
+
+    \begin{itemize}
+        \item El usuario ha iniciado sesión correctamente.
+        \item El sistema contiene información actualizada de aulas y su disponibilidad.
+        \item Se ha seleccionado un campus.
+    \end{itemize}
+    \textbf{Postcondiciones}:
+
+    \begin{itemize}
+        \item Se muestran los datos del aula correspondiente si existe y pertenece al campus indicado.
+        \item Si no existe, se notifica al usuario.
+    \end{itemize}
+    \textbf{Escenario principal (flujo básico)}:
+
+    \begin{enumerate}
+        \item El usuario accede a la funcionalidad de programación de clases.
+        \item El sistema solicita el campus y el nombre del aula.
+        \item El usuario introduce el nombre del aula y selecciona el campus.
+        \item El sistema busca el aula correspondiente dentro del campus.
+        \item El sistema muestra la información del aula si existe.
+        \item El usuario puede continuar con la programación de la clase.
+    \end{enumerate}
+    \textbf{Flujos alternativos}:
+
+    4a) Si el nombre del aula no existe en ese campus, el sistema notifica que no se ha encontrado ninguna coincidencia.
+\end{solucion}
+
+\subsection{2. Historias de usuario}\label{subsec:2.-historias-de-usuario}
+\begin{solucion}[title=Historias de usuario]
+    \textbf{H1}
+
+    \textbf{Como} miembro del personal docente
+
+    \textbf{quiero} buscar un aula por su nombre dentro de un campus
+
+    \textbf{para} poder programar una clase de forma rápida sin revisar toda la lista.
+
+    \textbf{Criterios de aceptación}:
+    \begin{itemize}
+        \item Puedo introducir el nombre del aula y seleccionar un campus.
+        \item El sistema me muestra la información del aula si existe.
+        \item Si el aula no existe, me informa adecuadamente.
+    \end{itemize}
+
+\end{solucion}

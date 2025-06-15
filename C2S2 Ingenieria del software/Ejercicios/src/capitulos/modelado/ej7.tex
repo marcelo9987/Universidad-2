@@ -1,0 +1,72 @@
+% !TeX root = ../modelado.tex
+
+\begin{enunciado}
+    Completa el diagrama de arquitectura para añadir la siguiente funcionalidad:
+
+    Aplicación de ofertas en función de la cantidad de productos comprados y el país desde el
+    que se realiza la compra.
+\end{enunciado}
+
+
+\begin{solucion}
+
+    \begin{tikzpicture}[node distance=1.25cm]
+% Interfaz Gráfica
+        \hspace{1em}
+        \node[interface] (gui) {Interfaz Gráfica};
+
+% Primera fila de servicios
+        \node[service, below left=2cm and 1.5cm of gui] (catalog) {CatalogService};
+        \node[service, below=2cm of gui] (cart) {CartService};
+        \node[service, below right=2cm and 1.5cm of gui] (order) {OrderService};
+
+% Segunda fila de servicios
+        \node[service, below =2.0cm of catalog] (pricing) {PricingService};
+        \node[service, below =2cm of order] (payment) {PaymentService};
+
+% Nuevo servicio de ofertas (añadido)
+        \node[service, below=2.0cm of cart, fill=green!20] (offers) {OffersService};
+
+% Servicio de geolocalización (añadido)
+        \node[service, below left=1.5cm and -0.5cm of offers, fill=orange!20] (geo) {GeoService};
+
+% Bases de datos
+        \node[database, left=0.5cm of catalog] (db1) {};
+        \node[database, above= 0.25cm of cart,xshift=0.5cm] (db2) {};
+        \node[database, right=0.5cm of order] (db3) {};
+        \node[database, left=0.5cm of pricing] (db4) {};
+        \node[database, right=0.5cm of offers] (db6) {};
+        \node[database, left=0.5cm of geo] (db7) {};
+
+% Conexiones desde la interfaz
+        \draw[arrow] (gui) -- (catalog);
+        \draw[arrow] (gui) -- (cart);
+        \draw[arrow] (gui) -- (order);
+
+% Conexiones entre servicios
+        \draw[bidirectional] (catalog) -- (cart);
+        \draw[bidirectional] (cart) -- (order);
+        \draw[bidirectional] (catalog) -- (pricing);
+        \draw[bidirectional] (order) -- (payment);
+
+% Nuevas conexiones para ofertas
+        \draw[bidirectional] (cart) -- (offers);
+        \draw[bidirectional] (order) -- (offers);
+        \draw[bidirectional] (offers) -- (geo);
+        \draw[bidirectional] (offers) -- (pricing);
+
+% Conexiones a bases de datos
+        \draw[arrow] (catalog) -- (db1);
+        \draw[arrow] (cart) -- (db2);
+        \draw[arrow] (order) -- (db3);
+        \draw[arrow] (pricing) -- (db4);
+        \draw[arrow] (offers) -- (db6);
+        \draw[arrow] (geo) -- (db7);
+
+% Etiquetas para las nuevas funcionalidades
+        \node[above=0.2cm of offers, font=\tiny, text=green!60!black] {Gestión de ofertas};
+        \node[above=0.2cm of geo, font=\tiny, text=orange!60!black] {Geolocalización};
+
+    \end{tikzpicture}
+
+\end{solucion}

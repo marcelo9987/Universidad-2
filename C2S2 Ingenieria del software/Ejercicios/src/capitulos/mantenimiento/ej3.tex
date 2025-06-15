@@ -1,0 +1,72 @@
+% !TeX root = ../mantenimiento.tex
+\begin{enunciado}
+    Calcula si los siguientes conjuntos de datos cumplen con el SLO definido:
+    \begin{itemize}
+        \item Relación de éxito de peticiones del 95\%
+        \begin{itemize}
+            \item Peticiones exitosas: 37
+            \item Peticiones fallidas: 5
+        \end{itemize}
+        \item Tiempo de respuesta P90 inferior a 2s:
+        \begin{itemize}
+            \item Tiempos de respuesta de cada petición realizada: 1.3s; 1.2s; 2.3s; 1.9s; 1.7s; 1.8s; 0.9s; 2.1s; 1.1s; 1.4s.
+        \end{itemize}
+        \item Número de compras medio cada 10 minutos: 50
+        \begin{itemize}
+            \item Compras por minuto: 1, 7, 3, 5, 8, 9, 0, 10, 11, 7
+        \end{itemize}
+    \end{itemize}
+\end{enunciado}
+
+\subsection{Métrica 1: Relación de éxito}\label{subsec:metrica-1:-relacion-de-exito}
+Calculamos la tasa de éxito:
+\[
+    T_{\text{éxito}} = \frac{37}{37 + 5} = \frac{37}{42} \approx 0.881 \Rightarrow 88.1\%
+\]
+
+\begin{solucion}[title=parte 1]
+    Como $88.1\% < 95\%$, esta métrica \textbf{no} cumple el SLO\@.
+\end{solucion}
+
+\subsection{Métrica 2: Tiempo de respuesta P90}\label{subsec:metrica-2:-tiempo-de-respuesta-p90}
+Tiempos recogidos:
+\[
+    T = (1.3,\ 1.2,\ 2.3,\ 1.9,\ 1.7,\ 1.8,\ 0.9,\ 2.1,\ 1.1,\ 1.4)
+\]
+Ordenamos:
+\[
+    t = (0.9,\ 1.1,\ 1.2,\ 1.3,\ 1.4,\ 1.7,\ 1.8,\ 1.9,\ 2.1,\ 2.3)
+\]
+Para calcular el percentil $P90$ con $n = 10$, usamos la posición:
+\[
+    i = \lceil 0.9 \cdot n \rceil = \lceil 9 \rceil = 9
+\]
+Entonces:
+\[
+    P90 = t_9 = 2.1\,\text{s}
+\]
+\begin{solucion}[title=parte 2]
+
+    Como $2.1\,\text{s} > 2\,\text{s}$, esta métrica \textbf{no} cumple el SLO\@.
+\end{solucion}
+
+\subsection{Métrica 3: Compras medias}\label{subsec:metrica-3:-compras-medias}
+Suma total de compras:
+\[
+    \sum c = 1 + 7 + 3 + 5 + 8 + 9 + 0 + 10 + 11 + 7 = 61
+\]
+Promedio por minuto:
+\[
+    \mu = \frac{61}{10} = 6.1\quad\Rightarrow\quad 10 \cdot \mu = 61
+\]
+\begin{solucion}[title=parte 3]
+
+    Como $61 \geq 50$, esta métrica \textbf{sí} cumple el SLO\@.
+\end{solucion}
+\begin{solucion}
+    \subsection*{Conclusión}
+    Aunque se cumple la tercera métrica, las dos primeras no lo hacen, por lo tanto:
+    \[
+        \textbf{El SLO no se cumple.}
+    \]
+\end{solucion}

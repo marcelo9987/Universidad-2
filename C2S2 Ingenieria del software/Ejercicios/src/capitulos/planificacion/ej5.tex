@@ -1,0 +1,54 @@
+% !TeX root = ../planificacion.tex
+
+\begin{enunciado}
+    Desarrolla el diagrama de PERT del conjunto de tareas del ejercicio 3.
+    ¿Qué tareas están en el camino crítico?
+\end{enunciado}
+
+\begin{solucion}
+
+    La duración total del proyecto es de \textbf{33 días}, determinada por el camino crítico:
+
+    A → C → E → F → G → H → I → J\@.
+
+    Diagrama PERT de las \textbf{tareas del ejercicio 3}:
+
+    \deactivatequoting
+    \tikz[>={To[sep]}, rotate=90, xscale=-1]
+    \graph [nodes={circle,draw},
+        edges={nodes={inner sep=1pt, anchor=mid}}]
+    {
+        A ->
+            {
+                {
+                B ->
+                    {
+                    D
+                }
+            }
+            ,
+                {
+                C ->
+                    {
+                    E ->
+                        {
+                        F
+                    }
+                }
+            }
+        } ->
+            {
+            G ->
+                {
+                H ->
+                    {
+                    I ->
+                        {
+                        J
+                    }
+                }
+            }
+        }
+    };
+    \activatequoting
+\end{solucion}

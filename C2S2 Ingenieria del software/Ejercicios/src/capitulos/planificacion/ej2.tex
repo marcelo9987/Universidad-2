@@ -1,0 +1,51 @@
+% !TeX root = ../planificacion.tex
+
+
+\begin{enunciado}
+    Se quiere estimar el mismo proyecto mediante la técnica COCOMO II. Tras analizarlo, el proyecto se categoriza como empotrado y el equipo proporciona las siguientes estimaciones probables para cada componente:
+
+    \begin{itemize}[leftmargin=*]
+        \item \textbf{C1:} \qty{7200}{\linesofcode}
+        \item \textbf{C2:} \qty{3900}{\linesofcode}
+        \item \textbf{C3:} \qty{9300}{\linesofcode}
+        \item \textbf{C4:} \qty{8500}{\linesofcode}
+    \end{itemize}
+
+    ¿Cuál es el tiempo de desarrollo en meses asumiendo la misma relación entre estimaciones del ejercicio anterior?
+\end{enunciado}
+
+\subsection{Resolución paso a paso}\label{subsec:resolucion-paso-a-paso}
+
+\subsubsection{Paso 1: Obtención de parámetros COCOMO II}
+
+\begin{importante}
+    Para proyectos \textbf{empotrados}, los valores de COCOMO II son:
+    \begin{align*}
+        a &= 3.6 & c &= 2.5\\
+        b &= 1.20 & d &= 0.32
+    \end{align*}
+\end{importante}
+
+\subsubsection{Paso 2: Cálculo de líneas de código totales}
+\begin{align}
+    \text{LOC total} &= 7200 + 3900 + 9300 + 8500 = 28900\\
+    \text{KLOC} &= \frac{28900}{1000} = \boxed{28.9 \text{ KLOC}}
+\end{align}
+
+\subsubsection{Paso 3: Cálculo del esfuerzo (E)}
+\begin{align}
+    E &= a \cdot (\text{KLOC})^b\\
+    E &= 3.6 \cdot (28.9)^{1.20}\\
+    E &= 3.6 \cdot 56.634 = \boxed{203.88 \text{ persona-meses}}
+\end{align}
+
+\subsubsection{Paso 4: Cálculo del tiempo de desarrollo (D)}
+\begin{align}
+    D &= c \cdot (E)^d\\
+    D &= 2.5 \cdot (203.88)^{0.32}\\
+    D &= 2.5 \cdot 5.483 = \boxed{13.71 \text{ meses}}
+\end{align}
+
+\begin{solucion}
+    El tiempo de desarrollo estimado es de \textbf{13.71 meses}.
+\end{solucion}
