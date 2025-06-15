@@ -1,10 +1,9 @@
-% !TEX root = ./apuntesIngenieriaDelSoftware_20242025.tex
 \documentclass[a4paper,11pt]{report}
 
 
 % Codificación e idioma
-% \usepackage[utf8]{inputenc}
-% \usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 
 % Paquetes para estilo e utilidades
@@ -30,6 +29,7 @@
 
 \usepackage{etoc}
 \usepackage{appendix}
+\usepackage{amssymb}
 
 \usetikzlibrary
 {
@@ -122,7 +122,7 @@
 \setcounter{tocdepth}{2} % TOC global ata section
 
 % Metadatos
-\title{Apuntes Completos \\ \large Ingeniería del Software \\ Universidad de Antonio de Nebrija}
+\title{Apuntes Completos \\[1ex] \large Ingeniería del Software \\ Universidad de Antonio de Nebrija}
 \author{Marcelo Fort Muñoz}
 \date{\today}
 
@@ -151,6 +151,7 @@
     \chapter{Modelado del software}\label{ch:modelado-del-software}
     \input{capitulos/modelado-del-software}
 
+
     \chapter{Planificación de proyectos}\label{ch:planificacion-de-proyectos}
     \input{capitulos/planificacion-de-proyectos}
 
@@ -163,74 +164,6 @@
     \input{capitulos/mantenimiento}
 
     \chapter*{Anexos}
-    \addcontentsline{toc}{chapter}{Anexos}
-    \phantomsection
-
-    \clearpage
-
-
-    \section*{Anexo 1: Explicación de la Administración de Configuración de Software (ACS)}
-    \addcontentsline{toc}{section}{Anexo 1: Explicación de la Administración de Configuración de Software (ACS)}
-    \phantomsection
-
-    \begin{multicols}{2}
-
-        \begin{cajaazul}[¿Qué es ACS?]
-            La Administración de Configuración de Software (ACS) es un conjunto de \textbf{procesos y herramientas} para gestionar los \textbf{cambios} en productos software durante todo su ciclo de vida.
-
-            Va más allá de controlar solo versiones, integrando \textbf{documentación, dependencias, auditorías y trazabilidad}.
-        \end{cajaazul}
-
-        \vspace{0.5em}
-
-        \begin{cajaverde}[Componentes principales]
-            \begin{itemize}[leftmargin=*]
-                \item \textbf{Control de versiones}: Histórico y gestión de versiones.
-                \item \textbf{Gestión de dependencias}: Control de relaciones entre componentes.
-                \item \textbf{Gestión de cambios}: Registro, planificación y aprobación.
-                \item \textbf{Auditoría y trazabilidad}: Seguimiento detallado de cambios.
-            \end{itemize}
-        \end{cajaverde}
-
-        \vspace{0.5em}
-        \deactivatequoting
-        \begin{cajanaranja}[Diferencias con Git]
-            \begin{itemize}[leftmargin=*]
-                \item \textbf{Alcance mayor}: Incluye código, documentación, requisitos, configuraciones\ldots
-                \item \textbf{Procesos integrados}: Control de flujos y aprobaciones.
-                \item \textbf{Trazabilidad}: Desde requisitos hasta entregables.
-            \end{itemize}
-        \end{cajanaranja}
-        \activatequoting
-        \vspace{0.5em}
-
-        \begin{cajarosa}[Beneficios]
-            \begin{itemize}[leftmargin=*]
-                \item Mejora la calidad y estabilidad.
-                \item Facilita el trabajo en equipos grandes.
-                \item Reduce errores por cambios no controlados.
-                \item Permite auditorías y cumplimiento.
-            \end{itemize}
-        \end{cajarosa}
-
-        \vspace{0.5em}
-
-        \begin{cajaroja}[¿Por dónde empezar?]
-            \begin{itemize}[leftmargin=*]
-                \item Usa un sistema de control de versiones (ej.\ Git).
-                \item Documenta los elementos de configuración.
-                \item Define políticas y procesos claros.
-                \item Usa herramientas de seguimiento (p.ej.\ Jira).
-                \item Forma al equipo en buenas prácticas.
-            \end{itemize}
-        \end{cajaroja}
-
-    \end{multicols}
-
-    \vspace{1em}
-    \begin{center}
-        \small\textit{Este anexo es una introducción visual y resumida para entender la Administración de Configuración de Software.}
-    \end{center}
-
+    \input{capitulos/anexos}
 
 \end{document}
