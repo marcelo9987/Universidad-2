@@ -98,7 +98,7 @@
     bottom=8pt
 }
 
-\newtcolorbox{solucion}[1][]{
+\newtcolorbox{solucion}[1][Solución]{
     enhanced,
     breakable,
     colback=white,
@@ -118,7 +118,7 @@
     right=6pt,
     top=8pt,
     bottom=6pt,
-    #1
+    title=#1
 }
 
 \newtcolorbox{importante}{
@@ -256,5 +256,15 @@
 
     \part{\textcolor{primaryblue}{Mantenimiento}}\label{part:mantenimiento}
     \input{capitulos/mantenimiento}
+
+    \clearpage
+
+    \part{\textcolor{orange}{Examen parcial 2023}}\label{part:examen-parcial-2023}
+    \input{examenes/examen-parcial-2023}
+
+    \clearpage
+
+    \part{\textcolor{orange}{Examen parcial 2024}}\label{part:examen-parcial-2024}
+    \input{examenes/examen-parcial-2024}
 
 \end{document}
