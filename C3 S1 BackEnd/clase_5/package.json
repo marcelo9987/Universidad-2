@@ -2,15 +2,16 @@
   "name": "clase_5",
   "version": "1.0.0",
   "description": "",
-  "main": "1_001.ts",
+  "main": "1_axios.ts",
   "scripts": {
-    "start": "ts-node 1_001.ts",
-    "build": "tsc 1_001.ts",
-    "dev": "nodemon --exec ts-node 1_001.ts"
+    "start": "ts-node 1_axios.ts",
+    "build": "tsc 1_axios.ts",
+    "dev": "nodemon --exec ts-node 1_axios.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "module",
   "devDependencies": {
     "@types/axios": "^0.9.36",
     "@types/node": "^24.5.2",
