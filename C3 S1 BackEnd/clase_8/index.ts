@@ -35,10 +35,9 @@ type Character = {
 const getEpisodesFromCharacter = async (id: number) =>
     {
         const personaje:Character = (await axios.get("https://rickandmortyapi.com/api/character/" + id)).data;
-        // const episodios:Episode[] = await Promise.all(
+
         try
             {
-
                 const episodios: Array<Episode> = await Promise.all(personaje.episode.map(async (ep: string) =>
                     {
                         return (await axios.get(ep)).data;
