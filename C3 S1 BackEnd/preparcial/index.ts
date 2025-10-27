@@ -99,16 +99,16 @@ const testApi = (async () =>
                 "name": "Bulls", "city": "Chicago", "titles": 6
             });
 
-            console.log(" Respuesta de la insercción:", eq.data, "\n");
+            console.log(" Respuesta de la inserción:", eq.data, "\n");
         }
         catch (error: any)
         {
-            console.log(" Error en la insercción:", error.response.data);
+            console.log(" Error en la inserción:", error.response.data);
         }
 
-        console.log(" 6-7. Equipos en memoria tras la insercción:");
+        console.log(" 6-7. Equipos en memoria tras la inserción:");
         const equipos = (await axios.get("http://localhost:3000/teams")).data;
-        console.log( equipos, "\n");
+        console.log(equipos, "\n");
     }
 
     // 8-9. Eliminar el equipo recién creado (ID 3)
