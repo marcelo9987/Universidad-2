@@ -1,0 +1,37 @@
+% !TeX root = ../modelado.tex
+
+
+\begin{enunciado}
+    Clasifica los siguientes requisitos de una aplicación de gestión de clases para profesores como
+    funcionales, no funcionales o ninguno de los dos:
+    \begin{enumerate}
+        \item Registro de estudiantes
+        \item La aplicación debe seguir el patrón MVC
+        \item Registro de asistencia de los estudiantes
+        \item Todos los profesores de la universidad deben poder hacer uso de la aplicación al mismo
+        tiempo
+        \item Creación y asignación de tareas y proyectos
+        \item Enviar mensajes a los estudiantes
+        \item Los datos de los estudiantes deben estar cifrados
+        \item Cada operación debe realizarse en menos de un segundo
+        \item El diseño estético debe ser atractivo
+        \item La aplicación debe estar disponible las 24 horas los 7 días de la semana
+        \item Programación de horarios de clase
+    \end{enumerate}
+\end{enunciado}
+
+\begin{solucion}
+    \begin{enumerate}
+        \item{\textbf{Registro de estudiantes}:} Funcional
+        \item{\textbf{Patrón MVC}:} Ninguno (otros)
+        \item{\textbf{Registro de asistencia}:} Funcional
+        \item{\textbf{Requisito de cantidad de acceso}:} No funcional (De producto, Reliability)
+        \item{\textbf{Creación y asignación de tareas y proyectos}:} Funcional
+        \item{\textbf{Enviar mensaje a un estudiante}:} Funcional
+        \item{\textbf{Los datos deben estar cifrados}: No funcional (Externa, legislativo, privacidad)}
+        \item{\textbf{Cada operación debe durar menos de \qty{1}{\second}}:} No funcional (Requisito de proceso)
+        \item{\textbf{Diseño atractivo}:} No es un requerimiento (Tal vez delivery)
+        \item{\textbf{Aplicación en línea 24/7}:} No funcional (Producto, Fiabilidad)
+        \item{\textbf{Programación de horarios de clase}:} Funcional
+    \end{enumerate}
+\end{solucion}

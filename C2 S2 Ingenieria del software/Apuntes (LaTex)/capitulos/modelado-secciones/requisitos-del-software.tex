@@ -1,0 +1,612 @@
+    \subsection{Principios de comunicación}\label{subsec:principios-de-comunicacion}
+
+    \begin{enumerate}
+
+        \item Escuchar activamente.
+
+        \item Prepararse previamente.
+
+        \item Facilitar la comunicación (agenda, mediador).
+
+        \item Comunicación cara a cara.
+
+        \item Documentar decisiones clave.
+
+        \item Fomentar colaboración.
+
+        \item Seguir agenda.
+
+        \item Apoyar con representación gráfica.
+
+        \item Avanzar ante bloqueos.
+
+        \item Negociar de forma equilibrada.
+
+    \end{enumerate}
+
+    \subsection{Definición de requisito}\label{subsec:definicion-de-requisito}
+
+    \begin{definicion}
+
+        \textbf{Requisito:} Descripción detallada de una funcionalidad o característica deseada.
+        Guía el diseño, implementación y prueba.
+
+    \end{definicion}
+
+    \subsection{Tipos de Requisitos}\label{subsec:tipos-de-requisitos}
+
+    \subsubsection{Funcionales}\label{subsubsec:requisitos-funcionales}
+
+    \paragraph{Qué:} Describe qué debe hacer el software
+
+    \begin{exemplo}
+        \begin{itemize}
+            \item Permitir ingresar información de contacto
+
+            \item Calcular impuesto sobre renta
+
+            \item Generar informe contable
+        \end{itemize}
+    \end{exemplo}
+
+    \subsubsection{No Funcionales}
+
+    \paragraph{Cómo:} Describe cómo debe comportarse el software
+
+    \begin{exemplo}
+        \begin{itemize}
+            \item Disponibilidad 24/7
+
+            \item Compatibilidad multi-SO/navegador
+
+            \item Tiempo de respuesta < 1 minuto
+        \end{itemize}
+    \end{exemplo}
+
+    \subsection{Clasificación de requisitos no funcionales}\label{subsec:clasificacion-de-requisitos-no-funcionales}
+
+    Los Requisitos No Funcionales se dividen en tres categorías principales:
+
+    \subsubsection{1. Product Requirements (Requisitos del Producto)}
+
+    Definen las características intrínsecas del software:
+
+
+    \begin{itemize}
+
+        \item Usability Requirements (Requisitos de Usabilidad)
+        \begin{itemize}
+
+            \item Facilidad de uso e interfaz intuitiva
+
+            \item Experiencia del usuario (UX)
+
+            \item Accesibilidad
+
+        \end{itemize}
+
+
+
+        \item Portability Requirements (Requisitos de Portabilidad)
+        \begin{itemize}
+
+            \item Capacidad de ejecutarse en diferentes plataformas
+
+            \item Adaptabilidad a distintos sistemas operativos
+
+            \item Compatibilidad multiplataforma
+
+        \end{itemize}
+
+
+
+        \item Efficiency Requirements (Requisitos de Eficiencia)
+        \begin{itemize}
+
+            \item Uso optimizado de recursos del sistema
+
+            \item Gestión eficiente de memoria y CPU
+
+            \item Tiempos de respuesta
+
+        \end{itemize}
+
+
+
+        \item Reliability Requirements (Requisitos de Confiabilidad)
+        \begin{itemize}
+
+            \item Disponibilidad del sistema
+
+            \item Tolerancia a fallos
+
+            \item Recuperación ante errores
+
+        \end{itemize}
+
+
+
+        \item Performance Requirements (Requisitos de Rendimiento) (subtipo de Eficiencia)
+        \begin{itemize}
+
+            \item Velocidad de procesamiento
+
+            \item Throughput (rendimiento)
+
+            \item Tiempos de respuesta específicos
+
+        \end{itemize}
+
+
+
+        \item Space Requirements (Requisitos de Espacio) (subtipo de Eficiencia)
+        \begin{itemize}
+
+            \item Limitaciones de almacenamiento
+
+            \item Uso de memoria
+
+            \item Capacidad de datos
+
+        \end{itemize}
+
+
+    \end{itemize}
+
+    \subsubsection{2. Process Requirements (Requisitos del Proceso)}
+
+    Relacionados con el desarrollo y despliegue:
+
+
+    \begin{itemize}
+
+        \item Delivery Requirements (Requisitos de Entrega)
+        \begin{itemize}
+
+            \item Plazos de desarrollo
+
+            \item Metodología de entrega
+
+            \item Hitos del proyecto
+
+        \end{itemize}
+
+
+
+        \item Implementation Requirements (Requisitos de Implementación)
+        \begin{itemize}
+
+            \item Lenguajes de programación específicos
+
+            \item Herramientas de desarrollo
+
+            \item Estándares de codificación
+
+        \end{itemize}
+
+
+
+        \item Standards Requirements (Requisitos de Estándares)
+        \begin{itemize}
+
+            \item Cumplimiento de normativas
+
+            \item Estándares de la industria
+
+            \item Protocolos específicos
+
+        \end{itemize}
+
+
+    \end{itemize}
+
+    \subsubsection{3. External Requirements (Requisitos Externos)}
+
+    Impuestos por factores externos al sistema:
+
+
+    \begin{itemize}
+
+        \item Interoperability Requirements (Requisitos de Interoperabilidad)
+        \begin{itemize}
+
+            \item Integración con otros sistemas
+
+            \item Intercambio de datos
+
+            \item APIs y protocolos de comunicación
+
+        \end{itemize}
+
+
+
+        \item Ethical Requirements (Requisitos Éticos)
+        \begin{itemize}
+
+            \item Consideraciones morales
+
+            \item Impacto social
+
+            \item Responsabilidad corporativa
+
+        \end{itemize}
+
+
+
+        \item Legislative Requirements (Requisitos Legislativos)
+        \begin{itemize}
+
+            \item Cumplimiento legal
+
+            \item Regulaciones gubernamentales
+
+            \item Normativas específicas del sector
+
+        \end{itemize}
+
+
+
+        \item Privacy Requirements (Requisitos de Privacidad) (subtipo de Legislativos)
+        \begin{itemize}
+
+            \item Protección de datos personales
+
+            \item GDPR/LOPD
+
+            \item Gestión de información sensible
+
+        \end{itemize}
+
+
+
+        \item Safety Requirements (Requisitos de Seguridad) (subtipo de Legislativos)
+        \begin{itemize}
+
+            \item Protección contra amenazas
+
+            \item Seguridad de datos
+
+            \item Control de acceso
+        \end{itemize}
+
+    \end{itemize}
+
+    \subsection{Dificultades Comunes}\label{subsec:dificultades-comunes}
+
+    \begin{itemize}
+
+        \item Alcance: Fronteras mal definidas
+
+        \item Entendimiento: Usuarios inseguros, información \textquote{obvia} omitida, requisitos ambiguos o en conflicto, \ldots
+
+        \item Volatilidad: Requisitos cambian con el tiempo
+    \end{itemize}
+
+    \subsubsection{Impacto}
+    Estas dificultades pueden llevar a:
+
+    \begin{itemize}
+
+        \item 15\% del tiempo en definir requisitos.
+
+        \item Cambiar requisitos tras entrega cuesta de 60 a 100 veces más.
+
+        \item 56\% de errores por especificación incorrecta.
+
+        \item Solo 2\% del software entregado cumple completamente.
+
+    \end{itemize}
+
+    \subsection{Ingeniería de requisitos}\label{subsec:ingenieria-de-requisitos}
+    Para desarrollar un software de calidad, es fundamental una buena ingeniería de requisitos.
+    Para ello, se sigue un proceso iterativo que incluye:
+
+    \begin{itemize}
+        \item Concepción Necesidad inicial.
+        Identificar la necesidad del software y su contexto.
+
+        \item \textbf{Indagación} Preguntas organizadas sobre objetivos.
+        ¿Qué, por qué y cómo?
+
+        \item \textbf{Elaboración:} Modelo refinado, escenarios usuario, diagramas
+
+        \item \textbf{Negociación:} Priorizar, resolver conflictos
+
+        \item \textbf{Especificación:} Documentación formal
+
+        \item \textbf{Validación:} Detectar ambigüedades, inconsistencias y verificar con usuarios
+
+        \item \textbf{Administración:} Controlar cambios, versiones y trazabilidad
+    \end{itemize}
+
+    \subsection*{1. Indagación de requisitos}\label{subsec:indagacion-de-requisitos}
+%    \etoctoccontentsline{subsection}{Indagación de requisitos}{2}
+%    \etocimmediatetoccontentsline{subsection}{Indagación de requisitos}
+    \addcontentsline{toc}{subsubsection}{1. Indagación de requisitos}
+
+    La indagación de requisitos es una fase crítica donde se obtienen y refinan los requisitos del software.
+    En esta fase distinguen dos actividades principales:
+
+    \subsubsection*{1. Preparación}
+
+
+    Antes de capturar los requisitos, es esencial una fase de preparación que garantice el éxito de la indagación.
+    Esta comienza con la \textbf{identificación de los participantes}, es decir, todas las personas relevantes para el sistema: solicitantes, usuarios finales y otros perfiles implicados.
+
+
+    A continuación, se realiza la \textbf{recepción y análisis de la concepción}, un documento preliminar que describe de forma general la necesidad o el problema.
+    Esta revisión ayuda a entender el contexto, anticipar posibles temas clave y preparar la discusión.
+
+
+    Una vez analizada la concepción, se elabora una \textbf{agenda de indagación} que guíe las reuniones y asegure que se aborden todos los puntos críticos:
+
+    \begin{itemize}
+
+        \item Quién es el solicitante.
+
+        \item Qué perfil tienen los usuarios.
+
+        \item Cuál es el problema a resolver.
+
+        \item Cómo se definiría una solución exitosa.
+
+        \item Qué otros participantes deben considerarse en el proceso.
+
+    \end{itemize}
+
+    \subsubsection*{2. Captura de requisitos}
+
+
+    Durante la indagación, los requisitos pueden obtenerse mediante:
+
+    \begin{itemize}
+
+        \item Entrevistas estructuradas.
+
+        \item Lluvia de ideas (brainstorming).
+
+        \item Observación directa del entorno.
+
+        \item Análisis de sistemas similares.
+
+        \item Prototipos de baja fidelidad.
+
+    \end{itemize}
+
+    \subsubsection*{3. Tipos de requisitos según el cliente}
+
+
+    \begin{itemize}
+
+        \item \textbf{Normales:} Son los que el cliente solicita explícitamente.
+
+        \item \textbf{Esperados:} No se mencionan, pero se asumen necesarios.
+
+        \item \textbf{Emocionantes:} Superan las expectativas del cliente y generan satisfacción.
+
+    \end{itemize}
+
+    \subsection*{2. Elaboración}\label{subsec:elaboracion}
+    \addcontentsline{toc}{subsubsection}{2. Elaboración}
+
+    La elaboración es una fase donde se refinan los requisitos obtenidos en la indagación.
+
+    \subsubsection*{Casos de uso}
+
+    \begin{definicion}
+        Un \textbf{caso de uso} describe una secuencia de acciones entre un actor y el sistema.
+        Representa una unidad de funcionalidad y permite estimar, verificar y priorizar el trabajo.
+        Cada caso puede dividirse en varios escenarios (principales o alternativos), y cada actor representa un conjunto de roles del usuario.
+    \end{definicion}
+
+    \paragraph{Características}
+
+    \begin{itemize}
+
+        \item Valorados por clientes
+
+        \item Estimables (implementación independiente)
+
+        \item Pequeños (fácil estimación)
+
+        \item Verificables
+    \end{itemize}
+
+
+
+    \begin{exemplo}
+        \textbf{Especificación de un caso de uso:}
+
+        \begin{itemize}
+
+            \item Nombre: Nombre del caso de uso
+
+            \item Actor/es: Rol del usuario (o entidad(es)) que interactúa con el sistema
+
+            \item Descripción: Breve resumen de la funcionalidad
+
+            \item Precondiciones: Condiciones que deben cumplirse antes de iniciar el caso de uso, se asumen ciertas.
+
+            \item Dependencias: Otros casos de uso o requisitos que deben cumplirse
+
+            \item Escenario principal: Secuencia de pasos que describe la interacción normal entre el actor y el sistema
+
+            \item Excepciones: Condiciones especiales o errores que pueden ocurrir durante la ejecución del caso de uso
+
+            \item Prioridad (P0, P1, \ldots): Importancia del caso de uso
+
+        \end{itemize}
+    \end{exemplo}
+
+    \subsubsection*{Historias de usuario}
+
+    \begin{definicion}
+        Descripción breve y sencilla, escrita en lenguaje natural y enfocada en
+        las necesidades del usuario, que sirve como base para el desarrollo de
+        una característica del software.
+    \end{definicion}
+
+    \begin{exemplo}
+
+        \textit{\textquote{[rol], quiero [función] para [beneficio]}}
+    \end{exemplo}
+
+    Una historia específica podría ser:
+
+    \begin{exemplo}
+
+        \begin{quote}
+
+            Como usuario de la aplicación de compras quiero ver el estado de mis pedidos para saber cuáles están en proceso de envío.
+
+        \end{quote}
+
+    \end{exemplo}
+
+    No son requisitos ni sustituyen a los casos de uso, pero ayudan a centrar el desarrollo en el valor para el usuario y permiten definir criterios de aceptación.
+    En la \autoref{tab:casos-de-uso-vs-historias-de-usuario} se muestra una comparación entre casos de uso y historias de usuario.
+
+    \subsubsection*{Casos de uso vs Historias de usuario}
+
+
+    \begin{itemize}
+
+        \item \textbf{Casos de uso:} Más detallados, útiles para stakeholders.
+
+        \item \textbf{Historias de usuario:} Más ágiles, enfocadas al equipo de desarrollo.
+
+    \end{itemize}
+
+
+    \begin{table}
+        \centering
+        \begin{tabular}{lll}
+            \toprule
+            \textbf{Aspecto}       & \textbf{Casos Uso}          & \textbf{Historias Usuario} \\
+            \midrule
+            Agilismo               & Indiferente                 & Sí                         \\
+            Representan requisitos & Sí                          & No                         \\
+            Describen              & Interacciones actor-sistema & Capacidades usuario        \\
+            Útil para              & Stakeholders/Clientes       & Equipo desarrollo          \\
+            \bottomrule
+        \end{tabular}
+        \caption{Comparación entre Casos de Uso y Historias de Usuario}
+        \label{tab:casos-de-uso-vs-historias-de-usuario}
+    \end{table}
+
+
+
+
+    Ambos permiten priorización y ponen al usuario en el centro.
+
+    \subsection*{3.Negociación y especificación}\label{subsec:3.negociacion-y-especificacion}
+    \addcontentsline{toc}{subsubsection}{3. Negociación y especificación}
+
+
+    Durante la negociación, se ajustan expectativas, prioridades y limitaciones.
+    Se analiza el coste, el tiempo y el alcance del producto.
+    De este proceso resultan dos documentos clave:
+
+
+    \begin{itemize}
+
+        \item \textbf{DRU (Documento de Requisitos del Usuario):} Qué problema resolver.
+
+        \item \textbf{ERS (Especificación de Requisitos del Software):} Qué debe hacer el sistema para alcanzar los objetivos del DRU\@.
+
+    \end{itemize}
+
+
+    \subsection*{4. Validación}\label{subsec:4.-validacion}
+    \addcontentsline{toc}{subsubsection}{4. Validación}
+
+
+    Se realiza para asegurar:
+
+    \begin{itemize}
+
+        \item Coherencia entre requisitos y resultado esperado.
+
+        \item Priorización adecuada.
+
+        \item Ausencia de ambigüedades.
+
+        \item Viabilidad y resolución de conflictos.
+
+    \end{itemize}
+
+
+    \textbf{Técnicas:} revisión por expertos, prototipado, validación de modelos, verificación de testabilidad.
+
+
+    \subsection*{5. Gestión}
+    \addcontentsline{toc}{subsubsection}{5. Gestión}
+    \phantomsection
+
+
+    La gestión consiste en supervisar los requisitos a lo largo de todo el ciclo de vida del producto.
+    Incluye:
+
+
+    \begin{itemize}
+
+        \item Registro de cambios y asegurar la consistencia entre los requisitos y el sistema.
+
+        \item Repriorización.
+
+        \item Adición o eliminación de requisitos.
+
+        \item Seguimiento del estado de cada uno.
+
+    \end{itemize}
+
+    \subsection{Modelado de requisitos}\label{subsec:modelado-de-requisitos}
+
+
+    El modelado de requisitos tiene como objetivo representar, de forma gráfica o estructurada, los distintos aspectos del sistema desde el punto de vista de los usuarios, del dominio de información y del comportamiento del software.
+    Permite comunicar mejor las necesidades del sistema, detectar inconsistencias y preparar el diseño.
+
+
+    \textbf{Tipos de diagramas:}
+
+    \begin{itemize}
+
+        \item \textbf{Basados en escenarios:} describen interacciones usuario-sistema.
+        Incluyen casos de uso y sus escenarios.
+
+        \item \textbf{De datos:} muestran entidades, atributos y relaciones (diagramas E–R).
+
+        \item \textbf{Orientados a clases:} presentan clases, atributos, métodos y relaciones (herencia, asociación\ldots).
+
+        \item \textbf{De flujo:} representan transformación y circulación de datos.
+
+        \item \textbf{De comportamiento:} representan estados del sistema y transiciones ante eventos.
+
+    \end{itemize}
+
+
+    \textbf{Lenguaje de modelado UML:}
+
+    \begin{itemize}
+
+        \item \textbf{Diagramas estructurales:} clases, objetos, componentes, despliegue.
+
+        \item \textbf{Diagramas de comportamiento:} casos de uso, secuencia, estados, colaboración.
+
+    \end{itemize}
+
+
+    \textbf{Ventajas del modelado:}
+
+    \begin{itemize}
+
+        \item Mejora la comprensión y comunicación.
+
+        \item Detecta errores e inconsistencias tempranas.
+
+        \item Sirve como base para diseño y validación.
+
+    \end{itemize}
+
+
+    % --- **** ---- **** ---- **** ---- **** ---- **** ---- **** ---- **** ---- **** ---- **** ---- **** ---- **** ----

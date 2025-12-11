@@ -1,0 +1,52 @@
+% !TeX root = ../calidad.tex
+
+\begin{enunciado}
+    Calcula el número de errores que verán los usuarios finales para un proyecto en el que sucede lo siguiente:
+    \begin{itemize}
+        \item En el modelo de requerimientos se han cometido 10 errores y cada uno se amplifica en un factor de 2:1 en el diseño.
+        \item En el diseño se cometen otros 20 errores adicionales, que luego se amplifican en un factor de 1.5:1 en el código.
+        \item En el código se cometen otros 30 errores adicionales.
+        \item Las pruebas unitarias encuentran un 20\% de todos los errores.
+        \item Las pruebas de integración descubren el 50\% de los errores restantes.
+        \item Las pruebas de validación/aceptación hallan el 50\% de los que queden.
+        \item Tras las pruebas se pone el nuevo software en marcha.
+    \end{itemize}
+\end{enunciado}
+
+\subsection{Datos}\label{subsec:datos}
+\begin{itemize}
+    \item Errores en requisitos: $10$ errores.
+
+    Amplificación en diseño: $10 \cdot 2 = 20$ errores.
+
+
+    \item Errores de diseño adicionales: $20$ errores.
+
+
+    Total de errores diseño: $20 + 20 = 40$ errores.
+
+    Amplificación en código: $40 \cdot 1.5 = 60$ errores.
+
+
+    \item Errores adicionales en código: $30$ errores.
+
+    Total de errores en código: $60 + 30 = 90$ errores.
+
+
+\end{itemize}
+
+\hrulefill
+
+\subsection{Cálculo de errores tras las pruebas}\label{subsec:calculo-de-errores-tras-las-pruebas}
+\begin{itemize}
+    \item Pruebas unitarias detectan el 20\%: $90 \cdot 0.20 = 18$ errores detectados.
+    Errores restantes: $90 - 18 = 72$.
+    \item Pruebas de integración detectan el 50\% de los restantes: $72 \cdot 0.50 = 36$ errores detectados.
+    Errores restantes: $72 - 36 = 36$.
+    \item Pruebas de validación detectan el 50\% de los restantes: $36 \cdot 0.50 = 18$ errores detectados.
+    Errores restantes: $36 - 18 = 18$.
+\end{itemize}
+
+\begin{solucion}
+    El total de errores que verán los usuarios finales es de \boxed{\textbf{18 errores}}.
+\end{solucion}

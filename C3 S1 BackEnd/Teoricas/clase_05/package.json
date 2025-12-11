@@ -1,0 +1,25 @@
+{
+  "name": "clase_5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1_axios.ts",
+  "scripts": {
+    "start": "ts-node 1_axios.ts",
+    "build": "tsc 1_axios.ts",
+    "dev": "nodemon --exec ts-node 1_axios.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@types/axios": "^0.9.36",
+    "@types/node": "^24.5.2",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "axios": "^1.12.2"
+  }
+}

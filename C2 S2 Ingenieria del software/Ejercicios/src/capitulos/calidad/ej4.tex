@@ -1,0 +1,71 @@
+% !TeX root = ../calidad.tex
+\begin{enunciado}
+    Indica si las siguientes pruebas funcionales son de caja blanca, caja gris o caja negra:
+    \begin{enumerate}
+        \item Comprobar que, al introducir un título erróneo, no se encuentra ninguna película.
+        \item Comprobar el almacenamiento de los datos de cliente en base de datos.
+        \item Comprobar el algoritmo de ordenación de registros.
+        \item Comprobar la funcionalidad de login.
+        \item Comprobar que el servicio de traducción de títulos de película funciona correctamente.
+        \item Comprobar que es posible evaluar una película.
+        \item Comprobar que el servicio de evaluación puede recuperar los atributos de una película.
+        \item Comprobar que el tiempo de respuesta del servicio de búsqueda es inferior a 1 segundo
+    \end{enumerate}
+\end{enunciado}
+
+\begin{solucion}
+    \begin{enumerate}
+        \item Comprobar que, al introducir un título erróneo, no se encuentra ninguna película.
+
+        \textbf{Tipo:} Caja negra
+
+        \textbf{Justificación:} Se prueba la funcionalidad externa (entrada/salida) sin analizar el código interno.
+        Es un caso de validación desde la perspectiva del usuario.
+
+        \item Comprobar el almacenamiento de los datos de cliente en base de datos.
+
+        \textbf{Tipo:} Caja gris
+
+        \textbf{Justificación:} Implica verificar la interacción entre componentes (aplicación y base de datos), típico de pruebas de integración donde se combina conocimiento externo e interno.
+
+        \item Comprobar el algoritmo de ordenación de registros.
+
+        \textbf{Tipo:} Caja blanca
+
+        \textbf{Justificación:} Requiere analizar la lógica interna del algoritmo (estructuras, bucles, condiciones).
+        Es una prueba unitaria de bajo nivel.
+
+        \item Comprobar la funcionalidad de login.
+
+        \textbf{Tipo:} Caja negra
+
+        \textbf{Justificación:} Se valida el comportamiento externo del sistema (usuario/contraseña → acceso), sin revisar la implementación.
+        Es una prueba de aceptación.
+
+        \item Comprobar que el servicio de traducción de títulos de película funciona correctamente.
+
+        \textbf{Tipo:} Caja negra
+
+        \textbf{Justificación:} Se evalúa el resultado (traducción correcta/incorrecta) desde la interfaz, sin inspeccionar el código del servicio.
+
+        \item Comprobar que es posible evaluar una película.
+
+        \textbf{Tipo:} Caja negra
+
+        \textbf{Justificación:} Prueba funcional de extremo a extremo (flujo de usuario), centrada en requisitos externos, no en implementación.
+
+        \item Comprobar que el servicio de evaluación puede recuperar los atributos de una película.
+
+        \textbf{Tipo:} Caja gris
+
+        \textbf{Justificación:} Involucra la integración entre servicios (evaluación y recuperación de datos), combinando aspectos de caja negra y blanca.
+        Si se realiza desde la interfaz sin conocimiento interno, también podría considerarse caja negra.
+
+        \item Revisar que el tiempo de respuesta del servicio de búsqueda es inferior a 1 segundo.
+
+        \textbf{Tipo:} Caja negra
+
+        \textbf{Justificación:} Es una prueba no funcional (rendimiento), pero al medirse desde la interfaz externa sin analizar código interno, se clasifica como caja negra.
+    \end{enumerate}
+
+\end{solucion}

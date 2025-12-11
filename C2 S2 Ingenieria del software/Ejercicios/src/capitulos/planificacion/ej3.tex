@@ -1,0 +1,109 @@
+% !TeX root = ../planificacion.tex
+
+\begin{enunciado}
+    Desarrolla el diagrama de Gantt del siguiente conjunto de tareas:
+
+    \begin{itemize}[leftmargin=*]
+        \item \textbf{A.} 2 días (No depende de ninguna tarea)
+        \item \textbf{B.} 5 días (Depende de la tarea A)
+        \item \textbf{C.} 7 días (Depende de la tarea A)
+        \item \textbf{D.} 3 días (Depende de la tarea B)
+        \item \textbf{E.} 3 días (Depende de la tarea C)
+        \item \textbf{F.} 2 días (Depende de la tarea E)
+        \item \textbf{G.} 10 días (Depende de la tarea D y F)
+        \item \textbf{H.} 5 días (Depende de la tarea G)
+        \item \textbf{I.} 3 días (Depende de la tarea H)
+        \item \textbf{J.} 1 día (Depende de la tarea I)
+    \end{itemize}
+\end{enunciado}
+
+\subsection{Análisis de dependencias}\label{subsec:analisis-de-dependencias}
+
+\begin{table}[hbtp]
+    \centering
+    \caption{Tabla de tareas, duración y dependencias}
+    \label{tab:dependencias}
+    \begin{tabular}{@{}ccc@{}}
+        \toprule
+        \textbf{Tarea} & \textbf{Duración (días)} & \textbf{Dependencias} \\
+        \midrule
+        A              & 2                        & $\emptyset$           \\
+        B              & 5                        & A                     \\
+        C              & 7                        & A                     \\
+        D              & 3                        & B                     \\
+        E              & 3                        & C                     \\
+        F              & 2                        & E                     \\
+        G              & 10                       & D y F                 \\
+        H              & 5                        & G                     \\
+        I              & 3                        & H                     \\
+        J              & 1                        & I                     \\
+        \bottomrule
+    \end{tabular}
+
+
+\end{table}
+
+\deactivatequoting
+
+\subsection{Diagrama de Gantt}\label{subsec:diagrama-de-gantt}
+
+\begin{ganttchart}[
+    canvas/.append style={fill=none, draw=black!10, line width=.75pt},
+    hgrid style/.style={draw=black!10, line width=.75pt},
+    vgrid={*1{draw=black!10, line width=.75pt}},
+    title/.style={draw=none, fill=none},
+    title label font=\bfseries\footnotesize,
+    title label anchor/.style={below=7pt},
+    include title in canvas=false,
+    bar label font=\mdseries\small\color{darkgray},
+    bar label anchor/.style={left=2cm},
+    bar/.append style={draw=none, fill=primaryblue!70},
+    bar height=0.6,
+    group height=.5,
+    inline
+]{1}{33}
+
+% Título principal
+    \gantttitle{\textbf{\textcolor{primaryblue}{Diagrama de Gantt del Proyecto}}}{33} \\
+
+% Subtítulos por semanas
+    \gantttitle{\textcolor{darkgray}{Semana 1}}{7}
+    \gantttitle{\textcolor{darkgray}{Semana 2}}{7}
+    \gantttitle{\textcolor{darkgray}{Semana 3}}{7}
+    \gantttitle{\textcolor{darkgray}{Semana 4}}{7}
+    \gantttitle{\textcolor{darkgray}{Semana 5}}{5} \\
+
+% Días
+    \gantttitlelist{1,...,33}{1} \\
+
+% Tareas con colores diferenciados
+    \ganttbar[name=tareaA, bar/.append style={fill=red!70}]{A}{1}{2} \\
+    \ganttbar[name=tareaB, bar/.append style={fill=blue!70}]{B}{3}{7} \\
+    \ganttbar[name=tareaC, bar/.append style={fill=green!70}]{C}{3}{9} \\
+    \ganttbar[name=tareaD, bar/.append style={fill=orange!70}]{D}{8}{10} \\
+    \ganttbar[name=tareaE, bar/.append style={fill=purple!70}]{E}{10}{12} \\
+    \ganttbar[name=tareaF, bar/.append style={fill=pink!70}]{F}{13}{14} \\
+    \ganttbar[name=tareaG, bar/.append style={fill=cyan!70}]{G}{15}{24} \\
+    \ganttbar[name=tareaH, bar/.append style={fill=yellow!70}]{H}{25}{29} \\
+    \ganttbar[name=tareaI, bar/.append style={fill=teal!70}]{I}{30}{32} \\
+    \ganttbar[name=tareaJ, bar/.append style={fill=gray!70}]{J}{33}{33} \\
+
+% Enlaces de dependencias
+    \ganttlink[link/.style={->, thick, primaryblue!80}]{tareaA}{tareaB}
+    \ganttlink[link/.style={->, thick, primaryblue!80}, link mid=0.7]{tareaA}{tareaC}
+    \ganttlink[link/.style={->, thick, primaryblue!80}]{tareaB}{tareaD}
+    \ganttlink[link/.style={->, thick, primaryblue!80}]{tareaC}{tareaE}
+    \ganttlink[link/.style={->, thick, primaryblue!80}]{tareaE}{tareaF}
+    \ganttlink[link/.style={->, thick, primaryblue!80}]{tareaD}{tareaG}
+    \ganttlink[link/.style={->, thick, primaryblue!80}, link mid=0.3]{tareaF}{tareaG}
+    \ganttlink[link/.style={->, thick, primaryblue!80}]{tareaG}{tareaH}
+    \ganttlink[link/.style={->, thick, primaryblue!80}]{tareaH}{tareaI}
+    \ganttlink[link/.style={->, thick, primaryblue!80}]{tareaI}{tareaJ}
+
+\end{ganttchart}
+
+% \begin{importante}
+% La duración total del proyecto es de \textbf{33 días}, determinada por el camino crítico: A → C → E → F → G → H → I → J.
+% \end{importante}
+
+\activatequoting

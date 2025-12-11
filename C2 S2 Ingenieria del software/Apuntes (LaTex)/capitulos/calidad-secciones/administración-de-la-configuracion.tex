@@ -1,0 +1,75 @@
+\begin{definicion}
+    Conjunto de actividades para gestionar los cambios durante el ciclo de vida del software, garantizando:
+    \begin{itemize}
+        \item Trazabilidad
+        \item Control de versiones
+        \item Información actualizada
+    \end{itemize}
+
+    Se diferencia del mantenimiento en que este aplica cambios, y la administración de configuración controla y registra dichos cambios.
+\end{definicion}
+
+\subsection*{Conceptos clave}
+\begin{itemize}
+    \item \textbf{Elemento de configuración (EC / ICS):} Unidad identificable que debe ser controlada (código, documentación, etc.).
+    \item \textbf{Base de datos de configuración (BCD):} Lugar donde se almacenan los EC y sus versiones.
+    \item \textbf{Línea base:} Versión estable y acordada de un conjunto de EC\@.
+    \item \textbf{Cambio:} Modificación propuesta a un EC\@.
+    \item \textbf{Control de cambios:} Proceso de evaluar y aprobar cambios.
+\end{itemize}
+
+\subsection{Ítems de Configuración (IC)}\label{subsec:items-de-configuracion-(ic)}
+\begin{definicion}
+    Cada uno de los elementos que comprenden toda la información
+    producida como parte del proceso de software.
+\end{definicion}
+\begin{itemize}
+    \item Programas de cómputo
+    \item Productos de trabajo
+    \item Contenido
+\end{itemize}
+
+\subsection{Sistema de Administración}\label{subsec:sistema-de-administracion}
+\begin{itemize}
+    \item \textbf{Elementos componentes:} Herramientas que permiten el acceso y gestión de cada ítem de configuración del software.
+    \item \textbf{Elementos de proceso:} Acciones y tareas necesarias para realizar una gestión efectiva del cambio.
+    \item \textbf{Elementos de construcción:} Herramientas que automatizan la compilación, empaquetado y generación de versiones correctas del software.
+    \item \textbf{Elementos humanos:} Procesos y herramientas que utiliza el equipo para implementar de manera efectiva la administración de configuración.
+\end{itemize}
+
+\subsection{Repositorio ACS}\label{subsec:repositorio-acs}
+\begin{definicion}
+    Almacén centralizado o distribuido donde se gestionan los ítems de configuración.
+\end{definicion}
+
+\paragraph{Características clave:}
+\begin{itemize}
+    \item Control de versiones.
+    \item Rastreo de dependencias entre componentes.
+    \item Trazabilidad de requisitos y cambios.
+    \item Apoyo a auditorías e inspecciones de calidad.
+\end{itemize}
+
+\subsection{Proceso de Administración de la Configuración}\label{subsec:proceso-de-administracion-de-la-configuracion}
+\begin{enumerate}
+    \item \textbf{Identificación:} Asignar nombres unívocos a los ítems de configuración.
+    \item \textbf{Control de cambios:} Registrar, aprobar e implementar modificaciones.
+    \item \textbf{Control de versiones:} Gestionar diferentes versiones de todos los objetos.
+    \item \textbf{Auditoría:} Verificar que los cambios cumplen con los estándares establecidos.
+    \item \textbf{Reporte de estado:} Informar del estado actual y del histórico de cambios.
+\end{enumerate}
+
+\subsection{Administración del contenido}\label{subsec:administracion-del-contenido}
+\begin{itemize}
+    \item \textbf{Subsistema de recopilación:} Permite almacenar y organizar el contenido asociado a cada Ítem de Configuración del Software (ICS).
+    \item \textbf{Subsistema de administración:} Gestiona los cambios realizados sobre el contenido de cada ICS, manteniendo un histórico completo y trazable.
+    \item \textbf{Subsistema de publicación:} Hace accesible el contenido relevante a los distintos interesados del proyecto, permitiendo su consulta o reutilización.
+\end{itemize}
+
+\subsection{Conflictos dominantes}\label{subsec:conflictos-dominantes}
+\begin{itemize}
+    \item \textbf{Contenido:} No está claro qué información debe formar parte del sistema de administración de configuración.
+    \item \textbf{Personas:} El equipo desconoce las herramientas o procesos de ACS, o no sabe cuándo aplicarlos.
+    \item \textbf{Escalabilidad:} A medida que crece el proyecto, se complica la gestión del gran volumen de cambios.
+    \item \textbf{Políticas:} Faltan reglas claras sobre quién es responsable de llevar a cabo la administración de configuración y cómo aplicarla de manera coherente.
+\end{itemize}

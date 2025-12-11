@@ -1,0 +1,38 @@
+% !TeX root = ../calidad.tex
+
+
+\begin{enunciado}
+    Clasifica los siguientes tipos de deuda técnica:
+    \begin{enumerate}
+        \item Comenzar a realizar el código de la aplicación en base a los requisitos sin tener un diagrama de arquitectura.
+        \item Decidir no ejecutar todas las pruebas de validación definidas para poder entregar un cambio regulatorio a tiempo.
+        \item Identificar que un componente debería haberse dividido en dos para poder escalar independientemente cada uno de ellos.
+        \item Hacer un mal uso de una tecnología de la que no se tiene suficiente conocimiento.
+        \item No disponer de un listado actualizado de componentes del sistema.
+        \item Des-priorizar la solución de un problema de rendimiento para enfocarse en completar toda la funcionalidad.
+    \end{enumerate}
+\end{enunciado}
+\begin{solucion}
+    \begin{description}
+        \item[1] \textbf{Temeraria inadvertida.}
+        Se comienza el desarrollo sin una arquitectura definida, lo cual genera riesgos importantes no previstos en la integración, escalabilidad y mantenimiento.
+
+        \item[2] \textbf{Temeraria deliberada.}
+        Se omiten pruebas de validación conscientemente para cumplir un plazo, aceptando riesgos que comprometen la calidad del producto en producción.
+
+        \item[3] \textbf{Inadvertida (con posible gestión prudente).}
+        La necesidad de dividir el componente no se identificó inicialmente.
+        Al detectarse, se puede gestionar de forma prudente mediante refactorización.
+
+        \item[4] \textbf{Temeraria inadvertida.}
+        Se utiliza incorrectamente una tecnología por falta de conocimiento, lo cual introduce riesgos ocultos que pueden emerger en fases avanzadas.
+
+        \item[5] \textbf{Temeraria (inadvertida o deliberada).}
+        La ausencia de un listado actualizado de componentes compromete la trazabilidad y gestión del sistema.
+        Puede deberse tanto a descuido como a una decisión consciente de priorizar otras tareas.
+
+        \item[6] \textbf{Prudente deliberada.}
+        Se pospone la mejora del rendimiento para priorizar la entrega funcional.
+        La deuda está identificada y se asume con la intención de abordarla en el futuro.
+    \end{description}
+\end{solucion}

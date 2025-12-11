@@ -1,0 +1,270 @@
+%!root = ./main.tex
+\documentclass[a4paper,11pt]{article}
+
+% Codificación e idioma
+%\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+% Estilo y herramientas
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+\usepackage{pgf-umlsd}
+
+\usetikzlibrary{graphs,shapes,arrows,positioning,shadows,calc}
+
+% Definir estilos
+\tikzset{
+    service/.style={
+        rectangle,
+        draw=black,
+        fill=white,
+        minimum width=2.5cm,
+        minimum height=1cm,
+        align=center,
+        font=\small,
+        drop shadow
+    },
+    database/.style={
+        cylinder,
+        shape border rotate=90,
+        aspect=0.25,
+        draw=black,
+        fill=gray!20,
+        minimum width=0.8cm,
+        minimum height=1cm
+    },
+    interface/.style={
+        rectangle,
+        draw=black,
+        fill=blue!20,
+        minimum width=4cm,
+        minimum height=0.8cm,
+        font=\small\bfseries
+    },
+    arrow/.style={
+        ->,
+        >=stealth,
+        thick
+    },
+    bidirectional/.style={
+        <->,
+        >=stealth,
+        thick
+    }
+}
+
+% Configuración de colores personalizados
+\definecolor{primaryblue}{RGB}{25, 118, 210}
+\definecolor{lightblue}{RGB}{227, 242, 253}
+\definecolor{darkgray}{RGB}{66, 66, 66}
+\definecolor{lightgray}{RGB}{245, 245, 245}
+\definecolor{successgreen}{RGB}{76, 175, 80}
+\definecolor{warningorange}{RGB}{255, 152, 0}
+
+% Configuración mejorada de tcolorbox
+\tcbuselibrary{skins,breakable}
+
+% Estilos personalizados para cajas
+\newtcolorbox{enunciado}{
+    enhanced,
+    breakable,
+    colback=lightblue,
+    colframe=primaryblue,
+    arc=4mm,
+    boxrule=1.5pt,
+    title={\textbf{Enunciado}},
+    fonttitle=\Large\bfseries,
+    attach boxed title to top left={yshift=-3mm, xshift=4mm},
+    boxed title style={
+        enhanced,
+        colback=primaryblue,
+        colframe=primaryblue,
+        arc=2mm
+    },
+    drop shadow,
+    left=8pt,
+    right=8pt,
+    top=12pt,
+    bottom=8pt
+}
+
+\newtcolorbox{solucion}[1][Solución]{
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=successgreen,
+    arc=3mm,
+    boxrule=1pt,
+    title={\textbf{Solución}},
+    fonttitle=\large\bfseries,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={
+        enhanced,
+        colback=successgreen,
+        colframe=successgreen,
+        arc=2mm
+    },
+    left=6pt,
+    right=6pt,
+    top=8pt,
+    bottom=6pt,
+    title=#1
+}
+
+\newtcolorbox{importante}{
+    enhanced,
+    breakable,
+    colback=orange!10,
+    colframe=warningorange,
+    arc=3mm,
+    boxrule=1pt,
+    title={\textbf{¡Importante!}},
+    fonttitle=\large\bfseries,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={
+        enhanced,
+        colback=warningorange,
+        colframe=warningorange,
+        arc=2mm
+    },
+    left=6pt,
+    right=6pt,
+    top=8pt,
+    bottom=6pt
+}
+
+%-- --
+
+% Configuración de siunitx
+\usepackage[per-mode=symbol, group-minimum-digits=4]{siunitx}
+\sisetup{group-separator = {\:\!}}
+\DeclareSIUnit\puntosFuncion{PF}
+\DeclareSIUnit\porMes{pm}
+\DeclareSIUnit\linesofcode{LOC}
+\DeclareSIUnit\personameses{persona\text{\textbf{-}}meses}
+\DeclareSIUnit\meses{meses}
+
+% Configuración de pgfgantt
+\usepackage{pgfgantt}
+
+% Encabezado y pie de página mejorado
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{primaryblue}{\textbf{Ingeniería del Software}}}
+\fancyhead[R]{\textcolor{darkgray}{Ejercicios para el examen}}
+\fancyfoot[C]{\textcolor{darkgray}{\thepage}}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{primaryblue}\leaders\hrule height \headrulewidth\hfill}}
+
+% Configuración de secciones
+\setcounter{secnumdepth}{0}
+
+%configuracion de indice
+\setcounter{tocdepth}{1}
+
+% para que se calle el pesado de fancyhdr
+\setlength{\headheight}{24pt}
+
+% Configuración de hyperref
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primaryblue,
+    filecolor=primaryblue,
+    urlcolor=primaryblue,
+    citecolor=primaryblue,
+    pdfpagemode=FullScreen,
+}
+
+% Metadatos
+\title{\Huge\textbf{Ejercicios} \\ \Large\textcolor{primaryblue}{Ingeniería del Software}}
+\author{\textbf{Marcelo Fort Muñoz}}
+\date{\today}
+
+\begin{document}
+
+% Página de título personalizada
+    \begin{titlepage}
+        \centering
+        \vspace*{2cm}
+
+        {\Huge\textbf{Ejercicios}}\\[0.5cm]
+        {\Large\textcolor{primaryblue}{\textbf{Ingeniería del Software}}}\\[2cm]
+
+        \begin{tikzpicture}
+            \draw[primaryblue, line width=2pt] (0,0) -- (8,0);
+        \end{tikzpicture}\\[2cm]
+
+        {\Large\textbf{Marcelo Fort Muñoz}}\\[1cm]
+        {\large\textcolor{darkgray}{\today}}
+
+        \vfill
+
+        \begin{tikzpicture}
+            \draw[lightgray, line width=1pt] (0,0) -- (8,0);
+        \end{tikzpicture}
+    \end{titlepage}
+
+    \tableofcontents
+    \newpage
+
+
+    \part{\textcolor{primaryblue}{Introducción}}\label{part:introduccion}
+    \input{capitulos/introduccion}
+
+
+    \clearpage
+
+
+    \part{\textcolor{primaryblue}{El proceso del software}}\label{part:el-proceso-del-software}
+    \input{capitulos/el-proceso-del-software}
+
+
+    \clearpage
+
+
+    \part{\textcolor{primaryblue}{Modelado}}\label{part:modelado}
+    \input{capitulos/modelado}
+
+
+    \clearpage
+
+
+    \part{\textcolor{primaryblue}{Planificación}}\label{part:planificacion}
+    \input{capitulos/planificacion}
+
+
+    \clearpage
+
+
+    \part{\textcolor{primaryblue}{Calidad}}\label{part:calidad}
+    \input{capitulos/calidad}
+
+
+    \clearpage
+
+
+    \part{\textcolor{primaryblue}{Mantenimiento}}\label{part:mantenimiento}
+    \input{capitulos/mantenimiento}
+
+    \clearpage
+
+    \part{\textcolor{orange}{Examen parcial 2023}}\label{part:examen-parcial-2023}
+    \input{examenes/examen-parcial-2023}
+
+    \clearpage
+
+    \part{\textcolor{orange}{Examen parcial 2024}}\label{part:examen-parcial-2024}
+    \input{examenes/examen-parcial-2024}
+
+\end{document}

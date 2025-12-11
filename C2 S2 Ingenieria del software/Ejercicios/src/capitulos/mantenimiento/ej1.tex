@@ -1,0 +1,113 @@
+% !TeX root = ../mantenimiento.tex
+
+\begin{enunciado}
+    Calcula la complejidad y tamaño del siguiente sistema:
+    \begin{enumerate}
+        \item Componente A
+        \begin{enumerate}
+            \item Variables de entrada: 3
+            \item Variables de salida: 2
+            \item Depende de: 1 servicio
+        \end{enumerate}
+
+        \item Componente B
+        \begin{enumerate}
+            \item Variables de entrada: 2
+            \item Variables de salida: 3
+            \item Depende de: 2 servicios
+        \end{enumerate}
+        \item Componente C
+        \begin{enumerate}
+            \item Variables de entrada: 1
+            \item Variables de salida: 1
+            \item Depende de: 0 servicios
+        \end{enumerate}
+    \end{enumerate}
+\end{enunciado}
+
+\subsection{Análisis usando Métricas de Diseño Arquitectónico}\label{subsec:analisis-usando-metricas-de-diseno-arquitectonico}
+Para aplicar las fórmulas de complejidad de módulo, interpretamos:
+\begin{itemize}
+    \item Variables de salida $\rightarrow$ $f_{out}(i)$ (módulos que dependen del módulo $i$)
+    \item Servicios $\rightarrow$ $v(i)$ (número de dependencias del módulo)
+\end{itemize}
+
+\subsection{Cálculos de Complejidad por Componente}\label{subsec:calculos-de-complejidad-por-componente}
+
+\subsubsection{Componente A}
+\begin{align}
+    f_{out}(A) &= 2 \text{ (variables de salida)} \\
+    v(A) &= 1 \text{ (servicios de los que depende)}\\
+    S(A) &= f_{out}^2(A) = 2^2 = 4 \\
+    D(A) &= \frac{v(A)}{f_{out}(A) + 1} = \frac{1}{2 + 1} = \frac{1}{3} = 0.33 \\
+    C(A) &= S(A) + D(A) = 4 + 0.33 = 4.33
+\end{align}
+
+\subsubsection{Componente B}
+\begin{align}
+    f_{out}(B) &= 3 \text{ (variables de salida)} \\
+    v(B) &= 2 \text{ (servicios de los que depende)} \\
+    S(B) &= f_{out}^2(B) = 3^2 = 9 \\
+    D(B) &= \frac{v(B)}{f_{out}(B) + 1} = \frac{2}{3 + 1} = \frac{2}{4} = 0.5 \\
+    C(B) &= S(B) + D(B) = 9 + 0.5 = 9.5
+\end{align}
+
+\subsubsection{Componente C}
+\begin{align}
+    f_{out}(C) &= 1 \text{ (variables de salida)} \\
+    v(C) &= 0 \text{ (servicios de los que depende)} \\
+    S(C) &= f_{out}^2(C) = 1^2 = 1 \\
+    D(C) &= \frac{v(C)}{f_{out}(C) + 1} = \frac{0}{1 + 1} = 0 \\
+    C(C) &= S(C) + D(C) = 1 + 0 = 1
+\end{align}
+
+\subsection{Complejidad Total del Sistema}\label{subsec:complejidad-total-del-sistema}
+\[C_{total} = C(A) + C(B) + C(C) = 4.33 + 9.5 + 1 = 14.83\]
+
+\subsection{Cálculo del Tamaño del Sistema}\label{subsec:calculo-del-tamano-del-sistema}
+
+\subsubsection{Número de nodos (n)}
+\begin{itemize}
+    \item Componentes: A, B, C = 3 nodos
+    \item Servicios externos: 1 (para A) + 2 (para B) + 0 (para C) = 3 servicios
+    \item \textbf{Total de nodos}: $n = 3 + 3 = 6$
+\end{itemize}
+
+\subsubsection{Número de arcos (a)}
+Los arcos representan las dependencias:
+\begin{itemize}
+    \item A depende de 1 servicio: 1 arco
+    \item B depende de 2 servicios: 2 arcos
+    \item C no depende de servicios: 0 arcos
+    \item \textbf{Total de arcos}: $a = 1 + 2 + 0 = 3$
+\end{itemize}
+
+\subsubsection{Tamaño total}
+\[\text{Tamaño} = n + a = 6 + 3 = \boxed{9}\]
+
+
+
+\begin{solucion}
+    \subsection{Resumen}\label{subsec:resumen}
+    \begin{gather*}
+        C_{total} = C(A) + C(B) + C(C) = 4.33 + 9.5 + 1 = 14.83\\
+        \text{Tamaño} = n + a = 6 + 3 = \boxed{9}\\
+    \end{gather*}
+\end{solucion}
+
+\subsection{Resumen de Resultados}\label{subsec:resumen-de-resultados}
+\begin{table}[h!]
+    \center
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Métrica}                       & \textbf{Valor} \\
+        \hline
+        Complejidad del Componente A           & 4.33           \\
+        Complejidad del Componente B           & 9.5            \\
+        Complejidad del Componente C           & 1.0            \\
+        \hline
+        \textbf{Complejidad Total del Sistema} & \textbf{14.83} \\
+        \textbf{Tamaño del Sistema}            & \textbf{9}     \\
+        \hline
+    \end{tabular}\label{tab:table}
+\end{table}

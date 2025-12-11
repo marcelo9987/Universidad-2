@@ -1,0 +1,114 @@
+% !TeX root = ../modelado.tex
+
+
+\begin{enunciado}
+    Calcula el tiempo medio entre fallos y el tiempo medio de recuperación ante fallos según la siguiente
+    cronología de fallos y arreglos en una semana.
+
+    Día 1
+    \begin{itemize}
+        \item 5.33h - Fallo en el sistema
+        \item 5.57h - Arreglo del sistema
+        \item 19.32h - Fallo del sistema
+        \item 22.44h - Arreglo del sistema
+    \end{itemize}
+
+    Día 2
+    \begin{itemize}
+        \item Sin fallos
+    \end{itemize}
+
+    Día 3
+    \begin{itemize}
+        \item 13.25h - Fallo en el sistema
+        \item 14.37h - Arreglo del sistema
+    \end{itemize}
+
+    Día 4
+    \begin{itemize}
+        \item Sin fallos
+    \end{itemize}
+
+    Día 5
+    \begin{itemize}
+        \item Sin fallos
+    \end{itemize}
+
+    Día 6
+    \begin{itemize}
+        \item 00.12h - Fallo en el sistema
+        \item 7.29h - Arreglo del sistema
+        \item 8.35h - Fallo en el sistema
+        \item 8.42h - Arreglo del sistema
+        \item 9.13h – Fallo en el sistema
+        \item 13h.33 - Arreglo del sistema
+    \end{itemize}
+
+    Día 7
+    \begin{itemize}
+        \item Sin fallos
+    \end{itemize}
+\end{enunciado}
+
+\subsection{Cronología de fallos y arreglos}\label{subsec:cronologia-de-fallos-y-arreglos}
+
+\begin{itemize}
+    \item \textbf{Día 1}:
+    \begin{itemize}
+        \item 5:33 - Fallo
+        \item 5:57 - Arreglo → duración: $5:57 - 5:33 = \qty{24}{\minute}$
+        \item 19:32 - Fallo
+        \item 22:44 - Arreglo → duración: $22:44 - 19:32 = \qty{3}{\hour}\,\qty{12}{\minute} = \qty{192}{\minute}$
+    \end{itemize}
+    \item \textbf{Día 3}:
+    \begin{itemize}
+        \item 13.25h - Fallo
+        \item 14.37h - Arreglo → duración: $14:37 - 13:25 = \qty{1}{\hour}\qty{25}{\minute}=\qty{72}{\minute}$
+    \end{itemize}
+    \item \textbf{Día 6}:
+    \begin{itemize}
+        \item  00:12h - Fallo
+        \item  7:29h - Arreglo → duración: $7:29 - 0:12 = \qty{7}{\hour}\qty{17}{\minute} = \qty{437}{\minute}$
+        \item  8:35h - Fallo
+        \item  8:42h - Arreglo → duración: $8:42 - 8:35 = \qty{7}{\minute}$
+        \item  9:13h - Fallo
+        \item 13:33h - Arreglo → duración: $13:33 - 9:13 = \qty{4}{\hour}\qty{20}{\minute} = \qty{260}{\minute}$
+    \end{itemize}
+    \item \textbf{Día 7:}
+    NADA
+\end{itemize}
+
+\subsection{1. Cálculo del MTTR (Tiempo medio de recuperación)}\label{subsec:1.-calculo-del-mttr-(tiempo-medio-de-recuperacion)}
+
+Se han producido 6 fallos y 6 arreglos, con los siguientes tiempos de reparación:
+
+\[
+    \text{MTTR} = \frac{24+192+72+437+7+260}{6} = \frac{496}{3}\approx\qty{165.3}{\min} \approx \boxed{2.45 \text{h}}
+\]
+
+\subsection{2. Cálculo del MTBF (Tiempo medio entre fallos)}\label{subsec:2.-calculo-del-mtbf-(tiempo-medio-entre-fallos)}
+
+Para calcular el MTBF, medimos el tiempo entre un arreglo y el siguiente fallo:
+
+\begin{itemize}
+    \item Día 1: $5:57 \rightarrow 19:32 = 13.75$ h
+    \item Día 1 a Día 3: $22:44 \rightarrow \text{ Día 3 } 13:25 = 13.25 + (24 - 22.44) = 14.81$ h
+    \item Día 3 a Día 6: $14:37 \rightarrow \text{ Día 6 } 00:12 = (24-14.37)+0+0.12 = 9.75 h + 24 + 24 = 57.75$ h
+    \item Día 6: $7:29 \rightarrow 8:35 = 1.06$ h
+    \item Día 6: $8:42 \rightarrow 9:13 =  0.71$ h
+\end{itemize}
+
+\[
+    \text{MTBF} = \frac{13.75 + 14.81 + 57.75 + 1.06 + 0.71}{5} = \frac{88.08}{5} \approx \boxed{17.62 \text{ h}}
+\]
+
+\subsection{Resultados finales}\label{subsec:resultados-finales}
+
+\begin{tabular}{ll}
+    \toprule
+    \textbf{Métrica}                  & \textbf{Valor} \\
+    \midrule
+    MTTR (tiempo medio de reparación) & 2.45h          \\
+    MTBF (tiempo medio entre fallos)  & 17.62 h        \\
+    \bottomrule
+\end{tabular}
