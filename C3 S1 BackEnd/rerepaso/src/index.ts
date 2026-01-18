@@ -3,6 +3,7 @@ import {ApolloServer} from "apollo-server";
 import {typeDefs} from "./graphql/schema";
 import {resolvers} from "./graphql/resolvers";
 import {getUserFromToken} from "./auth";
+import {User} from "./types/User";
 
 
 const start = async () =>
@@ -19,8 +20,8 @@ const start = async () =>
         }
     })
 
-    await server.listen({port: 4001});
-    console.log('Servidor iniciado en http://localhost:4001');
+    await server.listen({port: 4020});
+    console.log('Servidor iniciado en http://localhost:4020');
 }
 
 start().catch(err =>

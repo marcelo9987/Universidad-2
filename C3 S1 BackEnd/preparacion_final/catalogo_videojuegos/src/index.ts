@@ -19,8 +19,8 @@ const start = async () =>
         }
     })
 
-    await server.listen({port: 4001});
-    console.log('Servidor iniciado en http://localhost:4001');
+    await server.listen({port: 4437});
+    console.log('Servidor iniciado en http://localhost:4437');
 }
 
 start().catch(err =>
