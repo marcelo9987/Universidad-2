@@ -15,7 +15,8 @@ const App = () =>
     {
         api.get("/character").then((response) =>
         {
-            console.log(response.data);
+            console.log
+                   (response.data);
         });
     },[count]);
 
