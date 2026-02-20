@@ -1,5 +1,5 @@
 #define  PINBUZZER  4
-#define  PINBOTON   21
+#define  PINBOTON   13
 
 // --- Definición de Frecuencias (Notas necesarias para Chopin) ---
 #define Fa4 466
@@ -95,7 +95,7 @@ void IRAM_ATTR btnPulsadoISR()
 void setup() {
   Serial.begin(115200);
 
-  attachInterrupt(21,btnPulsadoISR, FALLING);
+  attachInterrupt(PINBOTON,btnPulsadoISR, FALLING);
   pinMode(PINBOTON,INPUT_PULLUP);
 
   // Configuramos o canal PWM
