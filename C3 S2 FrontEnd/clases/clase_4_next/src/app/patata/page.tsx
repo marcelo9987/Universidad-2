@@ -1,10 +1,12 @@
 'use client';
 import Link from "next/link";
+import {useRouter} from "next/navigation";
 
-import {router} from "next/navigation";
+
 
 const PaginaPatata = () =>
 {
+    const router = useRouter();
     return (
         <div>
             <h1>Patata</h1>
