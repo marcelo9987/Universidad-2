@@ -1,0 +1,5 @@
+/home/marcelo/Documentos/ProyectoSistemasEmpotrados/ejemplos/CMakeFiles/red_cliente.dir
+/home/marcelo/Documentos/ProyectoSistemasEmpotrados/ejemplos/CMakeFiles/Practica2_P2_s.dir
+/home/marcelo/Documentos/ProyectoSistemasEmpotrados/ejemplos/CMakeFiles/Practica2_P2_c.dir
+/home/marcelo/Documentos/ProyectoSistemasEmpotrados/ejemplos/CMakeFiles/edit_cache.dir
+/home/marcelo/Documentos/ProyectoSistemasEmpotrados/ejemplos/CMakeFiles/rebuild_cache.dir

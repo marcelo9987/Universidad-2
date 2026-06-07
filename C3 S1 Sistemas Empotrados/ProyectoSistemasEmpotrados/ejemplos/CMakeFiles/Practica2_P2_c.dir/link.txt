@@ -1,0 +1,1 @@
+/usr/bin/cc -Wl,--dependency-file=CMakeFiles/Practica2_P2_c.dir/link.d CMakeFiles/Practica2_P2_c.dir/clientemayus.c.o -o Practica2_P2_c  out/libred_cliente.a

@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: miniMicroServicio
+  server:
+    port: 8080

@@ -1,0 +1,2 @@
+/usr/bin/ar qc out/libred_cliente.a CMakeFiles/red_cliente.dir/red_cliente.c.o
+/usr/bin/ranlib out/libred_cliente.a

@@ -1,0 +1,1 @@
+/usr/bin/cc -Wl,--dependency-file=CMakeFiles/Practica2_P2_s.dir/link.d CMakeFiles/Practica2_P2_s.dir/servidormayus.c.o -o Practica2_P2_s
