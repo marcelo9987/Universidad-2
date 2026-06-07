@@ -1,0 +1,11 @@
+.pokemonCard{
+    display:flex;
+    padding: 1px;
+    margin: 1px;
+    background-color: #666666;
+    border-radius: 8px;
+    flex-flow:wrap column;
+    align-items: center;
+    width:200%;
+    font-size: 30px;
+}

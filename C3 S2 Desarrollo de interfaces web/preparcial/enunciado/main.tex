@@ -1,0 +1,168 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Práctica Next.js – Explorador de Pokémon}
+\author{[Nome do estudante / Parella]}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Objetivo}
+
+Desarrollar una aplicación web con \textbf{Next.js} que consuma la API pública \textbf{PokéAPI} y permita:
+
+\begin{itemize}
+    \item Listar todos los Pokémon en una página principal.
+    \item Buscar Pokémon por nombre en tiempo real.
+    \item Navegar a una página dinámica con el detalle de cada Pokémon.
+    \item Volver a la página principal desde la vista de detalle.
+\end{itemize}
+
+La práctica tiene como objetivo trabajar:
+
+\begin{itemize}
+    \item Enrutado estático y dinámico en Next.js.
+    \item Componentización.
+    \item Fetching de datos desde una API REST.
+    \item Manejo de estado.
+    \item Props.
+    \item Navegación con \texttt{Link} y/o \texttt{useRouter}.
+    \item Estilado con CSS clásico.
+\end{itemize}
+
+\section*{API a utilizar}
+
+\textbf{PokéAPI}
+
+Endpoint base recomendado para listar Pokémon con su nombre y imagen:
+
+\begin{verbatim}
+https://pokeapi.co/api/v2/pokemon?limit=151
+\end{verbatim}
+
+Para obtener detalles de cada Pokémon:
+
+\begin{verbatim}
+https://pokeapi.co/api/v2/pokemon/{nombre}
+\end{verbatim}
+
+\section*{Requisitos funcionales}
+
+\subsection*{1 Página Principal (/)}
+Debe:
+
+\begin{itemize}
+    \item Mostrar todos los Pokémon obtenidos desde la API.
+    \item Renderizar cada Pokémon mediante un componente reutilizable \texttt{<PokemonCard />}.
+    \item Cada tarjeta debe mostrar:
+    \begin{itemize}
+        \item Imagen del Pokémon.
+        \item Nombre.
+    \end{itemize}
+    \item Incluir un input de búsqueda que:
+    \begin{itemize}
+        \item Permita filtrar Pokémon por nombre.
+        \item Filtre en tiempo real (sin recargar la página).
+    \end{itemize}
+\end{itemize}
+
+\subsection*{2 Componente PokemonCard}
+Debe:
+
+\begin{itemize}
+    \item Recibir por \texttt{props} los datos del Pokémon.
+    \item Mostrar imagen y nombre.
+    \item Ser clicable.
+    \item Redirigir a la ruta dinámica correspondiente al Pokémon.
+\end{itemize}
+
+Ejemplo de ruta esperada:
+
+\begin{verbatim}
+/pokemon/pikachu
+/pokemon/charmander
+/pokemon/squirtle
+\end{verbatim}
+
+\subsection*{3 Página dinámica de Pokémon}
+
+Ruta dinámica obligatoria:
+
+\begin{verbatim}
+/pokemon/[name]
+\end{verbatim}
+
+Debe:
+
+\begin{itemize}
+    \item Obtener la información del Pokémon seleccionado.
+    \item Mostrar una página completa con al menos:
+    \begin{itemize}
+        \item Nombre
+        \item Imagen
+        \item Tipos
+        \item Habilidades
+        \item Peso y altura
+    \end{itemize}
+    \item Incluir un botón o enlace visible para volver a la página principal.
+\end{itemize}
+
+\section*{Estilado}
+
+\begin{itemize}
+    \item Se debe usar CSS clásico (CSS Modules o archivo global).
+    \item Se valorará:
+    \begin{itemize}
+        \item Diseño limpio y legible.
+        \item Buen uso de espaciado.
+        \item Responsive básico.
+        \item Efectos hover en tarjetas.
+        \item Jerarquía visual clara.
+    \end{itemize}
+\end{itemize}
+
+\section*{Requisitos técnicos}
+
+\begin{itemize}
+    \item Proyecto creado con \texttt{create-next-app}.
+    \item Uso de rutas dinámicas.
+    \item Componentes reutilizables.
+    \item Uso correcto de \texttt{Link} o \texttt{useRouter}.
+    \item Manejo correcto de estado para el buscador.
+    \item Código limpio y organizado.
+    \item Estructura de carpetas coherente.
+\end{itemize}
+
+\section*{Entrega}
+
+\begin{itemize}
+    \item Subir el proyecto a \textbf{GitHub}.
+    \item Incluir un \texttt{README.md} con:
+    \begin{itemize}
+        \item Instrucciones para ejecutar el proyecto.
+        \item Breve explicación de la estructura.
+        \item Miembros participantes si se hace en pareja.
+    \end{itemize}
+\end{itemize}
+
+\section*{Evaluación}
+
+Se valorará especialmente:
+
+\begin{itemize}
+    \item Correcto funcionamiento de las rutas dinámicas.
+    \item Calidad del código.
+    \item Componentización.
+    \item Buen uso de Next.js.
+    \item Experiencia de usuario.
+    \item Diseño y CSS.
+    \item Limpieza del repositorio.
+\end{itemize}
+
+\end{document}

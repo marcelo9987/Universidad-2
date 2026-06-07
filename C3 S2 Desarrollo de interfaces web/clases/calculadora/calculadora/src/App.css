@@ -1,0 +1,65 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.numeros {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 3;   /* ocupa máis espazo horizontal que os operadores */
+}
+
+
+.panelNumeros {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1; /* ocupa menos ancho que números */
+}
+
+
+.panelNumeros button {
+    flex: 1;
+}
+
+.teclado {
+    display: flex;
+    justify-content: space-between; /* bloque de números + operadores */
+    width: 100%;                  /* ocupar todo o ancho do MegaPanel */
+    gap: 1rem;
+}
+
+
+.fila{
+    display:flex;
+    /*justify-content: space-around;*/
+    /*flex-flow: wrap column;*/
+}
+
+.fila button {
+    flex: 1;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.MegaPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;       /* ancho total da calculadora */
+    margin: 0 auto;          /* centra horizontalmente */
+    padding: 1rem;
+    border: 2px solid #333;  /* opcional, para ver o contorno */
+    border-radius: 0.5rem;
+    background: #f5f5f5;
+}
+
+.MegaPanel input {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
