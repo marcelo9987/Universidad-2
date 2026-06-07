@@ -1,0 +1,112 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity top_practica1 is
+    Generic ( g_sim_debounce : integer := 100000 );
+
+    Port (
+        clk       : in STD_LOGIC;   -- Reloj principal del sistema
+        rst_n     : in STD_LOGIC;   -- Reset activo en bajo (botón físico)
+        btn_input : in STD_LOGIC;   -- Entrada del botón
+        an        : out STD_LOGIC_VECTOR (7 downto 0); -- Anodos del display
+        seg       : out STD_LOGIC_VECTOR (6 downto 0)  -- Segmentos del display
+    );
+end top_practica1;
+
+architecture Behavioral of top_practica1 is
+
+    -- COMPONENTES YA DECLARADOS
+
+    -- Sincronizador
+    component synchronizer is
+        Port ( clk : in STD_LOGIC; async_in : in STD_LOGIC; sync_out : out STD_LOGIC );
+    end component;
+    
+    -- Debouncer: elimina el rebote mecánico del botón
+    component debouncer is
+        Generic ( g_timeout_cycles : integer );
+        Port ( clk, rst, btn_in : in STD_LOGIC; btn_out : out STD_LOGIC );
+    end component;
+
+    -- Detector de flanco: genera un pulso de 1 ciclo cuando detecta flanco
+    component edge_detector is
+        Port ( clk, sig_in : in STD_LOGIC; edge_out : out STD_LOGIC );
+    end component;
+
+    -- Contador BCD de 00 a 99
+    component contador_99 is
+        Port ( clk, rst, cnt_en : in STD_LOGIC; 
+               cnt_units, cnt_tens : out STD_LOGIC_VECTOR(3 downto 0));
+    end component;
+
+    -- Driver para display de 7 segmentos multiplexado
+    component driver_display is
+        Port ( clk, rst : in STD_LOGIC; 
+               data_units, data_tens : in STD_LOGIC_VECTOR(3 downto 0);
+               anode_out : out STD_LOGIC_VECTOR(7 downto 0); 
+               seg_out : out STD_LOGIC_VECTOR(6 downto 0));
+    end component;
+
+    -- SEÑALES INTERNAS
+
+    signal s_rst       : std_logic; -- Reset interno activo alto
+    signal s_btn_sync  : std_logic; -- Señal sincronizada
+    signal s_btn_clean : std_logic; -- Señal sin rebote
+    signal s_cnt_en    : std_logic; -- Pulso de habilitación del contador
+    signal s_units     : STD_LOGIC_VECTOR (3 downto 0); -- Unidades BCD
+    signal s_tens      : STD_LOGIC_VECTOR (3 downto 0); -- Decenas BCD
+
+begin
+
+    -- Reset activo alto (el botón es activo bajo)
+    -- Invertimos rst_n porque el hardware lo da activo en 0
+    s_rst <= not rst_n;
+
+    -- 1. INSTANCIA DEL SINCRONIZADOR
+    inst_sync: synchronizer
+    port map (
+        clk      => clk,
+        async_in => btn_input,
+        sync_out => s_btn_sync
+    );
+
+    -- 2. INSTANCIA DEL DEBOUNCER
+    inst_debouncer: entity work.debouncer
+    generic map ( g_timeout_cycles => g_sim_debounce ) 
+    port map (
+        clk        => clk,
+        rst        => s_rst,
+        btn_in     => s_btn_sync,
+        btn_out    => s_btn_clean
+    );
+
+    -- 3. INSTANCIA DEL DETECTOR DE FLANCOS
+    inst_edge: entity work.edge_detector
+    port map (
+        clk      => clk,
+        sig_in   => s_btn_clean,
+        edge_out => s_cnt_en
+    );
+
+    -- 4. INSTANCIA DEL CONTADOR
+    inst_counter: entity work.contador_99
+    port map (
+        clk       => clk,
+        rst       => s_rst,
+        cnt_en    => s_cnt_en,
+        cnt_units => s_units,
+        cnt_tens  => s_tens
+    );
+
+    -- 5. INSTANCIA DEL DRIVER DE DISPLAY
+    inst_display: entity work.driver_display
+    port map (
+        clk        => clk,
+        rst        => s_rst,
+        data_units => s_units,
+        data_tens  => s_tens,
+        anode_out  => an,
+        seg_out    => seg
+    );
+
+end Behavioral;

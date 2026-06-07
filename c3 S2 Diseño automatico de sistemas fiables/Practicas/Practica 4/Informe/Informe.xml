@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<indexing>
+ <paragraph index="6" node_type="writer">Diseño automático de sistemas fiables. Práctica 4: Filtro SMA de orden 4</paragraph>
+ <object alt="" name="Image1" object_type="graphic"/>
+ <object alt="" name="Image4" object_type="graphic"/>
+ <paragraph index="15" node_type="writer">Figure : Ejecución de la simulación con estímulos descritos en las secciones 3.A, 3.B y 3.C </paragraph>
+ <object alt="" name="Image5" object_type="graphic"/>
+ <paragraph index="21" node_type="writer">Figure : Log después de una simulación acorde a lo escrito en el apartado 3.D</paragraph>
+ <object alt="" name="Image7" object_type="graphic"/>
+ <object alt="" name="Image8" object_type="graphic"/>
+ <paragraph index="30" node_type="writer">Figure : Comparación de salidas de cuadrada: entrada vs salida</paragraph>
+ <paragraph index="33" node_type="writer">Figure : Comparación de salidas de sierra: entrada vs salida</paragraph>
+ <object alt="" name="Image9" object_type="graphic"/>
+ <paragraph index="39" node_type="writer">Figure : Comparación de salidas de triangular: entrada vs salida</paragraph>
+ <paragraph index="45" node_type="writer">Práctica 4:
+Filtro SMA de orden 4</paragraph>
+ <paragraph index="46" node_type="writer">Diseño automático de sistemas fiables</paragraph>
+ <paragraph index="47" node_type="writer">Victor Arroyo Márquez</paragraph>
+ <paragraph index="48" node_type="writer">Jose Fernando Marcilla Morán </paragraph>
+ <paragraph index="49" node_type="writer">Marcelo Fort Muñoz</paragraph>
+ <paragraph index="50" node_type="writer">{mfortm,varroyom,jmarcillam1}@alumnos.nebrija.es</paragraph>
+ <paragraph index="51" node_type="writer">	</paragraph>
+ <object index="53" name="Table of Contents1" object_type="section"/>
+ <object index="54" name="Table of Contents1_Head" object_type="section"/>
+ <paragraph index="55" node_type="writer" parent_index="54">Índice</paragraph>
+ <paragraph index="57" node_type="writer" parent_index="53">Práctica 4: Filtro SMA de orden 4	1</paragraph>
+ <paragraph index="58" node_type="writer" parent_index="53">1. Introducción y objetivos	3</paragraph>
+ <paragraph index="59" node_type="writer" parent_index="53">2. Descripción del diseño	3</paragraph>
+ <paragraph index="60" node_type="writer" parent_index="53">3. Verificación	4</paragraph>
+ <paragraph index="61" node_type="writer" parent_index="53">A. Triangular y reset inicial.	4</paragraph>
+ <paragraph index="62" node_type="writer" parent_index="53">B. Cuadrada	4</paragraph>
+ <paragraph index="63" node_type="writer" parent_index="53">C. Dientes de sierra	4</paragraph>
+ <paragraph index="64" node_type="writer" parent_index="53">D. Comprobaciones automáticas por código	4</paragraph>
+ <paragraph index="65" node_type="writer" parent_index="53">4. Análisis de resultados	5</paragraph>
+ <paragraph index="66" node_type="writer" parent_index="53">A. Sobre la suavidad de la entrada	6</paragraph>
+ <paragraph index="67" node_type="writer" parent_index="53"> B. Sobre el retardo respecto a la señal original	7</paragraph>
+ <paragraph index="68" node_type="writer" parent_index="53">C. Sobre la respuesta de la máquina al cambio repentino de la entrada	7</paragraph>
+ <paragraph index="69" node_type="writer" parent_index="53">D. Qué señal muestra más claramente el filtrado.	8</paragraph>
+ <paragraph index="70" node_type="writer" parent_index="53">5. Conclusiones	8</paragraph>
+ <paragraph index="73" node_type="writer"></paragraph>
+ <paragraph index="74" node_type="writer">1. Introducción y objetivos</paragraph>
+ <paragraph index="75" node_type="writer">Cuando se obtienen muchos datos de un sensor físico, a veces hay datos erróneos o variaciones muy bruscas que pueden debilitar la calidad de la información adquirida. Para esto, se puede hacer medias de los datos. Sin embargo, con hacer la media no es suficiente. Por eso, hacemos la media móvil, qué va «cogiendo» los datos según van entrando y, devuelve las media entre los N últimos números, suavizando la salida.</paragraph>
+ <paragraph index="76" node_type="writer">En este caso, con   , el filtro sólo carga nuevos datos cuando load=’1’. Además, para dividir entre 4 se realiza un desplazamiento de dos bits a la derecha, ahorrando recursos de la FPGA destino.</paragraph>
+ <paragraph index="77" node_type="writer">En nuestro caso, nuestra máquina es síncrona (es decir, funciona en base a un reloj) y, de orden 4 (es decir, funciona con cuatro muestras para la media). Los datos son de 8 bits sin signo.</paragraph>
+ <paragraph index="79" node_type="writer">2. Descripción del diseño</paragraph>
+ <paragraph index="80" node_type="writer">Se ha diseñado un componente que, como especificado en el enunciado, cumple con la siguiente interfaz:</paragraph>
+ <paragraph index="81" node_type="writer">entity sma_filter is</paragraph>
+ <paragraph index="82" node_type="writer">	Port ( clk : in STD_LOGIC;</paragraph>
+ <paragraph index="83" node_type="writer">		rst : in STD_LOGIC; </paragraph>
+ <paragraph index="84" node_type="writer">		din : in STD_LOGIC_VECTOR (7 downto 0); </paragraph>
+ <paragraph index="85" node_type="writer">		load : in STD_LOGIC; </paragraph>
+ <paragraph index="86" node_type="writer">		dout : out STD_LOGIC_VECTOR (7 downto 0));</paragraph>
+ <paragraph index="87" node_type="writer">end sma_filter;</paragraph>
+ <paragraph index="88" node_type="writer">Esta tiene:</paragraph>
+ <paragraph index="89" node_type="writer">Un reloj.</paragraph>
+ <paragraph index="90" node_type="writer">Una entrada de 8 bits.</paragraph>
+ <paragraph index="91" node_type="writer">Un bit selector de carga, una especie de «load enable» .</paragraph>
+ <paragraph index="92" node_type="writer">Una salida de 8 bits.</paragraph>
+ <paragraph index="93" node_type="writer">4 registros internos de 8 bits en los que se almacenan las entradas para hacer la media móvil.</paragraph>
+ <paragraph index="94" node_type="writer">Cuando load está activada, se van sumando los registros cada ciclo y se hace un desplazamiento, haciendo una división efectiva entre 4.</paragraph>
+ <paragraph index="96" node_type="writer">3. Verificación</paragraph>
+ <paragraph index="97" node_type="writer">Siendo esta práctica un recorrido por todo el proceso de diseño y verificación, no se podría justificar la ausencia de esta sección. Para comprobar que el código funcionaba correctamente, hemos probado con múltiples estímulos.</paragraph>
+ <paragraph index="98" node_type="writer">A continuación detallamos lo implementado en la verificación.</paragraph>
+ <paragraph index="99" node_type="writer">A. Triangular y reset inicial.</paragraph>
+ <paragraph index="100" node_type="writer">Primero, reseteamos el sistema para evitar valores indeterminados o incorrectos en la máquina. Esto lo hacemos poniendo a valor alto el puerto de reset, esperando un ciclo y, posteriormente, poniéndolo de nuevo a valor bajo.</paragraph>
+ <paragraph index="101" node_type="writer">Luego, introducimos unas entradas que simulan la forma de triángulo, es decir, incrementan con un factor estable para luego descender con ese mismo factor, haciendo la forma de triángulo con dos «rampas&#xFFFD;», una de «subida» y otra de «bajada». Estos estímulos nos permiten ver como la máquina responde a una serie de estímulos más normales y predecibles.</paragraph>
+ <paragraph index="103" node_type="writer">B. Cuadrada</paragraph>
+ <paragraph index="105" node_type="writer">A continuación, se implementó una serie de estímulos que cumplían el siguiente patrón: mantienen el valor mínimo, saltan al máximo y se mantienen en el durante un par de ciclos para a continuación volver al mínimo. Estos estímulos nos permiten ver como nuestro diseño responde ante un caso de variabilidad extrema.</paragraph>
+ <paragraph index="106" node_type="writer">C. Dientes de sierra</paragraph>
+ <paragraph index="108" node_type="writer">Finalmente, probamos con un patrón de dientes de sierra. Este se caracteriza por ser asimétrico y con cambios repetitivos. Permite ver muy bien cómo responde el autómata ante una entrada con una especie de desvío o entrada anómala.</paragraph>
+ <paragraph index="109" node_type="writer">D. Comprobaciones automáticas por código</paragraph>
+ <paragraph index="111" node_type="writer">Hemos automatizado ciertas pruebas usando la suite que VHDL nos proporciona.</paragraph>
+ <paragraph index="112" node_type="writer">En nuestro caso, hemos comprobado:</paragraph>
+ <paragraph index="113" node_type="writer">Que tras la entrada cuatro veces del valor máximo, la salida se corresponde con este (línea 150).</paragraph>
+ <paragraph index="114" node_type="writer">Que tras la activación del bit de reset la salida se ponga a 0 (línea 213).</paragraph>
+ <paragraph index="115" node_type="writer">Que después del reset el sistema funciona correctamente (línea 228)</paragraph>
+ <paragraph index="116" node_type="writer">Que después de desactivar el bit de habilitar carga (load), el sistema se «congela», es decir, mantiene su estado y no recoge los datos de la entrada.</paragraph>
+ <paragraph index="118" node_type="writer">Nótese que no se muestran los contenidos de s_dout. Esto es intencionado, ya que se estudiarán en la sección venidera y penúltima a este informe de laboratorio.</paragraph>
+ <paragraph index="123" node_type="writer">4. Análisis de resultados</paragraph>
+ <paragraph index="124" node_type="writer">Procedemos ahora a la fase de análisis de resultados. Igual que en la anterior, justificaremos esta implementación que hemos realizado con datos comprobables y reales.</paragraph>
+ <paragraph index="125" node_type="writer">Con permiso del enunciado y justificando la escasez de este apartado, nos permitiremos la licencia de contestar solamente a las preguntas que han sido formuladas en las guías de la práctica.</paragraph>
+ <paragraph index="126" node_type="writer">A. Sobre la suavidad de la entrada</paragraph>
+ <paragraph index="127" node_type="writer">Se pregunta en el enunciado si nuestra salida es más suave que la entrada. Nuestra respuesta a esta pregunta es sí, más es una suavidad algo difícil de apreciar al ser el orden 4.</paragraph>
+ <paragraph index="128" node_type="writer">En la  podemos ver cómo en el caso de la entrada triangular, con un retardo, los valores que van saliendo con la media móvil crecen de una forma más equilibrada que la entrada. En la  vemos como en lugar de saltar a 255 directamente cómo en la entrada, pasa por 63, 127 y 191 antes, suavizando esa entrada. Posteriormente, repite ese patrón a la inversa, suavizando también la bajada al contrario que la entrada, que salta a 0. Finalmente, en el caso de la sierra, vemos en la  como también se suaviza la entrada respecto a la entrada original.</paragraph>
+ <paragraph index="146" node_type="writer"> B. Sobre el retardo respecto a la señal original</paragraph>
+ <paragraph index="147" node_type="writer">Efectivamente, sí existe este retardo. Esto se debe a que la entrada depende de las cuatro muestras para actualizarse y, por ello, tiene una cierta latencia. Este efecto se ve con claridad en las figuras ,  y .</paragraph>
+ <paragraph index="149" node_type="writer">C. Sobre la respuesta de la máquina al cambio repentino de la entrada</paragraph>
+ <paragraph index="150" node_type="writer">Cuando se recibe una entrada con un salto instantáneo, la salida va adquiriendo ese cambio de forma amortiguada por la media móvil. Al ser el filtro de cuarto orden, este requiere de que los nuevos valores vayan llenando su memoria con los nuevos valores, escalonando esa transición progresiva. Por ejemplo, al cambiar de 0 a 255, la salida va tomando los valores 63, 127 y 191 antes de llegar a una convergencia final al valor máximo (que dicho de otra forma, es 255). Este comportamiento es el que se espera con un SMA. Sin cambios súbitos, siempre aumentos escalonados.</paragraph>
+ <paragraph index="152" node_type="writer">D. Qué señal muestra más claramente el filtrado.</paragraph>
+ <paragraph index="153" node_type="writer">Claramente, cómo se observa en la , el patrón «favorito» para ver el filtrado es el cuadrado. Esto se debe a que debido al gran salto se puede ver el escalado de la media móvil contra el cambio brusco que se dá en la entrada. Las transiciones son suaves en comparación y hay un retardo que justifica el apartado anterior.</paragraph>
+ <paragraph index="155" node_type="writer">5. Conclusiones</paragraph>
+ <paragraph index="156" node_type="writer">Tras el desarrollo y verificación del filtro SMA de orden 4, podemos extraer las siguientes conclusiones:</paragraph>
+ <paragraph index="157" node_type="writer">Cumplimiento de Objetivos: Se ha implementado con éxito un módulo VHDL sintetizable capaz de procesar señales de 8 bits mediante una ventana deslizante. El diseño respeta íntegramente la arquitectura síncrona.</paragraph>
+ <paragraph index="158" node_type="writer">Validación del Filtrado: Mediante la simulación de señales triangulares, cuadradas y de sierra, se ha validado cualitativamente el efecto de suavizado y amortiguación de transiciones bruscas. La respuesta del filtro ante la señal cuadrada ilustra con claridad el retardo de 4 muestras que introduce el procesado.</paragraph>
+ <paragraph index="159" node_type="writer">Robustez de Verificación: El uso de un testbench exhaustivo con comprobaciones automáticas mediante assert ha permitido confirmar la correcta inicialización del sistema tras el reset, la convergencia de la media y la estabilidad del estado interno ante el control de carga (load).</paragraph>
+ <paragraph index="160" node_type="writer">En definitiva, la práctica ha servido para asentar los conceptos fundamentales de diseño digital y buenas prácticas en VHDL orientado al diseño automático de sistemas fiables.</paragraph>
+</indexing>

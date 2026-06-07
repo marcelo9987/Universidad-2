@@ -1,0 +1,179 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
+\etoc@startlocaltoc {2}
+\contentsline {section}{\numberline {1.1}Conceptos básicos}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Historia: la crisis del software}{1}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Definiciones}{1}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Conceptos clave}{2}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}Roles en el proceso}{2}{subsection.1.1.4}%
+\contentsline {section}{\numberline {1.2}Estándares y organizaciones}{2}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Necesidad de estandarizar}{2}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Usos de los estándares}{2}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Organizaciones relevantes}{2}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Principales estándares ISO}{3}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}SPICE – Niveles de madurez}{3}{subsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.2.6}CMMI (Capability Maturity Model Integration)}{3}{subsection.1.2.6}%
+\contentsline {chapter}{\numberline {2}El proceso del software}{4}{chapter.2}%
+\etoc@startlocaltoc {3}
+\contentsline {section}{\numberline {2.1}Fases del desarrollo}{5}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Metodología y procesos}{5}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Proceso esencial}{5}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Definiciones}{5}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Fases del proceso}{6}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}Tipos de flujo de fases}{6}{subsection.2.1.5}%
+\contentsline {subsubsection}{Lineal}{6}{section*.5}%
+\contentsline {subsubsection}{Iterativo}{6}{section*.6}%
+\contentsline {subsubsection}{Evolutivo}{6}{section*.7}%
+\contentsline {subsubsection}{Paralelo}{7}{section*.8}%
+\contentsline {subsection}{\numberline {2.1.6}Actividades transversales}{7}{subsection.2.1.6}%
+\contentsline {section}{\numberline {2.2}Modelos del proceso}{7}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Modelo cascada: Versión V}{8}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Modelo de proceso incremental}{9}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Proceso evolutivo}{10}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Modelo Concurrente}{11}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Proceso unificado}{12}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}Otros modelos}{12}{subsection.2.2.6}%
+\contentsline {subsubsection}{Modelos especializados}{12}{section*.9}%
+\contentsline {subsubsection}{Modelos personales y de equipo}{12}{section*.10}%
+\contentsline {subsection}{\numberline {2.2.7}Ciclo de vida del producto}{12}{subsection.2.2.7}%
+\contentsline {section}{\numberline {2.3}Desarrollo ágil}{13}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Definiciones}{13}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}El coste del cambio}{13}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Características de los métodos ágiles}{13}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Manifiesto ÁGIL}{13}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Principios del Manifiesto Ágil}{13}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}Roles en el desarrollo ágil}{14}{subsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.3.7}Programación extrema (XP)}{14}{subsection.2.3.7}%
+\contentsline {subsection}{\numberline {2.3.8}SCRUM}{14}{subsection.2.3.8}%
+\contentsline {subsubsection}{Ceremonias SCRUM}{14}{section*.11}%
+\contentsline {subsubsection}{Artefactos SCRUM}{15}{section*.12}%
+\contentsline {subsection}{\numberline {2.3.9}KANBAN}{15}{subsection.2.3.9}%
+\contentsline {subsubsection}{Principios KANBAN:}{15}{section*.13}%
+\contentsline {subsubsection}{Prácticas KANBAN:}{16}{section*.14}%
+\contentsline {subsection}{\numberline {2.3.10}Otras metodologías ágiles}{16}{subsection.2.3.10}%
+\contentsline {chapter}{\numberline {3}Modelado del software}{17}{chapter.3}%
+\etoc@startlocaltoc {4}
+\contentsline {section}{\numberline {3.1}Requisitos del software}{18}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Principios de comunicación}{18}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Definición de requisito}{18}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Tipos de Requisitos}{18}{subsection.3.1.3}%
+\contentsline {subsubsection}{Funcionales}{18}{section*.16}%
+\contentsline {paragraph}{Qué:}{18}{section*.17}%
+\contentsline {subsubsection}{No Funcionales}{18}{section*.18}%
+\contentsline {paragraph}{Cómo:}{18}{section*.19}%
+\contentsline {subsection}{\numberline {3.1.4}Clasificación de requisitos no funcionales}{19}{subsection.3.1.4}%
+\contentsline {subsubsection}{1. Product Requirements (Requisitos del Producto)}{19}{section*.20}%
+\contentsline {subsubsection}{2. Process Requirements (Requisitos del Proceso)}{19}{section*.21}%
+\contentsline {subsubsection}{3. External Requirements (Requisitos Externos)}{20}{section*.22}%
+\contentsline {subsection}{\numberline {3.1.5}Dificultades Comunes}{20}{subsection.3.1.5}%
+\contentsline {subsubsection}{Impacto}{21}{section*.23}%
+\contentsline {subsection}{\numberline {3.1.6}Ingeniería de requisitos}{21}{subsection.3.1.6}%
+\contentsline {subsubsection}{1. Indagación de requisitos}{21}{section*.24}%
+\contentsline {subsubsection}{2. Elaboración}{22}{section*.28}%
+\contentsline {paragraph}{Características}{22}{section*.30}%
+\contentsline {subsubsection}{3. Negociación y especificación}{24}{section*.34}%
+\contentsline {subsubsection}{4. Validación}{24}{section*.35}%
+\contentsline {subsubsection}{5. Gestión}{24}{section*.36}%
+\contentsline {subsection}{\numberline {3.1.7}Modelado de requisitos}{24}{subsection.3.1.7}%
+\contentsline {section}{\numberline {3.2}Diseño del software}{25}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Definición y propósito}{25}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Importancia del diseño}{25}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Atributos de calidad del software}{25}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Conceptos clave del diseño}{25}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Clases de diseño}{26}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}Elementos del modelo de diseño}{26}{subsection.3.2.6}%
+\contentsline {subsection}{\numberline {3.2.7}Diseño de arquitectura y patrones}{26}{subsection.3.2.7}%
+\contentsline {subsubsection}{MVC (Modelo-Vista-Controlador)}{26}{section*.38}%
+\contentsline {subsubsection}{SOA (Arquitectura Orientada a Servicios)}{27}{section*.39}%
+\contentsline {subsubsection}{EDA (Arquitectura Dirigida por Eventos)}{27}{section*.40}%
+\contentsline {subsubsection}{Otros Patrones}{27}{section*.41}%
+\contentsline {subsection}{\numberline {3.2.8}Diseño de interfaz de usuario}{28}{subsection.3.2.8}%
+\contentsline {subsubsection}{Principio de familiaridad en el diseño de interfaces}{28}{section*.42}%
+\contentsline {subsubsection}{Proceso de diseño de interfaz de usuario}{28}{section*.43}%
+\contentsline {subsection}{\numberline {3.2.9}Componentes}{29}{subsection.3.2.9}%
+\contentsline {subsubsection}{Identificación de componentes:}{29}{section*.44}%
+\contentsline {subsection}{\numberline {3.2.10}Revisión técnica formal}{29}{subsection.3.2.10}%
+\contentsline {chapter}{\numberline {4}Planificación de proyectos}{31}{chapter.4}%
+\etoc@startlocaltoc {5}
+\contentsline {section}{\numberline {4.1}Estimación}{32}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Objetivo y proceso de la planificación}{32}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Ámbito vs Factibilidad}{32}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Técnicas de Estimación}{33}{subsection.4.1.3}%
+\contentsline {subsubsection}{Ley de Parkinson}{33}{section*.46}%
+\contentsline {subsubsection}{Precio Oportunista}{33}{section*.47}%
+\contentsline {subsection}{\numberline {4.1.4}Técnicas de Descomposición}{33}{subsection.4.1.4}%
+\contentsline {subsubsection}{Tipos de Descomposición}{33}{section*.48}%
+\contentsline {subsubsection}{Estimación Basada en Problema}{33}{section*.49}%
+\contentsline {subsubsection}{Estimación Basada en Proceso}{34}{section*.50}%
+\contentsline {subsubsection}{Modelos Empíricos}{34}{section*.51}%
+\contentsline {subsection}{\numberline {4.1.5}COCOMO II}{34}{subsection.4.1.5}%
+\contentsline {subsubsection}{Conceptos Básicos}{34}{section*.52}%
+\contentsline {subsubsection}{Tipos de Proyectos}{35}{section*.53}%
+\contentsline {subsubsection}{Ejemplo Práctico}{35}{section*.54}%
+\contentsline {subsubsection}{Limitaciones}{35}{section*.55}%
+\contentsline {subsection}{\numberline {4.1.6}Estimación Ágil}{35}{subsection.4.1.6}%
+\contentsline {subsubsection}{Poker Planning}{35}{section*.56}%
+\contentsline {paragraph}{Puntos vs. Horas}{35}{section*.57}%
+\contentsline {section}{\numberline {4.2}Calendarización}{35}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Relación con la Estimación}{35}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Dificultades Comunes}{36}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Manejo de Fechas Límite}{36}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Hitos y Entregas}{36}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}Dependencias entre Tareas}{37}{subsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.2.6}Diagrama de Gantt}{37}{subsection.4.2.6}%
+\contentsline {subsection}{\numberline {4.2.7}Diagrama de PERT}{37}{subsection.4.2.7}%
+\contentsline {subsubsection}{Conceptos fundamentales}{37}{section*.60}%
+\contentsline {subsubsection}{Elementos}{38}{section*.61}%
+\contentsline {subsubsection}{Beneficios}{38}{section*.63}%
+\contentsline {section}{\numberline {4.3}Administración del Riesgo}{38}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Clasificación de Riesgos}{39}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Descripción de Riesgos}{39}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Estrategias de Gestión de Riesgos}{40}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Proceso de Gestión de Riesgos}{41}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Actividades por fase}{41}{subsection.4.3.5}%
+\contentsline {chapter}{\numberline {5}Calidad}{42}{chapter.5}%
+\etoc@startlocaltoc {6}
+\contentsline {section}{\numberline {5.1}Aseguramiento de la Calidad}{43}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Principios rectores de la calidad}{43}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Atributos de las métricas}{43}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Control vs. Aseguramiento de la Calidad}{44}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Revisiones técnicas}{44}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}Revisiones durante el desarrollo}{44}{subsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.1.6}Métricas de calidad (DORA Metrics)}{44}{subsection.5.1.6}%
+\contentsline {subsection}{\numberline {5.1.7}Buenas prácticas de desarrollo}{45}{subsection.5.1.7}%
+\contentsline {subsection}{\numberline {5.1.8}Métricas de desarrollo}{45}{subsection.5.1.8}%
+\contentsline {subsection}{\numberline {5.1.9}Deuda técnica}{45}{subsection.5.1.9}%
+\contentsline {section}{\numberline {5.2}Estrategias de Prueba}{46}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Verificación vs. Validación}{46}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Malas prácticas}{46}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Estrategias de prueba (pirámide de pruebas)}{46}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Dimensiones de la prueba}{46}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5}Pruebas específicas}{46}{subsection.5.2.5}%
+\contentsline {section}{\numberline {5.3}Administración de la Configuración}{47}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Ítems de Configuración (IC)}{47}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Sistema de Administración}{47}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Repositorio ACS}{48}{subsection.5.3.3}%
+\contentsline {paragraph}{Características clave:}{48}{section*.66}%
+\contentsline {subsection}{\numberline {5.3.4}Proceso de Administración de la Configuración}{48}{subsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.3.5}Administración del contenido}{48}{subsection.5.3.5}%
+\contentsline {subsection}{\numberline {5.3.6}Conflictos dominantes}{48}{subsection.5.3.6}%
+\contentsline {chapter}{\numberline {6}Mantenimiento}{49}{chapter.6}%
+\etoc@startlocaltoc {7}
+\contentsline {section}{\numberline {6.1}Métricas de producto}{49}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Conceptos clave}{49}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Principios de medición}{49}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Atributos de métricas}{50}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Métricas específicas}{50}{subsection.6.1.4}%
+\contentsline {section}{\numberline {6.2}Tipos de mantenimiento}{52}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Leyes de Lehman}{52}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Proceso de mantenimiento}{52}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Clasificación de mantenimiento}{53}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}Release Notes}{53}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}Sistemas heredados}{53}{subsection.6.2.5}%
+\contentsline {subsection}{\numberline {6.2.6}Reingeniería de sistemas}{53}{subsection.6.2.6}%
+\contentsline {subsection}{\numberline {6.2.7}Tipos de reingeniería}{53}{subsection.6.2.7}%
+\contentsline {subsection}{\numberline {6.2.8}Flujo de reingeniería}{54}{subsection.6.2.8}%
+\contentsline {chapter}{Anexos}{55}{chapter*.70}%
+\contentsline {section}{Anexo 1: Clasificación de procesos según ISO/IEC 15504}{56}{section*.72}%
+\contentsline {section}{Anexo 2: Explicación de la Administración de Configuración de Software (ACS)}{57}{section*.75}%
